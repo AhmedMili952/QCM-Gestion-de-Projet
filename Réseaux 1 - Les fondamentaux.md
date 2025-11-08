@@ -6,7 +6,7 @@
 <div class="details-wrap">
   <details class="correction">
     <summary>
-      <span class="btn-ferme" style="color:#ffffff;">Réseau</span>
+      <span class="btn-ferme" style="color:#ffffff;">Réseau 1</span>
       <span class="btn-ouvert" style="color:#ffffff;">Masquer</span>
     </summary>
   </details>
