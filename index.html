@@ -5,50 +5,89 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cours 1 — Découverte des réseaux</title>
   <link rel="stylesheet" href="toggle-correction.css">
+
   <style>
+    /* ===========================
+       🔹 Thème EFREI Obsidian Web
+       =========================== */
+
     body {
       font-family: "Neo Sans Std", sans-serif;
-      background-color: #0f1117;
-      color: #fff;
-      margin: 40px;
+      background: linear-gradient(to bottom right, #f9fafc, #e7edf5);
+      color: #111;
+      margin: 50px;
       line-height: 1.6;
     }
 
-    h1, h2 {
+    h1 {
+      font-size: 2em;
       color: #0074cc;
+      font-weight: 700;
+      margin-bottom: 10px;
     }
 
-    .title {
+    h2 {
       font-size: 1.6em;
       color: #f9a825;
+      font-weight: 700;
+      margin-bottom: 25px;
     }
 
-    /* Si jamais le CSS externe ne charge pas, on garde un minimum de style */
+    /* --- Cartes interactives --- */
     .details-wrap {
-      margin: 16px 0;
+      margin: 25px 0;
     }
 
     details.correction {
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 8px;
-      padding: 10px 14px;
-      background-color: rgba(255,255,255,0.05);
-      transition: 0.3s ease;
+      border: none;
+      border-radius: 14px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    details.correction:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
     }
 
     details.correction summary {
-      cursor: pointer;
-      font-weight: bold;
+      background: linear-gradient(135deg, #0074cc, #0099ff);
+      color: white;
+      font-weight: 600;
       font-size: 1.1em;
+      padding: 12px 20px;
+      cursor: pointer;
+      border: none;
+      text-align: center;
+      user-select: none;
+    }
+
+    details.correction[open] summary {
+      background: linear-gradient(135deg, #f9a825, #f4c842);
+      color: white;
     }
 
     .correction-panel {
       background: #fff;
       color: #111;
-      border-radius: 10px;
-      padding: 15px 20px;
-      margin-top: 8px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.25);
+      padding: 20px 25px;
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
+      font-size: 1em;
+      animation: fadeIn 0.4s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    b {
+      color: #0074cc;
+    }
+    i {
+      color: #444;
     }
   </style>
 </head>
@@ -56,52 +95,43 @@
 <body>
 
   <h1><em>Cours 1 – Découverte des réseaux</em></h1>
-  <h2><span class="title">Définitions et Concepts de Base des Réseaux</span></h2>
+  <h2>Définitions et Concepts de Base des Réseaux</h2>
 
+  <!-- Réseau -->
   <div class="details-wrap">
     <details class="correction">
-      <summary>
-        <span class="btn-ferme" style="color:#ffffff;">Réseau</span>
-        <span class="btn-ouvert" style="color:#ffffff;">Masquer</span>
-      </summary>
+      <summary>Réseau</summary>
+      <div class="correction-panel">
+        <p><b>Étymologie :</b> Du latin <i>retis</i> (“filet”). L’image d’une toile d’araignée illustre l’idée : chaque fil relie deux points, et l’ensemble permet à l’information de circuler librement.</p>
+        <p><b>Définition :</b> Un <b>réseau informatique</b> est un <b>ensemble d’équipements interconnectés</b> (ordinateurs, serveurs, téléphones, etc.) reliés par des <b>liens physiques</b> (câbles, fibre) ou <b>sans fil</b> (Wi-Fi, ondes radio), capables de <b>communiquer</b> et de <b>partager des ressources</b>.</p>
+        <p><b>Exemple :</b> Chez soi, la box Internet, le smartphone et l’ordinateur forment un petit <b>réseau local (LAN)</b>.</p>
+      </div>
     </details>
   </div>
 
-  <div class="correction-panel" style="color:#111;">
-    <p><b>Étymologie :</b> Du latin <i>retis</i>, “filet”. L’image d’une <b style="color:#0074cc;">toile d’araignée</b> illustre parfaitement le concept : chaque fil relie deux points, et l’ensemble forme une structure où l’information peut circuler.</p>
-    <p><b>Définition :</b> Un <b style="color:#0074cc;">réseau informatique</b> est un <b>ensemble d’équipements interconnectés</b> (ordinateurs, serveurs, téléphones...) reliés par des <b style="color:#f9a825;">liens physiques</b> (câbles, fibre optique) ou <b style="color:#f9a825;">sans fil</b> (Wi-Fi, ondes radio), permettant de <b style="color:#0074cc;">communiquer</b> et de <b style="color:#0074cc;">partager des ressources</b>.</p>
-    <p><b>Exemple :</b> Un ordinateur, un smartphone et une box Internet forment un <b>réseau local (LAN)</b> permettant à chaque appareil d’accéder à Internet.</p>
-  </div>
-
+  <!-- Protocole -->
   <div class="details-wrap">
     <details class="correction">
-      <summary>
-        <span class="btn-ferme" style="color:#ffffff;">Protocole</span>
-        <span class="btn-ouvert" style="color:#ffffff;">Masquer</span>
-      </summary>
+      <summary>Protocole</summary>
+      <div class="correction-panel">
+        <p><b>Étymologie :</b> Du grec <i>protos</i> (“premier”) et <i>kollon</i> (“colle”) : la “feuille de règles” fixée en tête d’un document.  
+        Par analogie, un protocole est l’ensemble des <b>règles</b> qui définissent comment deux machines échangent.</p>
+        <p><b>Définition :</b> Ensemble de <b>règles normalisées</b> définissant le <b>format</b>, la <b>séquence</b> et la <b>signification</b> des messages échangés sur un réseau.</p>
+        <p><b>Exemple :</b> Le protocole <b>HTTP</b> définit la façon dont un navigateur demande et reçoit les pages web.</p>
+      </div>
     </details>
   </div>
 
-  <div class="correction-panel" style="color:#111;">
-    <p><b>Étymologie :</b> Du grec <i>protos</i> (“premier”) et <i>kollon</i> (“colle”) : à l’origine, la <b>feuille de règles</b> collée en tête d’un document officiel.  
-    Par extension, un protocole désigne l’ensemble des <b style="color:#f9a825;">règles de communication</b> à suivre avant tout échange d’informations.</p>
-    <p><b>Définition :</b> Ensemble de <b style="color:#0074cc;">règles normalisées</b> définissant le <b style="color:#f9a825;">format</b>, la <b style="color:#f9a825;">séquence</b> et la <b style="color:#f9a825;">signification</b> des messages échangés sur un réseau.</p>
-    <p><b>Exemple :</b> Le protocole <b style="color:#0074cc;">HTTP</b> définit la manière dont un navigateur web demande et reçoit une page Internet.</p>
-  </div>
-
+  <!-- Communication de données -->
   <div class="details-wrap">
     <details class="correction">
-      <summary>
-        <span class="btn-ferme" style="color:#ffffff;">Communication de données</span>
-        <span class="btn-ouvert" style="color:#ffffff;">Masquer</span>
-      </summary>
+      <summary>Communication de données</summary>
+      <div class="correction-panel">
+        <p><b>Étymologie :</b> De <i>communicare</i> (“mettre en commun”) et <i>data</i> (“ce qui est donné”). L’expression signifie littéralement <b>partager des informations</b>.</p>
+        <p><b>Définition :</b> Processus d’<b>échange d’informations</b> entre deux dispositifs via un <b>support de transmission</b> (câble, fibre, ondes radio) selon un <b>protocole commun</b>.</p>
+        <p><b>Exemple :</b> Lorsqu’un ordinateur envoie un mail à un serveur, il communique des données selon le protocole <b>SMTP</b>.</p>
+      </div>
     </details>
-  </div>
-
-  <div class="correction-panel" style="color:#111;">
-    <p><b>Étymologie :</b> De <i>communicare</i> (“mettre en commun”) et <i>data</i> (“ce qui est donné”). L’expression signifie littéralement <b style="color:#f9a825;">partager des informations données</b>.</p>
-    <p><b>Définition :</b> Processus d’<b style="color:#0074cc;">échange d’informations</b> entre deux dispositifs via un <b style="color:#f9a825;">support de transmission</b> (câble, fibre, ondes radio) en suivant un <b style="color:#0074cc;">protocole commun</b>.</p>
-    <p><b>Exemple :</b> Lorsqu’un ordinateur envoie un courrier électronique, il communique des données au serveur via la fibre optique selon le protocole SMTP.</p>
   </div>
 
 </body>
