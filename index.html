@@ -1,47 +1,153 @@
-# *[[Cours 1 - Découverte des réseaux.pdf]]*
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cours 1 – Découverte des réseaux</title>
+  <link rel="stylesheet" href="toggle-correction.css">
 
-## <span class="title">Définitions et Concepts de Base des Réseaux</span>
+  <style>
+    /* -----------------------------
+       🌗 Thèmes clair et sombre
+    ------------------------------*/
+    :root {
+      --bg-color: #f8f9fb;
+      --text-color: #111;
+      --accent-color: #0074cc;
+      --highlight-color: #f9a825;
+      --panel-bg: #ffffff;
+    }
 
-<div class="details-wrap">
-  <details class="correction">
-    <summary>
-      <span class="btn-ferme" style="color:#ffffff;">Réseau</span>
-      <span class="btn-ouvert" style="color:#ffffff;">Masquer</span>
-    </summary>
-    <div class="correction-panel" style="color:#111;">
-      <p><b>Étymologie :</b> Du latin <i>retis</i>, “filet”. Comme une <b style="color:#0074cc;">toile d’araignée</b> : chaque fil représente un <b style="color:#f9a825;">lien de communication</b> entre deux points. Si un point bouge, tout le système réagit.</p>
-      <p><b>Définition :</b> Ensemble d’équipements (ordinateurs, serveurs, téléphones…) reliés par des <b style="color:#0074cc;">liens physiques</b> (câbles, fibre optique) ou <b style="color:#0074cc;">sans fil</b> (Wi-Fi, ondes radio), capables de <b style="color:#0074cc;">communiquer</b> et de <b style="color:#0074cc;">partager des ressources</b>.</p>
-      <p><b>Exemple :</b> Chez toi, ton ordinateur, ton smartphone et ta box Internet forment un petit réseau local (LAN).</p>
-    </div>
-  </details>
-</div>
+    [data-theme="dark"] {
+      --bg-color: #0f1117;
+      --text-color: #ffffff;
+      --accent-color: #2196f3;
+      --highlight-color: #fbc02d;
+      --panel-bg: #1a1c23;
+    }
 
-<div class="details-wrap">
-  <details class="correction">
-    <summary>
-      <span class="btn-ferme" style="color:#ffffff;">Protocole</span>
-      <span class="btn-ouvert" style="color:#ffffff;">Masquer</span>
-    </summary>
-    <div class="correction-panel" style="color:#111;">
-      <p><b>Étymologie :</b> Du grec <i>protos</i> (“premier”) et <i>kollon</i> (“colle”) : à l’origine, la <b>feuille de règles</b> collée au début d’un document officiel.  
-      Par analogie, un protocole fixe les <b style="color:#f9a825;">règles à suivre avant d’échanger</b>.</p>
-      <p><b>Définition :</b> Ensemble de <b style="color:#0074cc;">règles normalisées</b> précisant le <b style="color:#f9a825;">format</b>, la <b style="color:#f9a825;">séquence</b> et la <b style="color:#f9a825;">signification</b> des messages échangés entre deux équipements.</p>
-      <p><b>Exemple :</b> Le protocole <b style="color:#0074cc;">HTTP</b> définit comment un navigateur web demande et reçoit une page Internet.</p>
-    </div>
-  </details>
-</div>
+    body {
+      font-family: "Neo Sans Std", sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      margin: 40px;
+      line-height: 1.6;
+      transition: background 0.4s ease, color 0.4s ease;
+    }
 
-<div class="details-wrap">
-  <details class="correction">
-    <summary>
-      <span class="btn-ferme" style="color:#ffffff;">Communication de données</span>
-      <span class="btn-ouvert" style="color:#ffffff;">Masquer </span>
-    </summary>
-    <div class="correction-panel" style="color:#111;">
-      <p><b>Étymologie :</b> De <i>communicare</i> (“mettre en commun”) et <i>data</i> (“ce qui est donné”).  
-      Littéralement : <b style="color:#f9a825;">partager des informations données</b>.</p>
-      <p><b>Définition :</b> Processus par lequel deux dispositifs échangent des informations via un <b style="color:#0074cc;">support physique</b> (câble, fibre, ondes radio) en suivant un <b style="color:#f9a825;">protocole</b> commun.</p>
-      <p><b>Exemple :</b> Quand ton ordinateur envoie un mail à un serveur, il communique des données à travers la fibre Internet.</p>
-    </div>
-  </details>
-</div>
+    h1, h2 {
+      font-weight: 700;
+    }
+
+    h1 {
+      color: var(--accent-color);
+      font-size: 1.8em;
+    }
+
+    h2 {
+      color: var(--highlight-color);
+      font-size: 1.4em;
+    }
+
+    .details-wrap {
+      margin: 16px 0;
+    }
+
+    .correction-panel {
+      background: var(--panel-bg);
+      color: var(--text-color);
+      border-radius: 10px;
+      padding: 15px 20px;
+      margin-top: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.15);
+      transition: background 0.4s ease, color 0.4s ease;
+    }
+
+    /* -----------------------------
+       🌙 Bouton de thème
+    ------------------------------*/
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--accent-color);
+      color: white;
+      border: none;
+      border-radius: 20px;
+      padding: 8px 16px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .theme-toggle:hover {
+      background: var(--highlight-color);
+      color: #111;
+    }
+  </style>
+</head>
+
+<body>
+  <button class="theme-toggle" id="themeButton">🌙 Thème sombre</button>
+
+  <h1><em>Cours 1 - Découverte des réseaux.pdf</em></h1>
+  <h2><span class="title">Définitions et Concepts de Base des Réseaux</span></h2>
+
+  <div class="details-wrap">
+    <details class="correction">
+      <summary>
+        <span class="btn-ferme" style="color:#ffffff;">Réseau</span>
+        <span class="btn-ouvert" style="color:#ffffff;">Masquer</span>
+      </summary>
+      <div class="correction-panel">
+        <p><b>Étymologie :</b> Du latin <i>retis</i>, “filet”. Comme une <b style="color:var(--accent-color);">toile d’araignée</b> : chaque fil représente un <b style="color:var(--highlight-color);">lien de communication</b> entre deux points. Si un point bouge, tout le système réagit.</p>
+        <p><b>Définition :</b> Ensemble d’équipements (ordinateurs, serveurs, téléphones…) reliés par des <b style="color:var(--accent-color);">liens physiques</b> (câbles, fibre optique) ou <b style="color:var(--accent-color);">sans fil</b> (Wi-Fi, ondes radio), capables de <b style="color:var(--accent-color);">communiquer</b> et de <b style="color:var(--accent-color);">partager des ressources</b>.</p>
+        <p><b>Exemple :</b> Chez soi, un ordinateur, un smartphone et une box Internet forment un petit réseau local (LAN).</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="details-wrap">
+    <details class="correction">
+      <summary>
+        <span class="btn-ferme" style="color:#ffffff;">Protocole</span>
+        <span class="btn-ouvert" style="color:#ffffff;">Masquer</span>
+      </summary>
+      <div class="correction-panel">
+        <p><b>Étymologie :</b> Du grec <i>protos</i> (“premier”) et <i>kollon</i> (“colle”) : à l’origine, la <b>feuille de règles</b> collée au début d’un document officiel.  
+        Par analogie, un protocole fixe les <b style="color:var(--highlight-color);">règles à suivre avant d’échanger</b>.</p>
+        <p><b>Définition :</b> Ensemble de <b style="color:var(--accent-color);">règles normalisées</b> précisant le <b style="color:var(--highlight-color);">format</b>, la <b style="color:var(--highlight-color);">séquence</b> et la <b style="color:var(--highlight-color);">signification</b> des messages échangés entre deux équipements.</p>
+        <p><b>Exemple :</b> Le protocole <b style="color:var(--accent-color);">HTTP</b> définit comment un navigateur web demande et reçoit une page Internet.</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="details-wrap">
+    <details class="correction">
+      <summary>
+        <span class="btn-ferme" style="color:#ffffff;">Communication de données</span>
+        <span class="btn-ouvert" style="color:#ffffff;">Masquer </span>
+      </summary>
+      <div class="correction-panel">
+        <p><b>Étymologie :</b> De <i>communicare</i> (“mettre en commun”) et <i>data</i> (“ce qui est donné”).  
+        Littéralement : <b style="color:var(--highlight-color);">partager des informations données</b>.</p>
+        <p><b>Définition :</b> Processus par lequel deux dispositifs échangent des informations via un <b style="color:var(--accent-color);">support physique</b> (câble, fibre, ondes radio) en suivant un <b style="color:var(--highlight-color);">protocole</b> commun.</p>
+        <p><b>Exemple :</b> Quand un ordinateur envoie un mail à un serveur, il communique des données à travers la fibre Internet.</p>
+      </div>
+    </details>
+  </div>
+
+  <script>
+    // 🌗 Gestion du bouton de thème
+    const button = document.getElementById("themeButton");
+    const root = document.documentElement;
+    let isDark = false;
+
+    button.addEventListener("click", () => {
+      isDark = !isDark;
+      root.setAttribute("data-theme", isDark ? "dark" : "light");
+      button.textContent = isDark ? "☀️ Thème clair" : "🌙 Thème sombre";
+    });
+  </script>
+</body>
+</html>
