@@ -244,13 +244,20 @@ h1, h2, .qcm-question {
   will-change: opacity, transform;
 }
 
-/* 🔥🔥 Version puissance maximale */
-body .qcm-question > p,
-body .qcm-question > p * {
-  text-align: center !important;
-  display: inline-block;
-  width: 100% !important;
+/* Réduire la largeur des blocs QCM pour que le centrage soit réel */
+.qcm-question {
+  max-width: 650px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
+
+/* Centrage parfait du texte */
+.qcm-question p {
+  text-align: center !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+}
+
 
 
 
