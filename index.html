@@ -1,209 +1,814 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Cours 1 – Découverte des réseaux</title>
-  <link rel="stylesheet" href="toggle-correction.css"/>
-
-  <style>
-    :root {
-      --bg: #f8f9fb;
-      --text: #111;
-      --accent: #0074cc;
-      --highlight: #f9a825;
-      --panel: #ffffff;
-    }
-    [data-theme="dark"] {
-      --bg: #0f1117;
-      --text: #eaeaea;
-      --accent: #42a5f5;
-      --highlight: #fbc02d;
-      --panel: #1a1c23;
-    }
-
-    body {
-      font-family: "Neo Sans Std", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      margin: 50px auto;
-      max-width: 900px;
-      line-height: 1.6;
-      transition: background 0.4s ease, color 0.4s ease;
-    }
-
-    h1 {
-      color: var(--accent);
-      font-size: 1.9rem;
-      margin-bottom: 0.4em;
-    }
-
-    h2 .title {
-      color: var(--highlight);
-      font-size: 1.3rem;
-      display: inline-block;
-      margin-bottom: 1em;
-    }
-
-    .details-wrap {
-      margin: 35px 0 15px;
-    }
-
-    details.correction summary {
-      margin-bottom: 8px;
-    }
-
-    .correction-panel {
-      background: var(--panel);
-      color: var(--text);
-      border-radius: 12px;
-      padding: 20px 25px;
-      margin: 10px 0 40px;
-      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease;
-    }
-
-    .correction-panel p {
-      margin: 10px 0;
-    }
-
-    .theme-toggle {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      border: none;
-      border-radius: 25px;
-      background: var(--accent);
-      color: #fff;
-      font-weight: 700;
-      padding: 10px 16px;
-      cursor: pointer;
-      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
-      transition: background 0.3s ease, transform 0.2s ease;
-    }
-
-    .theme-toggle:hover {
-      background: var(--highlight);
-      color: #111;
-      transform: scale(1.05);
-    }
-
-    .correction-panel[data-show] {
-      animation: fadeIn 0.35s ease;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-6px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* === Correctif couleurs pour le thème sombre === */
-    [data-theme="dark"] b[style*="color:#0074cc"],
-    [data-theme="dark"] a[style*="color:#0074cc"],
-    [data-theme="dark"] span[style*="color:#0074cc"] {
-      color: var(--accent) !important;
-    }
-
-    [data-theme="dark"] b[style*="color:#f9a825"],
-    [data-theme="dark"] span[style*="color:#f9a825"] {
-      color: var(--highlight) !important;
-    }
-
-    [data-theme="dark"] .correction-panel {
-      background: var(--panel);
-      color: var(--text) !important;
-    }
-
-    [data-theme="light"] .correction-panel {
-      background: var(--panel);
-      color: var(--text) !important;
-    }
-  </style>
+<meta charset="UTF-8" />
+<title>QCM – Gestion de Projet / Cybersécurité / Green IT</title>
+<link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <button id="themeButton" class="theme-toggle">🌙 Thème sombre</button>
 
-  <h1><b>Cours 1 - Découverte des réseaux</b></h1>
-  <h2><span class="title">Définitions et Concepts de Base des Réseaux</span></h2>
+<h1>QCM – Gestion de Projet / Cybersécurité / Green IT</h1>
 
-  <!-- Réseau -->
+
+
+<!-- ======================================================= -->
+<!-- ==================== COURS 1 ========================== -->
+<!-- ======================================================= -->
+
+<h2>📘 Cours 1 – Les fondamentaux de la gestion de projet (Questions 1 à 14)</h2>
+
+
+<!-- QUESTION 1 -->
+<div class="qcm-question">
+  <p><b>1)</b> Un projet se caractérise principalement par :<br>
+  A. Une durée illimitée<br>
+  B. Un objectif unique<br>
+  C. L’absence de contraintes<br>
+  D. Des ressources infinies</p>
+
   <div class="details-wrap">
     <details class="correction">
       <summary>
-        <span class="btn-ferme" style="color:#ffffff;">Réseau</span>
-        <span class="btn-ouvert" style="color:#ffffff;">Masquer</span>
+        <span class="btn-ferme">Afficher la réponse</span>
+        <span class="btn-ouvert">Masquer</span>
       </summary>
     </details>
   </div>
-  <div class="correction-panel">
-    <p><b>Étymologie :</b> Du latin <i>retis</i>, “filet”. Comme une <b style="color:#0074cc;">toile d’araignée</b> : chaque fil représente un <b style="color:#f9a825;">lien de communication</b> entre deux points. Si un point bouge, tout le système réagit.</p>
-    <p><b>Définition :</b> Ensemble d’équipements (ordinateurs, serveurs, téléphones…) reliés par des <b style="color:#0074cc;">liens physiques</b> (câbles, fibre optique) ou <b style="color:#0074cc;">sans fil</b> (Wi-Fi, ondes radio), capables de <b style="color:#0074cc;">communiquer</b> et de <b style="color:#0074cc;">partager des ressources</b>.</p>
-    <p><b>Exemple :</b> Chez toi, ton ordinateur, ton smartphone et ta box Internet forment un petit réseau local (LAN).</p>
-  </div>
 
-  <!-- Protocole -->
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> Un projet a un objectif unique, une durée limitée et des contraintes.</p>
+    <p><b>🧠 Mémo :</b> Projet = Pour un but précis.</p>
+  </div>
+</div>
+
+
+<!-- QUESTION 2 -->
+<div class="qcm-question">
+  <p><b>2)</b> Le triangle d’or comprend :<br>
+  A. Coût – Durée – Sécurité<br>
+  B. Temps – Coût – Qualité<br>
+  C. Planning – Sécurité – Risque<br>
+  D. Coût – Sponsor – Qualité</p>
+
   <div class="details-wrap">
     <details class="correction">
       <summary>
-        <span class="btn-ferme" style="color:#ffffff;">Protocole</span>
-        <span class="btn-ouvert" style="color:#ffffff;">Masquer</span>
+        <span class="btn-ferme">Afficher la réponse</span>
+        <span class="btn-ouvert">Masquer</span>
       </summary>
     </details>
   </div>
-  <div class="correction-panel">
-    <p><b>Étymologie :</b> Du grec <i>protos</i> (“premier”) et <i>kollon</i> (“colle”) : à l’origine, la <b>feuille de règles</b> collée au début d’un document officiel.  
-    Par analogie, un protocole fixe les <b style="color:#f9a825;">règles à suivre avant d’échanger</b>.</p>
-    <p><b>Définition :</b> Ensemble de <b style="color:#0074cc;">règles normalisées</b> précisant le <b style="color:#f9a825;">format</b>, la <b style="color:#f9a825;">séquence</b> et la <b style="color:#f9a825;">signification</b> des messages échangés entre deux équipements.</p>
-    <p><b>Exemple :</b> Le protocole <b style="color:#0074cc;">HTTP</b> définit comment un navigateur web demande et reçoit une page Internet.</p>
-  </div>
 
-  <!-- Communication de données -->
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> Le triangle d’or = Temps + Coût + Qualité.</p>
+    <p><b>🧠 Mémo :</b> TCQ = Temps, Coût, Qualité.</p>
+  </div>
+</div>
+
+
+<!-- QUESTION 3 -->
+<div class="qcm-question">
+  <p><b>3)</b> La phase « Avant-projet » sert à :<br>
+  A. Installer les serveurs<br>
+  B. Définir l’idée et décider GO/NO GO<br>
+  C. Recruter l’équipe<br>
+  D. Modifier les livrables</p>
+
   <div class="details-wrap">
     <details class="correction">
       <summary>
-        <span class="btn-ferme" style="color:#ffffff;">Communication de données</span>
-        <span class="btn-ouvert" style="color:#ffffff;">Masquer </span>
+        <span class="btn-ferme">Afficher la réponse</span>
+        <span class="btn-ouvert">Masquer</span>
       </summary>
     </details>
   </div>
+
   <div class="correction-panel">
-    <p><b>Étymologie :</b> De <i>communicare</i> (“mettre en commun”) et <i>data</i> (“ce qui est donné”).  
-    Littéralement : <b style="color:#f9a825;">partager des informations données</b>.</p>
-    <p><b>Définition :</b> Processus par lequel deux dispositifs échangent des informations via un <b style="color:#0074cc;">support physique</b> (câble, fibre, ondes radio) en suivant un <b style="color:#f9a825;">protocole</b> commun.</p>
-    <p><b>Exemple :</b> Quand ton ordinateur envoie un mail à un serveur, il communique des données à travers la fibre Internet.</p>
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> L’avant-projet sert à cadrer l’idée et valider le lancement.</p>
+    <p><b>🧠 Mémo :</b> Avant-projet = Avant de commencer.</p>
+  </div>
+</div>
+
+
+<!-- QUESTION 4 -->
+<div class="qcm-question">
+  <p><b>4)</b> Le « kick-off », c’est :<br>
+  A. La réunion de fin<br>
+  B. La réunion de lancement officielle<br>
+  C. Un test technique<br>
+  D. Un audit
+  </p>
+
+  <div class="details-wrap">
+    <details class="correction">
+      <summary>
+        <span class="btn-ferme">Afficher la réponse</span>
+        <span class="btn-ouvert">Masquer</span>
+      </summary>
+    </details>
   </div>
 
-  <script>
-    // Affichage / masquage des définitions
-    document.querySelectorAll('.details-wrap > details.correction').forEach((det) => {
-      const wrap = det.parentElement;
-      const panel = wrap.nextElementSibling;
-      if (!panel || !panel.classList.contains('correction-panel')) return;
-      panel.style.display = 'none';
-      det.addEventListener('toggle', () => {
-        if (det.open) {
-          panel.style.display = 'block';
-          panel.setAttribute('data-show', '');
-        } else {
-          panel.style.display = 'none';
-          panel.removeAttribute('data-show');
-        }
-      });
-    });
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> C’est la réunion qui valide officiellement le début du projet.</p>
+    <p><b>🧠 Mémo :</b> Kick-off = coup d’envoi.</p>
+  </div>
+</div>
 
-    // Gestion du thème clair/sombre avec stockage local
-    const root = document.documentElement;
-    const btn = document.getElementById('themeButton');
-    const saved = localStorage.getItem('theme') || 'light';
-    root.setAttribute('data-theme', saved);
-    btn.textContent = saved === 'dark' ? '☀️ Thème clair' : '🌙 Thème sombre';
-    btn.addEventListener('click', () => {
-      const cur = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      root.setAttribute('data-theme', cur);
-      localStorage.setItem('theme', cur);
-      btn.textContent = cur === 'dark' ? '☀️ Thème clair' : '🌙 Thème sombre';
-    });
-  </script>
+
+<!-- QUESTION 5 -->
+<div class="qcm-question">
+  <p><b>5)</b> La phase BUILD correspond à :<br>
+  A. L’exploitation<br>
+  B. La construction / mise en place<br>
+  C. La facturation<br>
+  D. Le recrutement</p>
+
+  <div class="details-wrap">
+    <details class="correction">
+      <summary>
+        <span class="btn-ferme">Afficher la réponse</span>
+        <span class="btn-ouvert">Masquer</span>
+      </summary>
+    </details>
+  </div>
+
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> BUILD = construction et livraison.</p>
+    <p><b>🧠 Mémo :</b> BUILD = Bâtir.</p>
+  </div>
+</div>
+
+
+<!-- QUESTION 6 -->
+<div class="qcm-question">
+  <p><b>6)</b> La phase RUN correspond à :<br>
+  A. L’exploitation / maintenance<br>
+  B. La planification<br>
+  C. La formation<br>
+  D. L’avant-projet
+  </p>
+
+  <div class="details-wrap">
+    <details class="correction">
+      <summary>
+        <span class="btn-ferme">Afficher la réponse</span>
+        <span class="btn-ouvert">Masquer</span>
+      </summary>
+    </details>
+  </div>
+
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> A</p>
+    <p><b>Explication :</b> RUN = exploitation, support, maintenance.</p>
+    <p><b>🧠 Mémo :</b> RUN = ça tourne.</p>
+  </div>
+</div>
+
+
+<!-- QUESTION 7 -->
+<div class="qcm-question">
+  <p><b>7)</b> Une exigence fonctionnelle décrit :<br>
+  A. Comment coder<br>
+  B. Ce que le système doit faire<br>
+  C. Les performances<br>
+  D. Le design<br>
+  </p>
+
+  <div class="details-wrap">
+    <details class="correction">
+      <summary>
+        <span class="btn-ferme">Afficher la réponse</span>
+        <span class="btn-ouvert">Masquer</span>
+      </summary>
+    </details>
+  </div>
+
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> Une exigence fonctionnelle décrit une fonctionnalité.</p>
+    <p><b>🧠 Mémo :</b> FONCTIONnelle = ce que ça fait.</p>
+  </div>
+</div>
+
+
+<!-- QUESTION 8 -->
+<div class="qcm-question">
+  <p><b>8)</b> Une exigence non fonctionnelle décrit :<br>
+  A. Des performances ou la sécurité<br>
+  B. Des besoins utilisateurs<br>
+  C. Des éléments graphiques<br>
+  D. Le planning<br>
+  </p>
+
+  <div class="details-wrap">
+    <details class="correction">
+      <summary>
+        <span class="btn-ferme">Afficher la réponse</span>
+        <span class="btn-ouvert">Masquer</span>
+      </summary>
+    </details>
+  </div>
+
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> A</p>
+    <p><b>Explication :</b> Non-fonctionnelle = contrainte (perf, sécurité…).</p>
+    <p><b>🧠 Mémo :</b> NON-fonctionnelle = NON sur la fonction.</p>
+  </div>
+</div>
+
+
+<!-- QUESTION 9 -->
+<div class="qcm-question">
+  <p><b>9)</b> Une spécification, c’est :<br>
+  A. Pourquoi on le fait<br>
+  B. Comment on satisfait l’exigence<br>
+  C. Le budget<br>
+  D. Le planning</p>
+
+  <div class="details-wrap">
+    <details class="correction">
+      <summary>
+        <span class="btn-ferme">Afficher la réponse</span>
+        <span class="btn-ouvert">Masquer</span>
+      </summary>
+    </details>
+  </div>
+
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> Spécification = description technique du “comment”.</p>
+    <p><b>🧠 Mémo :</b> SPEC = Spécialiste = comment.</p>
+  </div>
+</div>
+
+
+<!-- QUESTION 10 -->
+<div class="qcm-question">
+  <p><b>10)</b> SMART signifie :<br>
+  A. Simple, Mesuré…<br>
+  B. Spécifique, Mesurable, Atteignable, Réaliste, Temporel<br>
+  C. Stratégique, Modéré…<br>
+  D. Standard…</p>
+
+  <div class="details-wrap">
+    <details class="correction">
+      <summary>
+        <span class="btn-ferme">Afficher la réponse</span>
+        <span class="btn-ouvert">Masquer</span>
+      </summary>
+    </details>
+  </div>
+
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> SMART = méthode pour définir de bons objectifs.</p>
+    <p><b>🧠 Mémo :</b> 5 lettres = 5 critères.</p>
+  </div>
+</div>
+
+
+
+<!-- QUESTION 11 -->
+<div class="qcm-question">
+  <p><b>11)</b> Le diagramme de Gantt sert à :<br>
+  A. Gérer les incidents<br>
+  B. Visualiser tâches, durées, dépendances<br>
+  C. Gérer les salaires<br>
+  D. Surveiller l’énergie
+  </p>
+
+  <div class="details-wrap">
+    <details class="correction">
+      <summary>
+        <span class="btn-ferme">Afficher la réponse</span>
+        <span class="btn-ouvert">Masquer</span>
+      </summary>
+    </details>
+  </div>
+
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> Gantt = outil de planification.</p>
+    <p><b>🧠 Mémo :</b> Gantt = Graphique des tâches.</p>
+  </div>
+</div>
+
+
+<!-- QUESTION 12 -->
+<div class="qcm-question">
+  <p><b>12)</b> Dans RACI, le « A » doit être :<br>
+  A. Multiple<br>
+  B. Unique<br>
+  C. Facultatif<br>
+  D. Toujours l’IT</p>
+
+  <div class="details-wrap">
+    <details class="correction">
+      <summary>
+        <span class="btn-ferme">Afficher la réponse</span>
+        <span class="btn-ouvert">Masquer</span>
+      </summary>
+    </details>
+  </div>
+
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> Un seul Accountable pour éviter les conflits.</p>
+    <p><b>🧠 Mémo :</b> A = Alone.</p>
+  </div>
+</div>
+
+
+<!-- QUESTION 13 -->
+<div class="qcm-question">
+  <p><b>13)</b> Le sponsor est :<br>
+  A. Celui qui exécute<br>
+  B. Celui qui valide et porte le projet<br>
+  C. Celui qui code<br>
+  D. Celui qui gère les logs</p>
+
+  <div class="details-wrap">
+    <details class="correction">
+      <summary>
+        <span class="btn-ferme">Afficher la réponse</span>
+        <span class="btn-ouvert">Masquer</span>
+      </summary>
+    </details>
+  </div>
+
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> Le sponsor supporte, valide et porte le projet.</p>
+    <p><b>🧠 Mémo :</b> Sponsor = Support.</p>
+  </div>
+</div>
+
+
+<!-- QUESTION 14 -->
+<div class="qcm-question">
+  <p><b>14)</b> Un « projet phénix », c’est :<br>
+  A. Un projet secret<br>
+  B. Un projet arrêté qui renaît<br>
+  C. Un projet rapide<br>
+  D. Un projet marketing
+  </p>
+
+  <div class="details-wrap">
+    <details class="correction">
+      <summary>
+        <span class="btn-ferme">Afficher la réponse</span>
+        <span class="btn-ouvert">Masquer</span>
+      </summary>
+    </details>
+  </div>
+
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> Le projet revient après un long arrêt.</p>
+    <p><b>🧠 Mémo :</b> Comme le phénix qui renaît.</p>
+  </div>
+</div>
+
+
+
+<!-- ======================================================= -->
+<!-- ==================== COURS 2 ========================== -->
+<!-- ======================================================= -->
+
+<h2>📙 Cours 2 – Intégrer la cybersécurité dans les projets (Questions 15 à 20)</h2>
+
+
+<!-- QUESTION 15 -->
+<div class="qcm-question">
+  <p><b>15)</b> Intégrer la sécurité tôt permet :<br>
+  A. D’augmenter les coûts<br>
+  B. D’éviter les vulnérabilités tardives<br>
+  C. De supprimer la planification<br>
+  D. De réduire le rôle du sponsor</p>
+
+  <div class="details-wrap">
+    <details class="correction">
+      <summary>
+        <span class="btn-ferme">Afficher la réponse</span>
+        <span class="btn-ouvert">Masquer</span>
+      </summary>
+    </details>
+  </div>
+
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> Plus on intègre tôt, moins ça coûte à corriger.</p>
+    <p><b>🧠 Mémo :</b> Sécurité tardive = travaux de rattrapage.</p>
+  </div>
+</div>
+
+
+<!-- QUESTION 16 -->
+<div class="qcm-question">
+  <p><b>16)</b> Exemple d’exigence de cybersécurité :<br>
+  A. Logo bleu<br>
+  B. Page rapide<br>
+  C. Authentification à deux facteurs (2FA)<br>
+  D. Page centrée</p>
+
+  <div class="details-wrap">
+    <details class="correction">
+      <summary>
+        <span class="btn-ferme">Afficher la réponse</span>
+        <span class="btn-ouvert">Masquer</span>
+      </summary>
+    </details>
+  </div>
+
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> C</p>
+    <p><b>Explication :</b> Le 2FA renforce la sécurité des comptes.</p>
+    <p><b>🧠 Mémo :</b> 2FA = Sécurité++. </p>
+  </div>
+</div>
+
+
+<!-- QUESTION 17 -->
+<div class="qcm-question">
+  <p><b>17)</b> Le RGPD concerne :<br>
+  A. Les performances<br>
+  B. Les données personnelles<br>
+  C. Le budget<br>
+  D. La méthode Agile</p>
+
+  <div class="details-wrap">
+    <details class="correction">
+      <summary>
+        <span class="btn-ferme">Afficher la réponse</span>
+        <span class="btn-ouvert">Masquer</span>
+      </summary>
+    </details>
+  </div>
+
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> Loi sur la protection des données personnelles.</p>
+    <p><b>🧠 Mémo :</b> RGPD = Règlement Général Protection Données.</p>
+  </div>
+</div>
+
+
+<!-- QUESTION 18 -->
+<div class="qcm-question">
+  <p><b>18)</b> Le RSSI gère :<br>
+  A. Le code<br>
+  B. Les risques et la stratégie sécurité<br>
+  C. Les RH<br>
+  D. Le design</p>
+
+  <div class="details-wrap">
+    <details class="correction">
+      <summary>
+        <span class="btn-ferme">Afficher la réponse</span>
+        <span class="btn-ouvert">Masquer</span>
+      </summary>
+    </details>
+  </div>
+
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> Le RSSI pilote la sécurité de l'organisation.</p>
+    <p><b>🧠 Mémo :</b> R-S-S-I = Responsable Sécurité Systèmes Info.</p>
+  </div>
+</div>
+
+
+<!-- QUESTION 19 -->
+<div class="qcm-question">
+  <p><b>19)</b> DevSecOps consiste à :<br>
+  A. Séparer dev et sécurité<br>
+  B. Intégrer Sécurité + Dev + Ops<br>
+  C. Tester à la fin<br>
+  D. Travailler sans sécurité</p>
+
+  <div class="details-wrap">
+    <details class="correction">
+      <summary>
+        <span class="btn-ferme">Afficher la réponse</span>
+        <span class="btn-ouvert">Masquer</span>
+      </summary>
+    </details>
+  </div>
+
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> Sécurité intégrée en continu.</p>
+    <p><b>🧠 Mémo :</b> Dev-SEC-Ops → sécurité au milieu.</p>
+  </div>
+</div>
+
+
+<!-- QUESTION 20 -->
+<div class="qcm-question">
+  <p><b>20)</b> Une RACI dans un plan d’incident sert à :<br>
+  A. Ajouter des documents<br>
+  B. Clarifier qui fait quoi en cas d’attaque<br>
+  C. Remplacer le RSSI<br>
+  D. Éviter les audits</p>
+
+  <div class="details-wrap">
+    <details class="correction">
+      <summary>
+        <span class="btn-ferme">Afficher la réponse</span>
+        <span class="btn-ouvert">Masquer</span>
+      </summary>
+    </details>
+  </div>
+
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> La RACI évite le chaos pendant un incident.</p>
+    <p><b>🧠 Mémo :</b> Incident = stress → rôle clair. </p>
+  </div>
+</div>
+
+
+
+
+<!-- ======================================================= -->
+<!-- ==================== COURS 3 ========================== -->
+<!-- ======================================================= -->
+
+<h2>📗 Session 3 – Green IT & RSE (Questions 21 à 30)</h2>
+
+
+<!-- QUESTION 21 -->
+<div class="qcm-question">
+  <p><b>21)</b> Green IT signifie :<br>
+  A. Acheter plus de serveurs<br>
+  B. Réduire l’empreinte écologique du numérique<br>
+  C. Ajouter du vert dans les interfaces<br>
+  D. Supprimer le cloud</p>
+
+  <div class="details-wrap">
+    <details class="correction">
+      <summary>
+        <span class="btn-ferme">Afficher la réponse</span>
+        <span class="btn-ouvert">Masquer</span>
+      </summary>
+    </details>
+  </div>
+
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> Green IT = rendre le numérique moins polluant.</p>
+    <p><b>🧠 Mémo :</b> “Green” = moins de pollution.</p>
+  </div>
+</div>
+
+
+
+<!-- QUESTION 22 -->
+<div class="qcm-question">
+  <p><b>22)</b> L’urgence climatique signifie :<br>
+  A. Une simple alerte<br>
+  B. Une menace globale exigeant des mesures rapides<br>
+  C. Une baisse automatique des émissions<br>
+  D. Une obligation à la 5G
+  </p>
+
+  <div class="details-wrap">
+    <details class="correction">
+      <summary>
+        <span class="btn-ferme">Afficher la réponse</span>
+        <span class="btn-ouvert">Masquer</span>
+      </summary>
+    </details>
+  </div>
+
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> La planète est en situation critique.</p>
+    <p><b>🧠 Mémo :</b> Urgence = maintenant.</p>
+  </div>
+</div>
+
+
+
+<!-- QUESTION 23 -->
+<div class="qcm-question">
+  <p><b>23)</b> Le GIEC fait :<br>
+  A. Des produits verts<br>
+  B. Analyse causes, conséquences et recommande<br>
+  C. Fixe les prix du pétrole<br>
+  D. Surveille Internet
+  </p>
+
+  <div class="details-wrap">
+    <details class="correction">
+      <summary>
+        <span class="btn-ferme">Afficher la réponse</span>
+        <span class="btn-ouvert">Masquer</span>
+      </summary>
+    </details>
+  </div>
+
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> GIEC = experts du climat.</p>
+    <p><b>🧠 Mémo :</b> GIEC = Guide du climat.</p>
+  </div>
+</div>
+
+
+
+<!-- QUESTION 24 -->
+<div class="qcm-question">
+  <p><b>24)</b> L’empreinte écologique mesure :<br>
+  A. Le chiffre d’affaires<br>
+  B. Les ressources nécessaires pour soutenir notre mode de vie<br>
+  C. Le temps écran<br>
+  D. Le poids du cloud
+  </p>
+
+  <div class="details-wrap">
+    <details class="correction">
+      <summary>
+        <span class="btn-ferme">Afficher la réponse</span>
+        <span class="btn-ouvert">Masquer</span>
+      </summary>
+    </details>
+  </div>
+
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> Empreinte = surface de planète consommée.</p>
+    <p><b>🧠 Mémo :</b> Empreinte = la trace qu’on laisse.</p>
+  </div>
+</div>
+
+
+
+<!-- QUESTION 25 -->
+<div class="qcm-question">
+  <p><b>25)</b> La sobriété numérique consiste à :<br>
+  A. Interdire les smartphones<br>
+  B. Réduire les usages et supprimer le superflu<br>
+  C. Passer en mode avion<br>
+  D. Utiliser uniquement le Wi-Fi
+  </p>
+
+  <div class="details-wrap">
+    <details class="correction">
+      <summary>
+        <span class="btn-ferme">Afficher la réponse</span>
+        <span class="btn-ouvert">Masquer</span>
+      </summary>
+    </details>
+  </div>
+
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> Modération des usages numériques.</p>
+    <p><b>🧠 Mémo :</b> Sobriété = pas zéro, mais pas trop.</p>
+  </div>
+</div>
+
+
+
+<!-- QUESTION 26 -->
+<div class="qcm-question">
+  <p><b>26)</b> Les “5R” sont :<br>
+  A. Réduire, Recycler, Répéter…<br>
+  B. Refuser, Réduire, Réparer, Réutiliser, Recycler<br>
+  C. Réactiver, Rebooter…<br>
+  D. Recharger, Réduire…</p>
+
+  <div class="details-wrap">
+    <details class="correction">
+      <summary>
+        <span class="btn-ferme">Afficher la réponse</span>
+        <span class="btn-ouvert">Masquer</span>
+      </summary>
+    </details>
+  </div>
+
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> Principes clés de sobriété numérique.</p>
+    <p><b>🧠 Mémo :</b> Refuser → Réduire → Réparer → Réutiliser → Recycler.</p>
+  </div>
+</div>
+
+
+
+
+<!-- QUESTION 27 -->
+<div class="qcm-question">
+  <p><b>27)</b> Part de l’électricité consommée par le numérique en France :<br>
+  A. 1%<br>
+  B. 5%<br>
+  C. 10%<br>
+  D. 50%</p>
+
+  <div class="details-wrap">
+    <details class="correction">
+      <summary>
+        <span class="btn-ferme">Afficher la réponse</span>
+        <span class="btn-ouvert">Masquer</span>
+      </summary>
+    </details>
+  </div>
+
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> C</p>
+    <p><b>Explication :</b> Environ 10% selon l’ADEME.</p>
+    <p><b>🧠 Mémo :</b> 1 personne sur 10 = image pour 10%.</p>
+  </div>
+</div>
+
+
+
+<!-- QUESTION 28 -->
+<div class="qcm-question">
+  <p><b>28)</b> Deux facteurs principaux de l’impact numérique :<br>
+  A. Moins d’utilisateurs<br>
+  B. Multiplication des équipements + explosion des données<br>
+  C. Baisse de la fibre<br>
+  D. Moins de 5G</p>
+
+  <div class="details-wrap">
+    <details class="correction">
+      <summary>
+        <span class="btn-ferme">Afficher la réponse</span>
+        <span class="btn-ouvert">Masquer</span>
+      </summary>
+    </details>
+  </div>
+
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> Plus d’appareils + plus de données = plus d’impact.</p>
+    <p><b>🧠 Mémo :</b> “Plus + Plus = Plus”.</p>
+  </div>
+</div>
+
+
+
+<!-- QUESTION 29 -->
+<div class="qcm-question">
+  <p><b>29)</b> L’ACV mesure :<br>
+  A. L’usage uniquement<br>
+  B. L’impact écologique sur tout le cycle de vie<br>
+  C. Le trafic Internet<br>
+  D. Les performances CPU</p>
+
+  <div class="details-wrap">
+    <details class="correction">
+      <summary>
+        <span class="btn-ferme">Afficher la réponse</span>
+        <span class="btn-ouvert">Masquer</span>
+      </summary>
+    </details>
+  </div>
+
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> ACV = extraction → fin de vie.</p>
+    <p><b>🧠 Mémo :</b> De la naissance à la mort.</p>
+  </div>
+</div>
+
+
+
+
+<!-- QUESTION 30 -->
+<div class="qcm-question">
+  <p><b>30)</b> “IT for Green” signifie :<br>
+  A. L’écologie au service du numérique<br>
+  B. Le numérique au service de l’écologie<br>
+  C. Ajouter du vert dans les sites web<br>
+  D. Débrancher les serveurs</p>
+
+  <div class="details-wrap">
+    <details class="correction">
+      <summary>
+        <span class="btn-ferme">Afficher la réponse</span>
+        <span class="btn-ouvert">Masquer</span>
+      </summary>
+    </details>
+  </div>
+
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> L’IT aide la transition écologique.</p>
+    <p><b>🧠 Mémo :</b> IT “for” Green = IT travaille POUR le Green.</p>
+  </div>
+</div>
+
+
+
+
 </body>
 </html>
