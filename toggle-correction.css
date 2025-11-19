@@ -251,54 +251,6 @@ h1, h2, .qcm-question {
   margin-right: auto !important;
 }
 
-/* Centrage parfait du texte */
-.qcm-question p {
-  text-align: center !important;
-  width: 100% !important;
-  margin: 0 auto !important;
-}
-
-
-/* ===================================================== */
-/*     RÉPARATION COMPLÈTE : centrage + largeur propre   */
-/* ===================================================== */
-
-/* Largeur propre des blocs QCM */
-.qcm-question {
-  max-width: 720px !important;
-  width: 90% !important;
-  margin: 30px auto !important;
-  padding: 25px !important;
-  text-align: center !important;
-}
-
-/* Centrage du texte */
-.qcm-question p {
-  text-align: center !important;
-  margin: 0 auto !important;
-  width: 100% !important;
-  line-height: 1.45;
-}
-
-/* Mise en forme du contenu interne */
-.qcm-question p br {
-  line-height: 22px;
-}
-
-/* Corriger aussi le titre H2 */
-h2 {
-  text-align: center !important;
-  margin: 40px auto 20px auto !important;
-  width: 100% !important;
-}
-
-/* Empêcher les règles du snippet d’écraser le centrage */
-details, summary, .correction, .correction * {
-  text-align: center !important;
-}
-
-
-
 
 
 
