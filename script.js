@@ -229,3 +229,35 @@ document.addEventListener("DOMContentLoaded", () => {
   initSidebarNavigation();
   initBurger();
 });
+
+document.getElementById("validate-btn").addEventListener("click", () => {
+    // Afficher TOUTES les explications
+    document.querySelectorAll(".correction-panel").forEach(panel => {
+        panel.style.opacity = "1";
+        panel.style.transform = "translateY(0)";
+        panel.style.pointerEvents = "auto";
+    });
+
+    // Désactiver tous les boutons radio
+    document.querySelectorAll("input[type='radio']").forEach(r => {
+        r.disabled = true;
+    });
+
+    // Calcul du score
+    let score = 0;
+    const answers = {
+        1:"B",2:"B",3:"B",4:"B",5:"B",6:"A",
+        7:"B",8:"A",9:"B",10:"B",11:"B",12:"B",
+        13:"B",14:"B",15:"B",16:"C",17:"B",
+        18:"B",19:"B",20:"B",21:"B",22:"B",
+        23:"B",24:"B",25:"B",26:"B",27:"C",
+        28:"B",29:"B",30:"B"
+    };
+
+    for (let i = 1; i <= 30; i++) {
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+        if (selected && selected.value === answers[i]) score++;
+    }
+
+    document.getElementById("score-result").innerText = `Score : ${score} / 30`;
+});
