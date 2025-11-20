@@ -8,836 +8,519 @@
 
 <body>
 
-<!-- Bouton burger (mobile) -->
-<button id="sidebar-toggle" class="sidebar-toggle">
-  <span></span>
-  <span></span>
-  <span></span>
-</button>
+<h1>QCM – Gestion de Projet / Cybersécurité / Green IT</h1>
 
-<div class="layout">
+<!-- SCORE GLOBAL (affiché seulement après clic sur Valider) -->
+<div id="score-result" class="score-result"></div>
 
-  <!-- ===================== -->
-  <!--      BARRE LATERALE   -->
-  <!-- ===================== -->
-  <aside class="sidebar">
+<!-- ======================================================= -->
+<!-- ==================== COURS 1 ========================== -->
+<!-- ======================================================= -->
 
-    <div class="sidebar-header">
-      <div class="sidebar-title">QUESTIONS</div>
-    </div>
+<h2>📘 Cours 1 – Les fondamentaux de la gestion de projet (Questions 1 à 14)</h2>
 
-    <div id="score-result" class="score-result">
-      Score : — / 30
-    </div>
+<!-- QUESTION 1 -->
+<div class="qcm-question" id="q1-block">
+  <p><b>1)</b> Un projet se caractérise principalement par :</p>
+  <div class="qcm-options">
+    <label><input type="radio" name="q1" value="A"> A. Une durée illimitée</label><br>
+    <label><input type="radio" name="q1" value="B"> B. Un objectif unique</label><br>
+    <label><input type="radio" name="q1" value="C"> C. L’absence de contraintes</label><br>
+    <label><input type="radio" name="q1" value="D"> D. Des ressources infinies</label><br>
+  </div>
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> Un projet a un objectif unique, une durée limitée et des contraintes.</p>
+    <p><b>🧠 Mémo :</b> Projet = Pour un but précis.</p>
+  </div>
+</div>
 
-    <button id="toggle-explanations-btn" class="toggle-explanations-btn">
-      Afficher toutes les explications
-    </button>
+<!-- QUESTION 2 -->
+<div class="qcm-question" id="q2-block">
+  <p><b>2)</b> Le triangle d’or comprend :</p>
+  <div class="qcm-options">
+    <label><input type="radio" name="q2" value="A"> A. Coût – Durée – Sécurité</label><br>
+    <label><input type="radio" name="q2" value="B"> B. Temps – Coût – Qualité</label><br>
+    <label><input type="radio" name="q2" value="C"> C. Planning – Sécurité – Risque</label><br>
+    <label><input type="radio" name="q2" value="D"> D. Coût – Sponsor – Qualité</label><br>
+  </div>
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> Le triangle d’or représente l’équilibre Temps – Coût – Qualité.</p>
+    <p><b>🧠 Mémo :</b> TCQ = Temps, Coût, Qualité.</p>
+  </div>
+</div>
 
-    <nav class="sidebar-list">
-      <!-- Q1 à Q30 -->
-      <button class="nav-question" data-target="1">Q1</button>
-      <button class="nav-question" data-target="2">Q2</button>
-      <button class="nav-question" data-target="3">Q3</button>
-      <button class="nav-question" data-target="4">Q4</button>
-      <button class="nav-question" data-target="5">Q5</button>
-      <button class="nav-question" data-target="6">Q6</button>
-      <button class="nav-question" data-target="7">Q7</button>
-      <button class="nav-question" data-target="8">Q8</button>
-      <button class="nav-question" data-target="9">Q9</button>
-      <button class="nav-question" data-target="10">Q10</button>
-      <button class="nav-question" data-target="11">Q11</button>
-      <button class="nav-question" data-target="12">Q12</button>
-      <button class="nav-question" data-target="13">Q13</button>
-      <button class="nav-question" data-target="14">Q14</button>
-      <button class="nav-question" data-target="15">Q15</button>
-      <button class="nav-question" data-target="16">Q16</button>
-      <button class="nav-question" data-target="17">Q17</button>
-      <button class="nav-question" data-target="18">Q18</button>
-      <button class="nav-question" data-target="19">Q19</button>
-      <button class="nav-question" data-target="20">Q20</button>
-      <button class="nav-question" data-target="21">Q21</button>
-      <button class="nav-question" data-target="22">Q22</button>
-      <button class="nav-question" data-target="23">Q23</button>
-      <button class="nav-question" data-target="24">Q24</button>
-      <button class="nav-question" data-target="25">Q25</button>
-      <button class="nav-question" data-target="26">Q26</button>
-      <button class="nav-question" data-target="27">Q27</button>
-      <button class="nav-question" data-target="28">Q28</button>
-      <button class="nav-question" data-target="29">Q29</button>
-      <button class="nav-question" data-target="30">Q30</button>
-    </nav>
+<!-- QUESTION 3 -->
+<div class="qcm-question" id="q3-block">
+  <p><b>3)</b> La phase « Avant-projet » sert à :</p>
+  <div class="qcm-options">
+    <label><input type="radio" name="q3" value="A"> A. Installer les serveurs</label><br>
+    <label><input type="radio" name="q3" value="B"> B. Définir l’idée et décider GO/NO GO</label><br>
+    <label><input type="radio" name="q3" value="C"> C. Recruter l’équipe</label><br>
+    <label><input type="radio" name="q3" value="D"> D. Modifier les livrables</label><br>
+  </div>
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> L’avant-projet sert à cadrer l’idée, analyser la faisabilité et décider de lancer ou non.</p>
+    <p><b>🧠 Mémo :</b> Avant-projet = Avant de commencer.</p>
+  </div>
+</div>
 
-  </aside>
+<!-- QUESTION 4 -->
+<div class="qcm-question" id="q4-block">
+  <p><b>4)</b> Le « kick-off », c’est :</p>
+  <div class="qcm-options">
+    <label><input type="radio" name="q4" value="A"> A. La réunion de fin</label><br>
+    <label><input type="radio" name="q4" value="B"> B. La réunion de lancement officielle</label><br>
+    <label><input type="radio" name="q4" value="C"> C. Un test technique</label><br>
+    <label><input type="radio" name="q4" value="D"> D. Un audit</label><br>
+  </div>
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> Le kick-off est la réunion qui lance officiellement le projet avec les parties prenantes.</p>
+    <p><b>🧠 Mémo :</b> Kick-off = coup d’envoi.</p>
+  </div>
+</div>
 
-  <!-- ===================== -->
-  <!--      CONTENU QCM      -->
-  <!-- ===================== -->
-  <main class="main-content">
-    <h1>QCM – Gestion de Projet / Cybersécurité / Green IT</h1>
+<!-- QUESTION 5 -->
+<div class="qcm-question" id="q5-block">
+  <p><b>5)</b> La phase BUILD correspond à :</p>
+  <div class="qcm-options">
+    <label><input type="radio" name="q5" value="A"> A. L’exploitation</label><br>
+    <label><input type="radio" name="q5" value="B"> B. La construction / mise en place</label><br>
+    <label><input type="radio" name="q5" value="C"> C. La facturation</label><br>
+    <label><input type="radio" name="q5" value="D"> D. Le recrutement</label><br>
+  </div>
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> BUILD = on construit, configure, développe et prépare la solution.</p>
+    <p><b>🧠 Mémo :</b> BUILD = Bâtir.</p>
+  </div>
+</div>
 
-    <!-- ======================================================= -->
-    <!-- ==================== COURS 1 ========================== -->
-    <!-- ======================================================= -->
+<!-- QUESTION 6 -->
+<div class="qcm-question" id="q6-block">
+  <p><b>6)</b> La phase RUN correspond à :</p>
+  <div class="qcm-options">
+    <label><input type="radio" name="q6" value="A"> A. L’exploitation / maintenance</label><br>
+    <label><input type="radio" name="q6" value="B"> B. La planification</label><br>
+    <label><input type="radio" name="q6" value="C"> C. La formation</label><br>
+    <label><input type="radio" name="q6" value="D"> D. L’avant-projet</label><br>
+  </div>
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> A</p>
+    <p><b>Explication :</b> RUN = phase d’exploitation, support et maintenance de la solution.</p>
+    <p><b>🧠 Mémo :</b> RUN = ça tourne.</p>
+  </div>
+</div>
 
-    <h2>📘 Cours 1 – Les fondamentaux de la gestion de projet (Questions 1 à 14)</h2>
+<!-- QUESTION 7 -->
+<div class="qcm-question" id="q7-block">
+  <p><b>7)</b> Une exigence fonctionnelle décrit :</p>
+  <div class="qcm-options">
+    <label><input type="radio" name="q7" value="A"> A. Comment coder</label><br>
+    <label><input type="radio" name="q7" value="B"> B. Ce que le système doit faire</label><br>
+    <label><input type="radio" name="q7" value="C"> C. Les performances</label><br>
+    <label><input type="radio" name="q7" value="D"> D. Le design</label><br>
+  </div>
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> Une exigence fonctionnelle décrit une fonctionnalité attendue du système.</p>
+    <p><b>🧠 Mémo :</b> FONCTIONnelle = ce que ça fait.</p>
+  </div>
+</div>
 
-    <!-- QUESTION 1 -->
-    <div class="qcm-question" id="question-1" data-question="1">
-      <p><b>1)</b> Un projet se caractérise principalement par :</p>
-      <div class="qcm-options">
-        <label>
-          <input type="radio" name="q1" value="A">
-          A. Une durée illimitée
-        </label>
-        <label>
-          <input type="radio" name="q1" value="B">
-          B. Un objectif unique
-        </label>
-        <label>
-          <input type="radio" name="q1" value="C">
-          C. L’absence de contraintes
-        </label>
-        <label>
-          <input type="radio" name="q1" value="D">
-          D. Des ressources infinies
-        </label>
-      </div>
-      <div class="details-wrap">
-        <details class="correction">
-          <summary>
-            <span class="btn-ferme">Afficher l’explication</span>
-            <span class="btn-ouvert">Masquer</span>
-          </summary>
-        </details>
-      </div>
-      <div class="correction-panel">
-        <p><b>Bonne réponse :</b> B</p>
-        <p><b>Explication :</b> Un projet a un objectif unique, une durée limitée et des contraintes.</p>
-        <p><b>🧠 Mémo :</b> Projet = Pour un but précis.</p>
-      </div>
-    </div>
+<!-- QUESTION 8 -->
+<div class="qcm-question" id="q8-block">
+  <p><b>8)</b> Une exigence non fonctionnelle décrit :</p>
+  <div class="qcm-options">
+    <label><input type="radio" name="q8" value="A"> A. Des performances ou la sécurité</label><br>
+    <label><input type="radio" name="q8" value="B"> B. Des besoins utilisateurs</label><br>
+    <label><input type="radio" name="q8" value="C"> C. Des éléments graphiques</label><br>
+    <label><input type="radio" name="q8" value="D"> D. Le planning</label><br>
+  </div>
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> A</p>
+    <p><b>Explication :</b> Les exigences non fonctionnelles portent sur des contraintes : performance, sécurité, disponibilité, etc.</p>
+    <p><b>🧠 Mémo :</b> NON-fonctionnelle = NON sur la fonction, mais sur les conditions.</p>
+  </div>
+</div>
 
-    <!-- QUESTION 2 -->
-    <div class="qcm-question" id="question-2" data-question="2">
-      <p><b>2)</b> Le triangle d’or comprend :</p>
-      <div class="qcm-options">
-        <label><input type="radio" name="q2" value="A"> A. Coût – Durée – Sécurité</label>
-        <label><input type="radio" name="q2" value="B"> B. Temps – Coût – Qualité</label>
-        <label><input type="radio" name="q2" value="C"> C. Planning – Sécurité – Risque</label>
-        <label><input type="radio" name="q2" value="D"> D. Coût – Sponsor – Qualité</label>
-      </div>
-      <div class="details-wrap">
-        <details class="correction">
-          <summary>
-            <span class="btn-ferme">Afficher l’explication</span>
-            <span class="btn-ouvert">Masquer</span>
-          </summary>
-        </details>
-      </div>
-      <div class="correction-panel">
-        <p><b>Bonne réponse :</b> B</p>
-        <p><b>Explication :</b> Le triangle d’or représente l’équilibre Temps – Coût – Qualité.</p>
-        <p><b>🧠 Mémo :</b> TCQ = Temps, Coût, Qualité.</p>
-      </div>
-    </div>
+<!-- QUESTION 9 -->
+<div class="qcm-question" id="q9-block">
+  <p><b>9)</b> Une spécification, c’est :</p>
+  <div class="qcm-options">
+    <label><input type="radio" name="q9" value="A"> A. Pourquoi on le fait</label><br>
+    <label><input type="radio" name="q9" value="B"> B. Comment on satisfait l’exigence</label><br>
+    <label><input type="radio" name="q9" value="C"> C. Le budget</label><br>
+    <label><input type="radio" name="q9" value="D"> D. Le planning</label><br>
+  </div>
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> La spécification décrit techniquement comment l’exigence sera satisfaite.</p>
+    <p><b>🧠 Mémo :</b> SPEC = Spécialiste = comment.</p>
+  </div>
+</div>
 
-    <!-- QUESTION 3 -->
-    <div class="qcm-question" id="question-3" data-question="3">
-      <p><b>3)</b> La phase « Avant-projet » sert à :</p>
-      <div class="qcm-options">
-        <label><input type="radio" name="q3" value="A"> A. Installer les serveurs</label>
-        <label><input type="radio" name="q3" value="B"> B. Définir l’idée et décider GO/NO GO</label>
-        <label><input type="radio" name="q3" value="C"> C. Recruter l’équipe</label>
-        <label><input type="radio" name="q3" value="D"> D. Modifier les livrables</label>
-      </div>
-      <div class="details-wrap">
-        <details class="correction">
-          <summary>
-            <span class="btn-ferme">Afficher l’explication</span>
-            <span class="btn-ouvert">Masquer</span>
-          </summary>
-        </details>
-      </div>
-      <div class="correction-panel">
-        <p><b>Bonne réponse :</b> B</p>
-        <p><b>Explication :</b> L’avant-projet sert à cadrer l’idée, analyser la faisabilité et décider de lancer ou non.</p>
-        <p><b>🧠 Mémo :</b> Avant-projet = Avant de commencer.</p>
-      </div>
-    </div>
+<!-- QUESTION 10 -->
+<div class="qcm-question" id="q10-block">
+  <p><b>10)</b> SMART signifie :</p>
+  <div class="qcm-options">
+    <label><input type="radio" name="q10" value="A"> A. Simple, Mesuré…</label><br>
+    <label><input type="radio" name="q10" value="B"> B. Spécifique, Mesurable, Atteignable, Réaliste, Temporel</label><br>
+    <label><input type="radio" name="q10" value="C"> C. Stratégique, Modéré…</label><br>
+    <label><input type="radio" name="q10" value="D"> D. Standard…</label><br>
+  </div>
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> SMART est un acronyme pour définir des objectifs bien formulés.</p>
+    <p><b>🧠 Mémo :</b> 5 lettres = 5 critères.</p>
+  </div>
+</div>
 
-    <!-- QUESTION 4 -->
-    <div class="qcm-question" id="question-4" data-question="4">
-      <p><b>4)</b> Le « kick-off », c’est :</p>
-      <div class="qcm-options">
-        <label><input type="radio" name="q4" value="A"> A. La réunion de fin</label>
-        <label><input type="radio" name="q4" value="B"> B. La réunion de lancement officielle</label>
-        <label><input type="radio" name="q4" value="C"> C. Un test technique</label>
-        <label><input type="radio" name="q4" value="D"> D. Un audit</label>
-      </div>
-      <div class="details-wrap">
-        <details class="correction">
-          <summary>
-            <span class="btn-ferme">Afficher l’explication</span>
-            <span class="btn-ouvert">Masquer</span>
-          </summary>
-        </details>
-      </div>
-      <div class="correction-panel">
-        <p><b>Bonne réponse :</b> B</p>
-        <p><b>Explication :</b> Le kick-off est la réunion qui lance officiellement le projet avec les parties prenantes.</p>
-        <p><b>🧠 Mémo :</b> Kick-off = coup d’envoi.</p>
-      </div>
-    </div>
+<!-- QUESTION 11 -->
+<div class="qcm-question" id="q11-block">
+  <p><b>11)</b> Le diagramme de Gantt sert à :</p>
+  <div class="qcm-options">
+    <label><input type="radio" name="q11" value="A"> A. Gérer les incidents</label><br>
+    <label><input type="radio" name="q11" value="B"> B. Visualiser tâches, durées, dépendances</label><br>
+    <label><input type="radio" name="q11" value="C"> C. Gérer les salaires</label><br>
+    <label><input type="radio" name="q11" value="D"> D. Surveiller l’énergie</label><br>
+  </div>
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> Le diagramme de Gantt est un outil visuel de planification (tâches, durées, dépendances).</p>
+    <p><b>🧠 Mémo :</b> Gantt = Graphique des tâches.</p>
+  </div>
+</div>
 
-    <!-- QUESTION 5 -->
-    <div class="qcm-question" id="question-5" data-question="5">
-      <p><b>5)</b> La phase BUILD correspond à :</p>
-      <div class="qcm-options">
-        <label><input type="radio" name="q5" value="A"> A. L’exploitation</label>
-        <label><input type="radio" name="q5" value="B"> B. La construction / mise en place</label>
-        <label><input type="radio" name="q5" value="C"> C. La facturation</label>
-        <label><input type="radio" name="q5" value="D"> D. Le recrutement</label>
-      </div>
-      <div class="details-wrap">
-        <details class="correction">
-          <summary>
-            <span class="btn-ferme">Afficher l’explication</span>
-            <span class="btn-ouvert">Masquer</span>
-          </summary>
-        </details>
-      </div>
-      <div class="correction-panel">
-        <p><b>Bonne réponse :</b> B</p>
-        <p><b>Explication :</b> BUILD = on construit, configure, développe et prépare la solution.</p>
-        <p><b>🧠 Mémo :</b> BUILD = Bâtir.</p>
-      </div>
-    </div>
+<!-- QUESTION 12 -->
+<div class="qcm-question" id="q12-block">
+  <p><b>12)</b> Dans RACI, le « A » doit être :</p>
+  <div class="qcm-options">
+    <label><input type="radio" name="q12" value="A"> A. Multiple</label><br>
+    <label><input type="radio" name="q12" value="B"> B. Unique</label><br>
+    <label><input type="radio" name="q12" value="C"> C. Facultatif</label><br>
+    <label><input type="radio" name="q12" value="D"> D. Toujours l’IT</label><br>
+  </div>
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> Il ne doit y avoir qu’un seul Accountable pour éviter les conflits.</p>
+    <p><b>🧠 Mémo :</b> A = Alone.</p>
+  </div>
+</div>
 
-    <!-- QUESTION 6 -->
-    <div class="qcm-question" id="question-6" data-question="6">
-      <p><b>6)</b> La phase RUN correspond à :</p>
-      <div class="qcm-options">
-        <label><input type="radio" name="q6" value="A"> A. L’exploitation / maintenance</label>
-        <label><input type="radio" name="q6" value="B"> B. La planification</label>
-        <label><input type="radio" name="q6" value="C"> C. La formation</label>
-        <label><input type="radio" name="q6" value="D"> D. L’avant-projet</label>
-      </div>
-      <div class="details-wrap">
-        <details class="correction">
-          <summary>
-            <span class="btn-ferme">Afficher l’explication</span>
-            <span class="btn-ouvert">Masquer</span>
-          </summary>
-        </details>
-      </div>
-      <div class="correction-panel">
-        <p><b>Bonne réponse :</b> A</p>
-        <p><b>Explication :</b> RUN = phase d’exploitation, support et maintenance de la solution.</p>
-        <p><b>🧠 Mémo :</b> RUN = ça tourne.</p>
-      </div>
-    </div>
+<!-- QUESTION 13 -->
+<div class="qcm-question" id="q13-block">
+  <p><b>13)</b> Le sponsor est :</p>
+  <div class="qcm-options">
+    <label><input type="radio" name="q13" value="A"> A. Celui qui exécute</label><br>
+    <label><input type="radio" name="q13" value="B"> B. Celui qui valide et porte le projet</label><br>
+    <label><input type="radio" name="q13" value="C"> C. Celui qui code</label><br>
+    <label><input type="radio" name="q13" value="D"> D. Celui qui gère les logs</label><br>
+  </div>
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> Le sponsor porte le projet, le finance et le valide.</p>
+    <p><b>🧠 Mémo :</b> Sponsor = Support.</p>
+  </div>
+</div>
 
-    <!-- QUESTION 7 -->
-    <div class="qcm-question" id="question-7" data-question="7">
-      <p><b>7)</b> Une exigence fonctionnelle décrit :</p>
-      <div class="qcm-options">
-        <label><input type="radio" name="q7" value="A"> A. Comment coder</label>
-        <label><input type="radio" name="q7" value="B"> B. Ce que le système doit faire</label>
-        <label><input type="radio" name="q7" value="C"> C. Les performances</label>
-        <label><input type="radio" name="q7" value="D"> D. Le design</label>
-      </div>
-      <div class="details-wrap">
-        <details class="correction">
-          <summary>
-            <span class="btn-ferme">Afficher l’explication</span>
-            <span class="btn-ouvert">Masquer</span>
-          </summary>
-        </details>
-      </div>
-      <div class="correction-panel">
-        <p><b>Bonne réponse :</b> B</p>
-        <p><b>Explication :</b> Une exigence fonctionnelle décrit une fonctionnalité attendue du système.</p>
-        <p><b>🧠 Mémo :</b> FONCTIONnelle = ce que ça fait.</p>
-      </div>
-    </div>
+<!-- QUESTION 14 -->
+<div class="qcm-question" id="q14-block">
+  <p><b>14)</b> Un « projet phénix », c’est :</p>
+  <div class="qcm-options">
+    <label><input type="radio" name="q14" value="A"> A. Un projet secret</label><br>
+    <label><input type="radio" name="q14" value="B"> B. Un projet arrêté qui renaît</label><br>
+    <label><input type="radio" name="q14" value="C"> C. Un projet rapide</label><br>
+    <label><input type="radio" name="q14" value="D"> D. Un projet marketing</label><br>
+  </div>
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> Un projet phénix est un projet qui revient après un long arrêt.</p>
+    <p><b>🧠 Mémo :</b> Comme le phénix qui renaît de ses cendres.</p>
+  </div>
+</div>
 
-    <!-- QUESTION 8 -->
-    <div class="qcm-question" id="question-8" data-question="8">
-      <p><b>8)</b> Une exigence non fonctionnelle décrit :</p>
-      <div class="qcm-options">
-        <label><input type="radio" name="q8" value="A"> A. Des performances ou la sécurité</label>
-        <label><input type="radio" name="q8" value="B"> B. Des besoins utilisateurs</label>
-        <label><input type="radio" name="q8" value="C"> C. Des éléments graphiques</label>
-        <label><input type="radio" name="q8" value="D"> D. Le planning</label>
-      </div>
-      <div class="details-wrap">
-        <details class="correction">
-          <summary>
-            <span class="btn-ferme">Afficher l’explication</span>
-            <span class="btn-ouvert">Masquer</span>
-          </summary>
-        </details>
-      </div>
-      <div class="correction-panel">
-        <p><b>Bonne réponse :</b> A</p>
-        <p><b>Explication :</b> Les exigences non fonctionnelles portent sur des contraintes : performance, sécurité, disponibilité, etc.</p>
-        <p><b>🧠 Mémo :</b> NON-fonctionnelle = NON sur la fonction, mais sur les conditions.</p>
-      </div>
-    </div>
+<!-- ======================================================= -->
+<!-- ==================== COURS 2 ========================== -->
+<!-- ======================================================= -->
 
-    <!-- QUESTION 9 -->
-    <div class="qcm-question" id="question-9" data-question="9">
-      <p><b>9)</b> Une spécification, c’est :</p>
-      <div class="qcm-options">
-        <label><input type="radio" name="q9" value="A"> A. Pourquoi on le fait</label>
-        <label><input type="radio" name="q9" value="B"> B. Comment on satisfait l’exigence</label>
-        <label><input type="radio" name="q9" value="C"> C. Le budget</label>
-        <label><input type="radio" name="q9" value="D"> D. Le planning</label>
-      </div>
-      <div class="details-wrap">
-        <details class="correction">
-          <summary>
-            <span class="btn-ferme">Afficher l’explication</span>
-            <span class="btn-ouvert">Masquer</span>
-          </summary>
-        </details>
-      </div>
-      <div class="correction-panel">
-        <p><b>Bonne réponse :</b> B</p>
-        <p><b>Explication :</b> La spécification décrit techniquement comment l’exigence sera satisfaite.</p>
-        <p><b>🧠 Mémo :</b> SPEC = Spécialiste = comment.</p>
-      </div>
-    </div>
+<h2>📙 Cours 2 – Intégrer la cybersécurité dans les projets (Questions 15 à 20)</h2>
 
-    <!-- QUESTION 10 -->
-    <div class="qcm-question" id="question-10" data-question="10">
-      <p><b>10)</b> SMART signifie :</p>
-      <div class="qcm-options">
-        <label><input type="radio" name="q10" value="A"> A. Simple, Mesuré…</label>
-        <label><input type="radio" name="q10" value="B"> B. Spécifique, Mesurable, Atteignable, Réaliste, Temporel</label>
-        <label><input type="radio" name="q10" value="C"> C. Stratégique, Modéré…</label>
-        <label><input type="radio" name="q10" value="D"> D. Standard…</label>
-      </div>
-      <div class="details-wrap">
-        <details class="correction">
-          <summary>
-            <span class="btn-ferme">Afficher l’explication</span>
-            <span class="btn-ouvert">Masquer</span>
-          </summary>
-        </details>
-      </div>
-      <div class="correction-panel">
-        <p><b>Bonne réponse :</b> B</p>
-        <p><b>Explication :</b> SMART est un acronyme pour définir des objectifs bien formulés.</p>
-        <p><b>🧠 Mémo :</b> 5 lettres = 5 critères.</p>
-      </div>
-    </div>
+<!-- QUESTION 15 -->
+<div class="qcm-question" id="q15-block">
+  <p><b>15)</b> Intégrer la sécurité tôt permet :</p>
+  <div class="qcm-options">
+    <label><input type="radio" name="q15" value="A"> A. D’augmenter les coûts</label><br>
+    <label><input type="radio" name="q15" value="B"> B. D’éviter les vulnérabilités tardives</label><br>
+    <label><input type="radio" name="q15" value="C"> C. De supprimer la planification</label><br>
+    <label><input type="radio" name="q15" value="D"> D. De réduire le rôle du sponsor</label><br>
+  </div>
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> Plus la sécurité est intégrée tôt, moins les corrections tardives coûtent cher.</p>
+    <p><b>🧠 Mémo :</b> Sécurité tardive = travaux de rattrapage.</p>
+  </div>
+</div>
 
-    <!-- QUESTION 11 -->
-    <div class="qcm-question" id="question-11" data-question="11">
-      <p><b>11)</b> Le diagramme de Gantt sert à :</p>
-      <div class="qcm-options">
-        <label><input type="radio" name="q11" value="A"> A. Gérer les incidents</label>
-        <label><input type="radio" name="q11" value="B"> B. Visualiser tâches, durées, dépendances</label>
-        <label><input type="radio" name="q11" value="C"> C. Gérer les salaires</label>
-        <label><input type="radio" name="q11" value="D"> D. Surveiller l’énergie</label>
-      </div>
-      <div class="details-wrap">
-        <details class="correction">
-          <summary>
-            <span class="btn-ferme">Afficher l’explication</span>
-            <span class="btn-ouvert">Masquer</span>
-          </summary>
-        </details>
-      </div>
-      <div class="correction-panel">
-        <p><b>Bonne réponse :</b> B</p>
-        <p><b>Explication :</b> Le diagramme de Gantt est un outil visuel de planification (tâches, durées, dépendances).</p>
-        <p><b>🧠 Mémo :</b> Gantt = Graphique des tâches.</p>
-      </div>
-    </div>
+<!-- QUESTION 16 -->
+<div class="qcm-question" id="q16-block">
+  <p><b>16)</b> Exemple d’exigence de cybersécurité :</p>
+  <div class="qcm-options">
+    <label><input type="radio" name="q16" value="A"> A. Logo bleu</label><br>
+    <label><input type="radio" name="q16" value="B"> B. Page rapide</label><br>
+    <label><input type="radio" name="q16" value="C"> C. Authentification à deux facteurs (2FA)</label><br>
+    <label><input type="radio" name="q16" value="D"> D. Page centrée</label><br>
+  </div>
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> C</p>
+    <p><b>Explication :</b> Le 2FA est une mesure de sécurité forte pour l’accès aux comptes.</p>
+    <p><b>🧠 Mémo :</b> 2FA = Sécurité ++.</p>
+  </div>
+</div>
 
-    <!-- QUESTION 12 -->
-    <div class="qcm-question" id="question-12" data-question="12">
-      <p><b>12)</b> Dans RACI, le « A » doit être :</p>
-      <div class="qcm-options">
-        <label><input type="radio" name="q12" value="A"> A. Multiple</label>
-        <label><input type="radio" name="q12" value="B"> B. Unique</label>
-        <label><input type="radio" name="q12" value="C"> C. Facultatif</label>
-        <label><input type="radio" name="q12" value="D"> D. Toujours l’IT</label>
-      </div>
-      <div class="details-wrap">
-        <details class="correction">
-          <summary>
-            <span class="btn-ferme">Afficher l’explication</span>
-            <span class="btn-ouvert">Masquer</span>
-          </summary>
-        </details>
-      </div>
-      <div class="correction-panel">
-        <p><b>Bonne réponse :</b> B</p>
-        <p><b>Explication :</b> Il ne doit y avoir qu’un seul Accountable pour éviter les conflits.</p>
-        <p><b>🧠 Mémo :</b> A = Alone.</p>
-      </div>
-    </div>
+<!-- QUESTION 17 -->
+<div class="qcm-question" id="q17-block">
+  <p><b>17)</b> Le RGPD concerne :</p>
+  <div class="qcm-options">
+    <label><input type="radio" name="q17" value="A"> A. Les performances</label><br>
+    <label><input type="radio" name="q17" value="B"> B. Les données personnelles</label><br>
+    <label><input type="radio" name="q17" value="C"> C. Le budget</label><br>
+    <label><input type="radio" name="q17" value="D"> D. La méthode Agile</label><br>
+  </div>
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> Le RGPD encadre le traitement des données personnelles.</p>
+    <p><b>🧠 Mémo :</b> RGPD = Règlement Général sur la Protection des Données.</p>
+  </div>
+</div>
 
-    <!-- QUESTION 13 -->
-    <div class="qcm-question" id="question-13" data-question="13">
-      <p><b>13)</b> Le sponsor est :</p>
-      <div class="qcm-options">
-        <label><input type="radio" name="q13" value="A"> A. Celui qui exécute</label>
-        <label><input type="radio" name="q13" value="B"> B. Celui qui valide et porte le projet</label>
-        <label><input type="radio" name="q13" value="C"> C. Celui qui code</label>
-        <label><input type="radio" name="q13" value="D"> D. Celui qui gère les logs</label>
-      </div>
-      <div class="details-wrap">
-        <details class="correction">
-          <summary>
-            <span class="btn-ferme">Afficher l’explication</span>
-            <span class="btn-ouvert">Masquer</span>
-          </summary>
-        </details>
-      </div>
-      <div class="correction-panel">
-        <p><b>Bonne réponse :</b> B</p>
-        <p><b>Explication :</b> Le sponsor porte le projet, le finance et le valide.</p>
-        <p><b>🧠 Mémo :</b> Sponsor = Support.</p>
-      </div>
-    </div>
+<!-- QUESTION 18 -->
+<div class="qcm-question" id="q18-block">
+  <p><b>18)</b> Le RSSI gère :</p>
+  <div class="qcm-options">
+    <label><input type="radio" name="q18" value="A"> A. Le code</label><br>
+    <label><input type="radio" name="q18" value="B"> B. Les risques et la stratégie sécurité</label><br>
+    <label><input type="radio" name="q18" value="C"> C. Les RH</label><br>
+    <label><input type="radio" name="q18" value="D"> D. Le design</label><br>
+  </div>
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> Le RSSI pilote la sécurité de l’organisation, les risques et la politique associée.</p>
+    <p><b>🧠 Mémo :</b> R-S-S-I = Responsable Sécurité Systèmes d’Information.</p>
+  </div>
+</div>
 
-    <!-- QUESTION 14 -->
-    <div class="qcm-question" id="question-14" data-question="14">
-      <p><b>14)</b> Un « projet phénix », c’est :</p>
-      <div class="qcm-options">
-        <label><input type="radio" name="q14" value="A"> A. Un projet secret</label>
-        <label><input type="radio" name="q14" value="B"> B. Un projet arrêté qui renaît</label>
-        <label><input type="radio" name="q14" value="C"> C. Un projet rapide</label>
-        <label><input type="radio" name="q14" value="D"> D. Un projet marketing</label>
-      </div>
-      <div class="details-wrap">
-        <details class="correction">
-          <summary>
-            <span class="btn-ferme">Afficher l’explication</span>
-            <span class="btn-ouvert">Masquer</span>
-          </summary>
-        </details>
-      </div>
-      <div class="correction-panel">
-        <p><b>Bonne réponse :</b> B</p>
-        <p><b>Explication :</b> Un projet phénix est un projet qui revient après un long arrêt.</p>
-        <p><b>🧠 Mémo :</b> Comme le phénix qui renaît de ses cendres.</p>
-      </div>
-    </div>
+<!-- QUESTION 19 -->
+<div class="qcm-question" id="q19-block">
+  <p><b>19)</b> DevSecOps consiste à :</p>
+  <div class="qcm-options">
+    <label><input type="radio" name="q19" value="A"> A. Séparer dev et sécurité</label><br>
+    <label><input type="radio" name="q19" value="B"> B. Intégrer Sécurité + Dev + Ops</label><br>
+    <label><input type="radio" name="q19" value="C"> C. Tester à la fin</label><br>
+    <label><input type="radio" name="q19" value="D"> D. Travailler sans sécurité</label><br>
+  </div>
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> DevSecOps intègre la sécurité au cœur du cycle Dev + Ops, en continu.</p>
+    <p><b>🧠 Mémo :</b> Dev-SEC-Ops → sécurité au milieu.</p>
+  </div>
+</div>
 
-    <!-- ======================================================= -->
-    <!-- ==================== COURS 2 ========================== -->
-    <!-- ======================================================= -->
+<!-- QUESTION 20 -->
+<div class="qcm-question" id="q20-block">
+  <p><b>20)</b> Une RACI dans un plan d’incident sert à :</p>
+  <div class="qcm-options">
+    <label><input type="radio" name="q20" value="A"> A. Ajouter des documents</label><br>
+    <label><input type="radio" name="q20" value="B"> B. Clarifier qui fait quoi en cas d’attaque</label><br>
+    <label><input type="radio" name="q20" value="C"> C. Remplacer le RSSI</label><br>
+    <label><input type="radio" name="q20" value="D"> D. Éviter les audits</label><br>
+  </div>
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> La RACI évite le chaos pendant un incident en clarifiant les rôles.</p>
+    <p><b>🧠 Mémo :</b> Incident = stress → rôle clair.</p>
+  </div>
+</div>
 
-    <h2>📙 Cours 2 – Intégrer la cybersécurité dans les projets (Questions 15 à 20)</h2>
+<!-- ======================================================= -->
+<!-- ==================== COURS 3 ========================== -->
+<!-- ======================================================= -->
 
-    <!-- QUESTION 15 -->
-    <div class="qcm-question" id="question-15" data-question="15">
-      <p><b>15)</b> Intégrer la sécurité tôt permet :</p>
-      <div class="qcm-options">
-        <label><input type="radio" name="q15" value="A"> A. D’augmenter les coûts</label>
-        <label><input type="radio" name="q15" value="B"> B. D’éviter les vulnérabilités tardives</label>
-        <label><input type="radio" name="q15" value="C"> C. De supprimer la planification</label>
-        <label><input type="radio" name="q15" value="D"> D. De réduire le rôle du sponsor</label>
-      </div>
-      <div class="details-wrap">
-        <details class="correction">
-          <summary>
-            <span class="btn-ferme">Afficher l’explication</span>
-            <span class="btn-ouvert">Masquer</span>
-          </summary>
-        </details>
-      </div>
-      <div class="correction-panel">
-        <p><b>Bonne réponse :</b> B</p>
-        <p><b>Explication :</b> Plus la sécurité est intégrée tôt, moins les corrections tardives coûtent cher.</p>
-        <p><b>🧠 Mémo :</b> Sécurité tardive = travaux de rattrapage.</p>
-      </div>
-    </div>
+<h2>📗 Session 3 – Green IT & RSE (Questions 21 à 30)</h2>
 
-    <!-- QUESTION 16 -->
-    <div class="qcm-question" id="question-16" data-question="16">
-      <p><b>16)</b> Exemple d’exigence de cybersécurité :</p>
-      <div class="qcm-options">
-        <label><input type="radio" name="q16" value="A"> A. Logo bleu</label>
-        <label><input type="radio" name="q16" value="B"> B. Page rapide</label>
-        <label><input type="radio" name="q16" value="C"> C. Authentification à deux facteurs (2FA)</label>
-        <label><input type="radio" name="q16" value="D"> D. Page centrée</label>
-      </div>
-      <div class="details-wrap">
-        <details class="correction">
-          <summary>
-            <span class="btn-ferme">Afficher l’explication</span>
-            <span class="btn-ouvert">Masquer</span>
-          </summary>
-        </details>
-      </div>
-      <div class="correction-panel">
-        <p><b>Bonne réponse :</b> C</p>
-        <p><b>Explication :</b> Le 2FA est une mesure de sécurité forte pour l’accès aux comptes.</p>
-        <p><b>🧠 Mémo :</b> 2FA = Sécurité ++.</p>
-      </div>
-    </div>
+<!-- QUESTION 21 -->
+<div class="qcm-question" id="q21-block">
+  <p><b>21)</b> Green IT signifie :</p>
+  <div class="qcm-options">
+    <label><input type="radio" name="q21" value="A"> A. Acheter plus de serveurs</label><br>
+    <label><input type="radio" name="q21" value="B"> B. Réduire l’empreinte écologique du numérique</label><br>
+    <label><input type="radio" name="q21" value="C"> C. Ajouter du vert dans les interfaces</label><br>
+    <label><input type="radio" name="q21" value="D"> D. Supprimer le cloud</label><br>
+  </div>
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> Green IT cherche à réduire l’impact environnemental du numérique.</p>
+    <p><b>🧠 Mémo :</b> “Green” = moins de pollution.</p>
+  </div>
+</div>
 
-    <!-- QUESTION 17 -->
-    <div class="qcm-question" id="question-17" data-question="17">
-      <p><b>17)</b> Le RGPD concerne :</p>
-      <div class="qcm-options">
-        <label><input type="radio" name="q17" value="A"> A. Les performances</label>
-        <label><input type="radio" name="q17" value="B"> B. Les données personnelles</label>
-        <label><input type="radio" name="q17" value="C"> C. Le budget</label>
-        <label><input type="radio" name="q17" value="D"> D. La méthode Agile</label>
-      </div>
-      <div class="details-wrap">
-        <details class="correction">
-          <summary>
-            <span class="btn-ferme">Afficher l’explication</span>
-            <span class="btn-ouvert">Masquer</span>
-          </summary>
-        </details>
-      </div>
-      <div class="correction-panel">
-        <p><b>Bonne réponse :</b> B</p>
-        <p><b>Explication :</b> Le RGPD encadre le traitement des données personnelles.</p>
-        <p><b>🧠 Mémo :</b> RGPD = Règlement Général sur la Protection des Données.</p>
-      </div>
-    </div>
+<!-- QUESTION 22 -->
+<div class="qcm-question" id="q22-block">
+  <p><b>22)</b> L’urgence climatique signifie :</p>
+  <div class="qcm-options">
+    <label><input type="radio" name="q22" value="A"> A. Une simple alerte</label><br>
+    <label><input type="radio" name="q22" value="B"> B. Une menace globale exigeant des mesures rapides</label><br>
+    <label><input type="radio" name="q22" value="C"> C. Une baisse automatique des émissions</label><br>
+    <label><input type="radio" name="q22" value="D"> D. Une obligation à la 5G</label><br>
+  </div>
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> L’urgence climatique montre que la planète est en situation critique.</p>
+    <p><b>🧠 Mémo :</b> Urgence = maintenant.</p>
+  </div>
+</div>
 
-    <!-- QUESTION 18 -->
-    <div class="qcm-question" id="question-18" data-question="18">
-      <p><b>18)</b> Le RSSI gère :</p>
-      <div class="qcm-options">
-        <label><input type="radio" name="q18" value="A"> A. Le code</label>
-        <label><input type="radio" name="q18" value="B"> B. Les risques et la stratégie sécurité</label>
-        <label><input type="radio" name="q18" value="C"> C. Les RH</label>
-        <label><input type="radio" name="q18" value="D"> D. Le design</label>
-      </div>
-      <div class="details-wrap">
-        <details class="correction">
-          <summary>
-            <span class="btn-ferme">Afficher l’explication</span>
-            <span class="btn-ouvert">Masquer</span>
-          </summary>
-        </details>
-      </div>
-      <div class="correction-panel">
-        <p><b>Bonne réponse :</b> B</p>
-        <p><b>Explication :</b> Le RSSI pilote la sécurité de l’organisation, les risques et la politique associée.</p>
-        <p><b>🧠 Mémo :</b> R-S-S-I = Responsable Sécurité Systèmes d’Information.</p>
-      </div>
-    </div>
+<!-- QUESTION 23 -->
+<div class="qcm-question" id="q23-block">
+  <p><b>23)</b> Le GIEC fait :</p>
+  <div class="qcm-options">
+    <label><input type="radio" name="q23" value="A"> A. Des produits verts</label><br>
+    <label><input type="radio" name="q23" value="B"> B. Analyse causes, conséquences et recommande</label><br>
+    <label><input type="radio" name="q23" value="C"> C. Fixe les prix du pétrole</label><br>
+    <label><input type="radio" name="q23" value="D"> D. Surveille Internet</label><br>
+  </div>
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> Le GIEC regroupe des experts du climat qui analysent et recommandent des actions.</p>
+    <p><b>🧠 Mémo :</b> GIEC = Guide du climat.</p>
+  </div>
+</div>
 
-    <!-- QUESTION 19 -->
-    <div class="qcm-question" id="question-19" data-question="19">
-      <p><b>19)</b> DevSecOps consiste à :</p>
-      <div class="qcm-options">
-        <label><input type="radio" name="q19" value="A"> A. Séparer dev et sécurité</label>
-        <label><input type="radio" name="q19" value="B"> B. Intégrer Sécurité + Dev + Ops</label>
-        <label><input type="radio" name="q19" value="C"> C. Tester à la fin</label>
-        <label><input type="radio" name="q19" value="D"> D. Travailler sans sécurité</label>
-      </div>
-      <div class="details-wrap">
-        <details class="correction">
-          <summary>
-            <span class="btn-ferme">Afficher l’explication</span>
-            <span class="btn-ouvert">Masquer</span>
-          </summary>
-        </details>
-      </div>
-      <div class="correction-panel">
-        <p><b>Bonne réponse :</b> B</p>
-        <p><b>Explication :</b> DevSecOps intègre la sécurité au cœur du cycle Dev + Ops, en continu.</p>
-        <p><b>🧠 Mémo :</b> Dev-SEC-Ops → sécurité au milieu.</p>
-      </div>
-    </div>
+<!-- QUESTION 24 -->
+<div class="qcm-question" id="q24-block">
+  <p><b>24)</b> L’empreinte écologique mesure :</p>
+  <div class="qcm-options">
+    <label><input type="radio" name="q24" value="A"> A. Le chiffre d’affaires</label><br>
+    <label><input type="radio" name="q24" value="B"> B. Les ressources nécessaires pour soutenir notre mode de vie</label><br>
+    <label><input type="radio" name="q24" value="C"> C. Le temps écran</label><br>
+    <label><input type="radio" name="q24" value="D"> D. Le poids du cloud</label><br>
+  </div>
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> Elle évalue la pression exercée sur les ressources de la planète.</p>
+    <p><b>🧠 Mémo :</b> Empreinte = la trace qu’on laisse.</p>
+  </div>
+</div>
 
-    <!-- QUESTION 20 -->
-    <div class="qcm-question" id="question-20" data-question="20">
-      <p><b>20)</b> Une RACI dans un plan d’incident sert à :</p>
-      <div class="qcm-options">
-        <label><input type="radio" name="q20" value="A"> A. Ajouter des documents</label>
-        <label><input type="radio" name="q20" value="B"> B. Clarifier qui fait quoi en cas d’attaque</label>
-        <label><input type="radio" name="q20" value="C"> C. Remplacer le RSSI</label>
-        <label><input type="radio" name="q20" value="D"> D. Éviter les audits</label>
-      </div>
-      <div class="details-wrap">
-        <details class="correction">
-          <summary>
-            <span class="btn-ferme">Afficher l’explication</span>
-            <span class="btn-ouvert">Masquer</span>
-          </summary>
-        </details>
-      </div>
-      <div class="correction-panel">
-        <p><b>Bonne réponse :</b> B</p>
-        <p><b>Explication :</b> La RACI évite le chaos pendant un incident en clarifiant les rôles.</p>
-        <p><b>🧠 Mémo :</b> Incident = stress → rôle clair.</p>
-      </div>
-    </div>
+<!-- QUESTION 25 -->
+<div class="qcm-question" id="q25-block">
+  <p><b>25)</b> La sobriété numérique consiste à :</p>
+  <div class="qcm-options">
+    <label><input type="radio" name="q25" value="A"> A. Interdire les smartphones</label><br>
+    <label><input type="radio" name="q25" value="B"> B. Réduire les usages et supprimer le superflu</label><br>
+    <label><input type="radio" name="q25" value="C"> C. Passer en mode avion</label><br>
+    <label><input type="radio" name="q25" value="D"> D. Utiliser uniquement le Wi-Fi</label><br>
+  </div>
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> La sobriété numérique invite à modérer et rationaliser les usages.</p>
+    <p><b>🧠 Mémo :</b> Sobriété = pas zéro, mais pas trop.</p>
+  </div>
+</div>
 
-    <!-- ======================================================= -->
-    <!-- ==================== COURS 3 ========================== -->
-    <!-- ======================================================= -->
+<!-- QUESTION 26 -->
+<div class="qcm-question" id="q26-block">
+  <p><b>26)</b> Les “5R” sont :</p>
+  <div class="qcm-options">
+    <label><input type="radio" name="q26" value="A"> A. Réduire, Recycler, Répéter…</label><br>
+    <label><input type="radio" name="q26" value="B"> B. Refuser, Réduire, Réparer, Réutiliser, Recycler</label><br>
+    <label><input type="radio" name="q26" value="C"> C. Réactiver, Rebooter…</label><br>
+    <label><input type="radio" name="q26" value="D"> D. Recharger, Réduire…</label><br>
+  </div>
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> Ces 5R sont les principes clés de la sobriété et de l’économie circulaire.</p>
+    <p><b>🧠 Mémo :</b> Refuser → Réduire → Réparer → Réutiliser → Recycler.</p>
+  </div>
+</div>
 
-    <h2>📗 Session 3 – Green IT & RSE (Questions 21 à 30)</h2>
+<!-- QUESTION 27 -->
+<div class="qcm-question" id="q27-block">
+  <p><b>27)</b> Part de l’électricité consommée par le numérique en France :</p>
+  <div class="qcm-options">
+    <label><input type="radio" name="q27" value="A"> A. 1%</label><br>
+    <label><input type="radio" name="q27" value="B"> B. 5%</label><br>
+    <label><input type="radio" name="q27" value="C"> C. 10%</label><br>
+    <label><input type="radio" name="q27" value="D"> D. 50%</label><br>
+  </div>
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> C</p>
+    <p><b>Explication :</b> Environ 10% de la consommation électrique est liée au numérique.</p>
+    <p><b>🧠 Mémo :</b> 1 personne sur 10 = image pour 10%.</p>
+  </div>
+</div>
 
-    <!-- QUESTION 21 -->
-    <div class="qcm-question" id="question-21" data-question="21">
-      <p><b>21)</b> Green IT signifie :</p>
-      <div class="qcm-options">
-        <label><input type="radio" name="q21" value="A"> A. Acheter plus de serveurs</label>
-        <label><input type="radio" name="q21" value="B"> B. Réduire l’empreinte écologique du numérique</label>
-        <label><input type="radio" name="q21" value="C"> C. Ajouter du vert dans les interfaces</label>
-        <label><input type="radio" name="q21" value="D"> D. Supprimer le cloud</label>
-      </div>
-      <div class="details-wrap">
-        <details class="correction">
-          <summary>
-            <span class="btn-ferme">Afficher l’explication</span>
-            <span class="btn-ouvert">Masquer</span>
-          </summary>
-        </details>
-      </div>
-      <div class="correction-panel">
-        <p><b>Bonne réponse :</b> B</p>
-        <p><b>Explication :</b> Green IT cherche à réduire l’impact environnemental du numérique.</p>
-        <p><b>🧠 Mémo :</b> “Green” = moins de pollution.</p>
-      </div>
-    </div>
+<!-- QUESTION 28 -->
+<div class="qcm-question" id="q28-block">
+  <p><b>28)</b> Deux facteurs principaux de l’impact numérique :</p>
+  <div class="qcm-options">
+    <label><input type="radio" name="q28" value="A"> A. Moins d’utilisateurs</label><br>
+    <label><input type="radio" name="q28" value="B"> B. Multiplication des équipements + explosion des données</label><br>
+    <label><input type="radio" name="q28" value="C"> C. Baisse de la fibre</label><br>
+    <label><input type="radio" name="q28" value="D"> D. Moins de 5G</label><br>
+  </div>
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> Plus d’appareils et plus de données entraînent mécaniquement plus d’impact.</p>
+    <p><b>🧠 Mémo :</b> “Plus + Plus = Plus”.</p>
+  </div>
+</div>
 
-    <!-- QUESTION 22 -->
-    <div class="qcm-question" id="question-22" data-question="22">
-      <p><b>22)</b> L’urgence climatique signifie :</p>
-      <div class="qcm-options">
-        <label><input type="radio" name="q22" value="A"> A. Une simple alerte</label>
-        <label><input type="radio" name="q22" value="B"> B. Une menace globale exigeant des mesures rapides</label>
-        <label><input type="radio" name="q22" value="C"> C. Une baisse automatique des émissions</label>
-        <label><input type="radio" name="q22" value="D"> D. Une obligation à la 5G</label>
-      </div>
-      <div class="details-wrap">
-        <details class="correction">
-          <summary>
-            <span class="btn-ferme">Afficher l’explication</span>
-            <span class="btn-ouvert">Masquer</span>
-          </summary>
-        </details>
-      </div>
-      <div class="correction-panel">
-        <p><b>Bonne réponse :</b> B</p>
-        <p><b>Explication :</b> L’urgence climatique montre que la planète est en situation critique.</p>
-        <p><b>🧠 Mémo :</b> Urgence = maintenant.</p>
-      </div>
-    </div>
+<!-- QUESTION 29 -->
+<div class="qcm-question" id="q29-block">
+  <p><b>29)</b> L’ACV mesure :</p>
+  <div class="qcm-options">
+    <label><input type="radio" name="q29" value="A"> A. L’usage uniquement</label><br>
+    <label><input type="radio" name="q29" value="B"> B. L’impact écologique sur tout le cycle de vie</label><br>
+    <label><input type="radio" name="q29" value="C"> C. Le trafic Internet</label><br>
+    <label><input type="radio" name="q29" value="D"> D. Les performances CPU</label><br>
+  </div>
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> L’Analyse du Cycle de Vie (ACV) prend tout en compte : extraction, fabrication, usage, fin de vie.</p>
+    <p><b>🧠 Mémo :</b> De la naissance à la mort.</p>
+  </div>
+</div>
 
-    <!-- QUESTION 23 -->
-    <div class="qcm-question" id="question-23" data-question="23">
-      <p><b>23)</b> Le GIEC fait :</p>
-      <div class="qcm-options">
-        <label><input type="radio" name="q23" value="A"> A. Des produits verts</label>
-        <label><input type="radio" name="q23" value="B"> B. Analyse causes, conséquences et recommande</label>
-        <label><input type="radio" name="q23" value="C"> C. Fixe les prix du pétrole</label>
-        <label><input type="radio" name="q23" value="D"> D. Surveille Internet</label>
-      </div>
-      <div class="details-wrap">
-        <details class="correction">
-          <summary>
-            <span class="btn-ferme">Afficher l’explication</span>
-            <span class="btn-ouvert">Masquer</span>
-          </summary>
-        </details>
-      </div>
-      <div class="correction-panel">
-        <p><b>Bonne réponse :</b> B</p>
-        <p><b>Explication :</b> Le GIEC regroupe des experts du climat qui analysent et recommandent des actions.</p>
-        <p><b>🧠 Mémo :</b> GIEC = Guide du climat.</p>
-      </div>
-    </div>
+<!-- QUESTION 30 -->
+<div class="qcm-question" id="q30-block">
+  <p><b>30)</b> “IT for Green” signifie :</p>
+  <div class="qcm-options">
+    <label><input type="radio" name="q30" value="A"> A. L’écologie au service du numérique</label><br>
+    <label><input type="radio" name="q30" value="B"> B. Le numérique au service de l’écologie</label><br>
+    <label><input type="radio" name="q30" value="C"> C. Ajouter du vert dans les sites web</label><br>
+    <label><input type="radio" name="q30" value="D"> D. Débrancher les serveurs</label><br>
+  </div>
+  <div class="correction-panel">
+    <p><b>Bonne réponse :</b> B</p>
+    <p><b>Explication :</b> Il s’agit d’utiliser le numérique pour aider la transition écologique.</p>
+    <p><b>🧠 Mémo :</b> IT “for” Green = IT travaille POUR le Green.</p>
+  </div>
+</div>
 
-    <!-- QUESTION 24 -->
-    <div class="qcm-question" id="question-24" data-question="24">
-      <p><b>24)</b> L’empreinte écologique mesure :</p>
-      <div class="qcm-options">
-        <label><input type="radio" name="q24" value="A"> A. Le chiffre d’affaires</label>
-        <label><input type="radio" name="q24" value="B"> B. Les ressources nécessaires pour soutenir notre mode de vie</label>
-        <label><input type="radio" name="q24" value="C"> C. Le temps écran</label>
-        <label><input type="radio" name="q24" value="D"> D. Le poids du cloud</label>
-      </div>
-      <div class="details-wrap">
-        <details class="correction">
-          <summary>
-            <span class="btn-ferme">Afficher l’explication</span>
-            <span class="btn-ouvert">Masquer</span>
-          </summary>
-        </details>
-      </div>
-      <div class="correction-panel">
-        <p><b>Bonne réponse :</b> B</p>
-        <p><b>Explication :</b> Elle évalue la pression exercée sur les ressources de la planète.</p>
-        <p><b>🧠 Mémo :</b> Empreinte = la trace qu’on laisse.</p>
-      </div>
-    </div>
+<!-- ======================================================= -->
+<!-- ========== VALIDATION GLOBALE DU QCM ================== -->
+<!-- ======================================================= -->
 
-    <!-- QUESTION 25 -->
-    <div class="qcm-question" id="question-25" data-question="25">
-      <p><b>25)</b> La sobriété numérique consiste à :</p>
-      <div class="qcm-options">
-        <label><input type="radio" name="q25" value="A"> A. Interdire les smartphones</label>
-        <label><input type="radio" name="q25" value="B"> B. Réduire les usages et supprimer le superflu</label>
-        <label><input type="radio" name="q25" value="C"> C. Passer en mode avion</label>
-        <label><input type="radio" name="q25" value="D"> D. Utiliser uniquement le Wi-Fi</label>
-      </div>
-      <div class="details-wrap">
-        <details class="correction">
-          <summary>
-            <span class="btn-ferme">Afficher l’explication</span>
-            <span class="btn-ouvert">Masquer</span>
-          </summary>
-        </details>
-      </div>
-      <div class="correction-panel">
-        <p><b>Bonne réponse :</b> B</p>
-        <p><b>Explication :</b> La sobriété numérique invite à modérer et rationaliser les usages.</p>
-        <p><b>🧠 Mémo :</b> Sobriété = pas zéro, mais pas trop.</p>
-      </div>
-    </div>
-
-    <!-- QUESTION 26 -->
-    <div class="qcm-question" id="question-26" data-question="26">
-      <p><b>26)</b> Les “5R” sont :</p>
-      <div class="qcm-options">
-        <label><input type="radio" name="q26" value="A"> A. Réduire, Recycler, Répéter…</label>
-        <label><input type="radio" name="q26" value="B"> B. Refuser, Réduire, Réparer, Réutiliser, Recycler</label>
-        <label><input type="radio" name="q26" value="C"> C. Réactiver, Rebooter…</label>
-        <label><input type="radio" name="q26" value="D"> D. Recharger, Réduire…</label>
-      </div>
-      <div class="details-wrap">
-        <details class="correction">
-          <summary>
-            <span class="btn-ferme">Afficher l’explication</span>
-            <span class="btn-ouvert">Masquer</span>
-          </summary>
-        </details>
-      </div>
-      <div class="correction-panel">
-        <p><b>Bonne réponse :</b> B</p>
-        <p><b>Explication :</b> Ces 5R sont les principes clés de la sobriété et de l’économie circulaire.</p>
-        <p><b>🧠 Mémo :</b> Refuser → Réduire → Réparer → Réutiliser → Recycler.</p>
-      </div>
-    </div>
-
-    <!-- QUESTION 27 -->
-    <div class="qcm-question" id="question-27" data-question="27">
-      <p><b>27)</b> Part de l’électricité consommée par le numérique en France :</p>
-      <div class="qcm-options">
-        <label><input type="radio" name="q27" value="A"> A. 1%</label>
-        <label><input type="radio" name="q27" value="B"> B. 5%</label>
-        <label><input type="radio" name="q27" value="C"> C. 10%</label>
-        <label><input type="radio" name="q27" value="D"> D. 50%</label>
-      </div>
-      <div class="details-wrap">
-        <details class="correction">
-          <summary>
-            <span class="btn-ferme">Afficher l’explication</span>
-            <span class="btn-ouvert">Masquer</span>
-          </summary>
-        </details>
-      </div>
-      <div class="correction-panel">
-        <p><b>Bonne réponse :</b> C</p>
-        <p><b>Explication :</b> Environ 10% de la consommation électrique est liée au numérique.</p>
-        <p><b>🧠 Mémo :</b> 1 personne sur 10 = image pour 10%.</p>
-      </div>
-    </div>
-
-    <!-- QUESTION 28 -->
-    <div class="qcm-question" id="question-28" data-question="28">
-      <p><b>28)</b> Deux facteurs principaux de l’impact numérique :</p>
-      <div class="qcm-options">
-        <label><input type="radio" name="q28" value="A"> A. Moins d’utilisateurs</label>
-        <label><input type="radio" name="q28" value="B"> B. Multiplication des équipements + explosion des données</label>
-        <label><input type="radio" name="q28" value="C"> C. Baisse de la fibre</label>
-        <label><input type="radio" name="q28" value="D"> D. Moins de 5G</label>
-      </div>
-      <div class="details-wrap">
-        <details class="correction">
-          <summary>
-            <span class="btn-ferme">Afficher l’explication</span>
-            <span class="btn-ouvert">Masquer</span>
-          </summary>
-        </details>
-      </div>
-      <div class="correction-panel">
-        <p><b>Bonne réponse :</b> B</p>
-        <p><b>Explication :</b> Plus d’appareils et plus de données entraînent mécaniquement plus d’impact.</p>
-        <p><b>🧠 Mémo :</b> “Plus + Plus = Plus”.</p>
-      </div>
-    </div>
-
-    <!-- QUESTION 29 -->
-    <div class="qcm-question" id="question-29" data-question="29">
-      <p><b>29)</b> L’ACV mesure :</p>
-      <div class="qcm-options">
-        <label><input type="radio" name="q29" value="A"> A. L’usage uniquement</label>
-        <label><input type="radio" name="q29" value="B"> B. L’impact écologique sur tout le cycle de vie</label>
-        <label><input type="radio" name="q29" value="C"> C. Le trafic Internet</label>
-        <label><input type="radio" name="q29" value="D"> D. Les performances CPU</label>
-      </div>
-      <div class="details-wrap">
-        <details class="correction">
-          <summary>
-            <span class="btn-ferme">Afficher l’explication</span>
-            <span class="btn-ouvert">Masquer</span>
-          </summary>
-        </details>
-      </div>
-      <div class="correction-panel">
-        <p><b>Bonne réponse :</b> B</p>
-        <p><b>Explication :</b> L’Analyse du Cycle de Vie (ACV) prend tout en compte : extraction, fabrication, usage, fin de vie.</p>
-        <p><b>🧠 Mémo :</b> De la naissance à la mort.</p>
-      </div>
-    </div>
-
-    <!-- QUESTION 30 -->
-    <div class="qcm-question" id="question-30" data-question="30">
-      <p><b>30)</b> “IT for Green” signifie :</p>
-      <div class="qcm-options">
-        <label><input type="radio" name="q30" value="A"> A. L’écologie au service du numérique</label>
-        <label><input type="radio" name="q30" value="B"> B. Le numérique au service de l’écologie</label>
-        <label><input type="radio" name="q30" value="C"> C. Ajouter du vert dans les sites web</label>
-        <label><input type="radio" name="q30" value="D"> D. Débrancher les serveurs</label>
-      </div>
-      <div class="details-wrap">
-        <details class="correction">
-          <summary>
-            <span class="btn-ferme">Afficher l’explication</span>
-            <span class="btn-ouvert">Masquer</span>
-          </summary>
-        </details>
-      </div>
-      <div class="correction-panel">
-        <p><b>Bonne réponse :</b> B</p>
-        <p><b>Explication :</b> Il s’agit d’utiliser le numérique pour aider la transition écologique.</p>
-        <p><b>🧠 Mémo :</b> IT “for” Green = IT travaille POUR le Green.</p>
-      </div>
-    </div>
-
-    <!-- ======================================================= -->
-    <!-- ========== VALIDATION GLOBALE DU QCM ================== -->
-    <!-- ======================================================= -->
-
-    <div class="qcm-actions">
-      <button id="validate-btn" class="validate-btn">Valider mes réponses</button>
-      <button id="reset-btn" class="reset-btn">Réinitialiser</button>
-    </div>
-
-  </main>
+<div class="qcm-actions">
+  <button id="validate-btn" class="validate-btn">Valider mes réponses</button>
+  <button id="reset-btn" class="reset-btn">Réinitialiser</button>
 </div>
 
 <script src="script.js"></script>
+
 </body>
 </html>
