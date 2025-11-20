@@ -47,22 +47,38 @@ function corrigerQCM() {
     q.style.border = "none";
   });
 
+  // Reset des états des boutons de navigation
+  const navItems = document.querySelectorAll(".nav-item");
+  navItems.forEach(item => {
+    item.classList.remove("nav-item--correct", "nav-item--wrong", "nav-item--missing");
+  });
+
   for (let q = 1; q <= total; q++) {
     const selected = document.querySelector(`input[name="q${q}"]:checked`);
     const good = bonnesReponses[q];
     const block = questions[q - 1];
+    const navItem = document.querySelector(`.nav-item[data-question="${q}"]`);
 
     if (!selected) {
       // Question non répondue
       block.style.border = "3px solid orange";
+      if (navItem) {
+        navItem.classList.add("nav-item--missing");
+      }
       continue;
     }
 
     if (selected.value === good) {
       score++;
       block.style.border = "3px solid lime";
+      if (navItem) {
+        navItem.classList.add("nav-item--correct");
+      }
     } else {
       block.style.border = "3px solid #ff4444";
+      if (navItem) {
+        navItem.classList.add("nav-item--wrong");
+      }
     }
   }
 
@@ -92,10 +108,56 @@ function resetQCM() {
   const scoreBox = document.getElementById("score-result");
   scoreBox.classList.remove("visible");
   scoreBox.innerHTML = "";
+
+  // On remet les boutons de navigation à l'état neutre
+  const navItems = document.querySelectorAll(".nav-item");
+  navItems.forEach(item => {
+    item.classList.remove("nav-item--correct", "nav-item--wrong", "nav-item--missing");
+  });
 }
 
 // ===============================
-//   Initialisation des boutons
+//   Navigation par Q1, Q2, ...
+// ===============================
+function initNavigation() {
+  const navItems = document.querySelectorAll(".nav-item");
+
+  navItems.forEach(item => {
+    item.addEventListener("click", () => {
+      const num = item.getAttribute("data-question");
+      const target = document.getElementById(`q${num}`);
+      if (target) {
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }
+
+      // Sur mobile, on ferme le menu après clic
+      const sideNav = document.querySelector(".side-nav");
+      if (window.innerWidth < 900 && sideNav && sideNav.classList.contains("open")) {
+        sideNav.classList.remove("open");
+      }
+    });
+  });
+}
+
+// ===============================
+//   Gestion du menu burger
+// ===============================
+function initBurgerMenu() {
+  const navToggle = document.getElementById("nav-toggle");
+  const sideNav = document.querySelector(".side-nav");
+
+  if (!navToggle || !sideNav) return;
+
+  navToggle.addEventListener("click", () => {
+    sideNav.classList.toggle("open");
+  });
+}
+
+// ===============================
+//   Initialisation globale
 // ===============================
 document.addEventListener("DOMContentLoaded", () => {
   const validateBtn = document.getElementById("validate-btn");
@@ -108,4 +170,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (resetBtn) {
     resetBtn.addEventListener("click", resetQCM);
   }
+
+  initNavigation();
+  initBurgerMenu();
 });
