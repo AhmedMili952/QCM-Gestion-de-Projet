@@ -1,5 +1,12 @@
 /* ===========================================================
-   THEME QCM — VERSION SIDE BAR + NEON GLASS
+   CSS FINAL — QCM Gestion de Projet
+   -----------------------------------------------------------
+   ✔ Glow néon doux (pas rectangulaire)
+   ✔ Aucune bordure colorée sur les blocs
+   ✔ Explications masquées avant validation
+   ✔ Score animé en haut à droite
+   ✔ Boutons arrondis mais pas trop
+   ✔ QCM 100% mobile friendly
    =========================================================== */
 
 /* ========================= */
@@ -13,499 +20,174 @@ body {
   padding: 0;
   font-family: "Neo Sans Std", sans-serif;
   color: #ffffff;
-}
-
-/* ========================= */
-/*     LAYOUT GENERAL        */
-/* ========================= */
-
-.layout {
-  display: flex;
-  min-height: 100vh;
-}
-
-/* ========================= */
-/*   BOUTON BURGER (MOBILE)  */
-/* ========================= */
-
-.sidebar-toggle {
-  position: fixed;
-  top: 14px;
-  left: 14px;
-  width: 40px;
-  height: 32px;
-  background: rgba(0, 0, 0, 0.65);
-  border-radius: 10px;
-  border: 1px solid rgba(255,255,255,0.15);
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-  padding: 0 9px;
-  cursor: pointer;
-  z-index: 1100;
-}
-
-.sidebar-toggle span {
-  height: 2px;
-  width: 100%;
-  background: #ffffff;
-  border-radius: 999px;
-}
-
-/* ========================= */
-/*      BARRE LATERALE       */
-/* ========================= */
-
-.sidebar {
-  width: 190px;
-  padding: 16px 10px;
-  background: linear-gradient(
-      145deg,
-      rgba(3, 8, 25, 0.96),
-      rgba(8, 18, 40, 0.92)
-    );
-  backdrop-filter: blur(14px);
-  box-shadow: 0 0 26px rgba(0,0,0,0.6);
-  border-right: 1px solid rgba(255,255,255,0.09);
-  position: sticky;
-  top: 0;
-  max-height: 100vh;
-  overflow-y: auto;
-  z-index: 100;
-}
-
-.sidebar-header {
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-.sidebar-title {
-  font-weight: 700;
-  letter-spacing: 1px;
-  font-size: 0.95rem;
-  text-transform: uppercase;
-  color: #e9f5ff;
-  text-shadow: 0 0 10px rgba(80,180,255,0.9);
-}
-
-/* Score dans la barre latérale */
-.score-result {
-  margin: 10px auto 14px;
-  padding: 10px 12px;
-  border-radius: 10px;
-  text-align: center;
-  background: radial-gradient(circle at top, #00c3ff55, #001326dd);
-  border: 1px solid rgba(0, 230, 255, 0.65);
-  font-weight: 700;
-  font-size: 0.9rem;
-  color: #e9fcff;
-  box-shadow: 0 0 18px rgba(0, 230, 255, 0.65);
-}
-
-/* Animation quand le score est mis à jour */
-.score-result.score-bump {
-  animation: scorePulse 0.6s ease;
-}
-
-@keyframes scorePulse {
-  0%   { transform: scale(1);   box-shadow: 0 0 10px rgba(0,255,200,0.5); }
-  40%  { transform: scale(1.05); box-shadow: 0 0 24px rgba(0,255,200,0.9); }
-  100% { transform: scale(1);   box-shadow: 0 0 14px rgba(0,255,200,0.65); }
-}
-
-/* Bouton global explications */
-.toggle-explanations-btn {
-  width: 100%;
-  margin: 0 auto 12px;
-  border-radius: 8px;
-  border: none;
-  padding: 8px 10px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  cursor: pointer;
-  color: #ffffff;
-  background: linear-gradient(135deg, #1e90ff, #00c3ff);
-  box-shadow: 0 0 16px rgba(0, 180, 255, 0.65);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
-}
-
-.toggle-explanations-btn:hover:not(.disabled) {
-  transform: translateY(-1px);
-  box-shadow: 0 0 22px rgba(0, 210, 255, 0.9);
-}
-
-.toggle-explanations-btn.disabled {
-  cursor: default;
-  opacity: 0.65;
-  box-shadow: 0 0 10px rgba(180, 180, 180, 0.4);
-}
-
-/* Liste des questions */
-.sidebar-list {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  margin-top: 4px;
-  padding-bottom: 10px;
-}
-
-.nav-question {
-  border: none;
-  border-radius: 8px;
-  padding: 7px 0;
-  font-size: 0.85rem;
-  font-weight: 600;
-  cursor: pointer;
-  color: #f5f8ff;
-  background: radial-gradient(circle at top, #323644, #181b27);
-  box-shadow: 0 0 10px rgba(0,0,0,0.65);
-  border: 1px solid rgba(255,255,255,0.08);
-  transition:
-    background 0.25s ease,
-    box-shadow 0.25s ease,
-    transform 0.18s ease,
-    border-color 0.2s ease;
-}
-
-.nav-question:hover {
-  transform: translateY(-1px);
-  border-color: rgba(0, 180, 255, 0.8);
-  box-shadow: 0 0 15px rgba(0, 180, 255, 0.6);
-}
-
-/* États après validation */
-.nav-question.good {
-  background: radial-gradient(circle at top, #00c853, #006b2d);
-  border-color: #00ff80;
-  box-shadow: 0 0 16px rgba(0,255,150,0.8);
-}
-
-.nav-question.bad {
-  background: radial-gradient(circle at top, #ff5252, #7f1010);
-  border-color: #ff9a9a;
-  box-shadow: 0 0 16px rgba(255,80,80,0.9);
-}
-
-.nav-question.missing {
-  background: radial-gradient(circle at top, #ffb300, #7a5100);
-  border-color: #ffe082;
-  box-shadow: 0 0 16px rgba(255,190,80,0.9);
-}
-
-/* ========================= */
-/*       CONTENU PRINCIPAL   */
-/* ========================= */
-
-.main-content {
-  flex: 1;
-  padding: 30px 4vw 50px;
   text-align: center;
 }
+
+
+/* ========================= */
+/*       TITRES              */
+/* ========================= */
 
 h1, h2 {
-  margin: 20px auto 16px;
+  margin: 40px auto 20px auto;
+  width: 100%;
   text-align: center;
-  text-shadow: 0 0 12px rgba(180,220,255,0.7);
+  text-shadow: 0 0 10px rgba(190,220,255,0.6);
 }
 
+
 /* ========================= */
-/*    BLOC DES QCM QUESTIONS */
+/*   BLOC QUESTION QCM       */
 /* ========================= */
 
 .qcm-question {
   background: rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(7px);
-  padding: 24px 26px;
-  margin: 26px auto;
-  border-radius: 16px;
-  max-width: 760px;
-  width: 100%;
-  transition: border 0.25s ease, box-shadow 0.35s ease;
-  box-shadow: 0 0 14px rgba(0,0,0,0.5);
-  border: 2px solid transparent;
+  backdrop-filter: blur(6px);
+  padding: 22px;
+  margin: 28px auto;
+  border-radius: 18px;
+  max-width: 720px;
+  width: 90%;
+  box-shadow: 0 0 14px rgba(0,0,0,0.45);
+  transition: box-shadow 0.35s ease;
 }
 
-/* Glow léger au hover */
-@media (hover: hover) and (pointer: fine) {
+/* léger glow au hover */
+@media (hover:hover) and (pointer:fine) {
   .qcm-question:hover {
-    box-shadow: 0 0 24px rgba(0,150,255,0.35);
+    box-shadow: 0 0 20px rgba(0,160,255,0.35);
   }
 }
 
-/* Texte */
-.qcm-question p {
-  text-align: left;
-  margin: 0 auto;
-  line-height: 1.45;
-  max-width: 720px;
-}
-
-/* ========================= */
-/*   OPTIONS A/B/C/D         */
-/* ========================= */
-
-.qcm-options {
-  margin-top: 16px;
-}
-
 .qcm-options label {
-  display: block;
-  background: rgba(15, 15, 20, 0.88);
-  padding: 12px 18px;
-  border-radius: 12px;
-  margin: 8px auto;
-  max-width: 720px;
-  text-align: left;
   cursor: pointer;
-  border: 1px solid rgba(255,255,255,0.08);
-
-  font-size: 0.98rem;
-  line-height: 1.4;
-
-  transition:
-    background 0.25s ease,
-    transform 0.2s ease,
-    box-shadow 0.25s ease,
-    border-color 0.25s ease;
+  display: block;
+  margin: 6px auto;
+  text-align: left;
+  max-width: 500px;
 }
 
-.qcm-options input[type="radio"] {
-  margin-right: 10px;
-  transform: scale(1.25);
-}
-
-/* Hover néon */
-.qcm-options label:hover {
-  background: rgba(35, 35, 45, 0.98);
-  transform: translateY(-2px);
-  border-color: #00aaffaa;
-  box-shadow: 0 0 15px #00aaff66;
-}
-
-/* Option sélectionnée */
-.qcm-options label:has(input[type="radio"]:checked) {
-  background: rgba(0,110,255,0.85);
-  border-color: #00c3ff;
-  box-shadow: 0 0 18px #009dff99;
-  color: white;
-}
 
 /* ========================= */
-/*  PANNEAU DE CORRECTION    */
+/*   STYLES DES RÉPONSES     */
+/* ========================= */
+
+.qcm-options input[type=radio] {
+  accent-color: #00c3ff;
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+/* Couleurs appliquées APRES validation */
+.correct-answer {
+  background: rgba(0,180,90,0.28);
+  border-radius: 10px;
+  padding: 4px 6px;
+}
+
+.wrong-answer {
+  background: rgba(255,70,70,0.28);
+  border-radius: 10px;
+  padding: 4px 6px;
+}
+
+
+/* ========================= */
+/*   PANNEAU D’EXPLICATION   */
 /* ========================= */
 
 .correction-panel {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.88);
   color: #111 !important;
-  padding: 18px 20px;
-  margin-top: 10px;
+  padding: 20px;
+  margin-top: 12px;
   border-radius: 14px;
   text-align: left;
-  max-width: 720px;
+  max-width: 650px;
   margin-left: auto;
   margin-right: auto;
-
   opacity: 0;
-  transform: translateY(-5px);
+  transform: translateY(-6px);
   pointer-events: none;
-
-  box-shadow: 0 0 16px rgba(255,255,255,0.4);
-
+  box-shadow: 0 0 14px rgba(255,255,255,0.35);
   transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
-/* Panel visible */
-.details-wrap:has(> details[open]) + .correction-panel {
+/* Devient visible après validation */
+.correction-panel.visible {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
 }
 
-/* Animation interne du texte */
-.correction-panel p {
-  opacity: 0;
-  transform: translateY(4px);
-  transition: opacity 0.35s ease, transform 0.35s ease;
-}
-
-.details-wrap:has(> details[open]) + .correction-panel p {
-  opacity: 1;
-  transform: translateY(0);
-}
 
 /* ========================= */
-/*   STRUCTURE DES BOUTONS   */
-/* ========================= */
-
-.correction summary {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 260px;
-  height: 40px;
-
-  cursor: pointer;
-  user-select: none;
-  overflow: hidden;
-}
-
-/* Spans animés */
-.correction summary .btn-ferme,
-.correction summary .btn-ouvert {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  opacity: 0;
-  transition: opacity 0.35s ease-in-out;
-}
-
-/* État par défaut */
-.correction summary .btn-ferme { opacity: 1; }
-
-/* État ouvert */
-.correction[open] summary .btn-ferme { opacity: 0; }
-.correction[open] summary .btn-ouvert { opacity: 1; }
-
-/* Quand la correction est forcée ouverte après validation :
-   on masque complètement le bouton pour ne laisser que le panel */
-.correction.force-open > summary {
-  display: none;
-}
-
-/* ========================= */
-/*     STYLE DES BOUTONS     */
-/* ========================= */
-
-.correction .btn-ferme,
-.correction .btn-ouvert {
-  border-radius: 10px;
-  padding: 8px 14px;
-  font-weight: 600;
-  font-family: "Neo Sans Std", sans-serif;
-  color: white;
-
-  box-shadow: 0 0 14px rgba(0,180,255,0.55);
-
-  transition:
-    transform 0.30s cubic-bezier(0.22,1,0.36,1),
-    box-shadow 0.35s ease,
-    filter 0.2s ease;
-}
-
-.correction .btn-ferme {
-  background: radial-gradient(circle at top, #0094FF, #00C3FF);
-}
-
-.correction .btn-ouvert {
-  background: radial-gradient(circle at top, #FFA033, #FFCC66);
-  box-shadow: 0 0 14px rgba(255,180,80,0.55);
-}
-
-/* Hover néon */
-@media (hover: hover) and (pointer: fine) {
-  .correction summary span[class^="btn-"]:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 0 18px rgba(0,200,255,0.85);
-  }
-}
-
-/* ========================= */
-/*  BOUTONS VALIDER / RESET  */
+/*   BOUTONS GLOBAUX         */
 /* ========================= */
 
 .qcm-actions {
-  margin: 40px auto 60px;
+  margin: 45px auto 60px;
   display: flex;
   justify-content: center;
-  gap: 18px;
+  gap: 20px;
 }
 
 .validate-btn,
 .reset-btn {
   border: none;
-  border-radius: 999px;
-  padding: 13px 30px;
+  border-radius: 14px;   /* légèrement arrondi */
+  padding: 14px 32px;
   font-family: "Neo Sans Std", sans-serif;
-  font-size: 1.02rem;
+  font-size: 1.05rem;
   font-weight: 600;
   cursor: pointer;
-
   transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
 }
 
-/* Glow néon VERT */
+/* Bouton VERT */
 .validate-btn {
-  background: radial-gradient(circle at top, #00ff6a, #00c853);
+  background: linear-gradient(135deg, #00ff6a, #00c853);
   color: white;
-  box-shadow: 0 0 18px rgba(0,255,90,0.7);
+  box-shadow: 0 0 18px rgba(0,255,90,0.55);
 }
 
-/* Glow néon ROUGE LÉGER */
+/* Bouton ROUGE (reset) */
 .reset-btn {
-  background: radial-gradient(circle at top, #ff6b6b, #ff8787);
+  background: linear-gradient(135deg, #ff6b6b, #ff8787);
   color: white;
-  box-shadow: 0 0 16px rgba(255,90,90,0.55);
+  box-shadow: 0 0 18px rgba(255,90,90,0.55);
 }
 
-/* Hover PC */
-@media (hover: hover) and (pointer: fine) {
+/* Hover desktop */
+@media (hover:hover) and (pointer:fine) {
   .validate-btn:hover,
   .reset-btn:hover {
     transform: translateY(-3px) scale(1.04);
-    box-shadow: 0 0 26px rgba(0,255,120,0.85);
-  }
-
-  .reset-btn:hover {
-    box-shadow: 0 0 26px rgba(255,70,70,0.85);
   }
 }
 
-/* Pression mobile */
-@media (hover: none) and (pointer: coarse) {
-  .validate-btn:active,
-  .reset-btn:active {
-    transform: scale(0.95);
-    box-shadow: 0 0 10px rgba(0,255,120,0.55);
-  }
+
+/* ========================= */
+/*     SCORE ANIMÉ           */
+/* ========================= */
+
+.score-result {
+  position: fixed;
+  top: 20px;
+  right: 50%;
+  transform: translateX(50%) translateY(-10px);
+  background: rgba(0,0,0,0.78);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 14px;
+  font-weight: 700;
+  opacity: 0;
+  box-shadow: 0 0 20px rgba(0,200,255,0.6);
+  transition: opacity 0.4s ease, transform 0.35s ease;
+  z-index: 1000;
 }
 
-/* ========================= */
-/*       RESPONSIVE          */
-/* ========================= */
-
-@media (max-width: 900px) {
-
-  .sidebar-toggle {
-    display: flex;
-  }
-
-  .layout {
-    padding-top: 56px;
-  }
-
-  .sidebar {
-    position: fixed;
-    left: 0;
-    top: 0;
-    transform: translateX(-100%);
-    transition: transform 0.25s ease;
-  }
-
-  body.sidebar-open .sidebar {
-    transform: translateX(0);
-  }
-
-  .main-content {
-    padding: 24px 16px 40px;
-  }
-
-  .qcm-question {
-    margin: 20px auto;
-  }
+.score-result.visible {
+  opacity: 1;
+  transform: translateX(50%) translateY(0);
 }
