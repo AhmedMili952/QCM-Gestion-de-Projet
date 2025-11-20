@@ -1,93 +1,105 @@
 /* ===========================================================
-   SCRIPT FINAL — Gestion QCM
-   -----------------------------------------------------------
-   ✔ Bloque les réponses après validation
-   ✔ Colore VERT ou ROUGE la réponse sélectionnée
-   ✔ Affiche toutes les explications automatiquement
-   ✔ Score animé au centre en haut
-   ✔ Reset complet
+   SCRIPT FINAL — QCM
    =========================================================== */
 
-document.getElementById("validate-btn").addEventListener("click", validateQCM);
-document.getElementById("reset-btn").addEventListener("click", resetQCM);
+const validateBtn = document.getElementById("validateBtn");
+const resetBtn = document.getElementById("resetBtn");
+const openAllBtn = document.getElementById("openAllBtn");
+const scoreBox = document.getElementById("scoreBox");
 
-function validateQCM() {
+let validated = false;
+
+/* ============================ */
+/*  LISTE DES BONNES RÉPONSES   */
+/* ============================ */
+
+const answers = {
+    q1: "B",
+    q2: "B",
+    q3: "C",
+    q4: "A",
+    q5: "B",
+    q6: "B",
+    q7: "C",
+    q8: "C",
+    q9: "D",
+    q10:"B",
+    q11:"A",
+    q12:"C",
+    q13:"D",
+    q14:"B",
+    q15:"C",
+    q16:"A",
+    q17:"D",
+    q18:"B",
+    q19:"A",
+    q20:"C",
+    q21:"B",
+    q22:"D",
+    q23:"A",
+    q24:"C",
+    q25:"B",
+    q26:"B",
+    q27:"C",
+    q28:"A",
+    q29:"B",
+    q30:"B"
+};
+
+/* ============================ */
+/*       VALIDATION QCM        */
+/* ============================ */
+
+validateBtn.addEventListener("click", () => {
+    if (validated) return;
+
+    validated = true;
     let score = 0;
-    const total = 30;
 
-    // parcourt toutes les questions
-    for (let i = 1; i <= total; i++) {
+    Object.keys(answers).forEach(q => {
+        const correct = answers[q];
+        const inputs = document.querySelectorAll(`input[name="${q}"]`);
+        const explanation = document.querySelector(`#${q} .explanation`);
 
-        const questionName = "q" + i;
-        const selected = document.querySelector(`input[name=${questionName}]:checked`);
-        const correctionPanel = document.querySelector(`#q${i}-block .correction-panel`);
+        inputs.forEach(input => {
+            const parent = input.parentElement;
 
-        // récupère la bonne réponse (dans le panel)
-        const good = correctionPanel.querySelector("p b").innerText.replace("Bonne réponse :", "").trim();
+            parent.style.pointerEvents = "none";
 
-        // colore les réponses
-        const labels = document.querySelectorAll(`#q${i}-block .qcm-options label`);
-
-        labels.forEach(label => label.classList.remove("correct-answer", "wrong-answer"));
-
-        if (selected) {
-            const value = selected.value;
-
-            if (value === good) {
-                score++;
-                selected.parentElement.classList.add("correct-answer");
-            } else {
-                selected.parentElement.classList.add("wrong-answer");
-
-                // met la bonne réponse en vert
-                labels.forEach(l => {
-                    if (l.innerText.trim().startsWith(good)) {
-                        l.classList.add("correct-answer");
-                    }
-                });
+            if (input.value === correct) {
+                parent.classList.add("correct");
             }
-        }
 
-        // bloque les boutons radio
-        const radios = document.querySelectorAll(`#q${i}-block input[type=radio]`);
-        radios.forEach(r => r.disabled = true);
+            if (input.checked && input.value === correct) {
+                parent.classList.add("selected-correct");
+                score++;
+            }
 
-        // affiche le panneau d’explication
-        correctionPanel.classList.add("visible");
-    }
-
-    // affiche le score
-    const scoreBox = document.getElementById("score-result");
-    scoreBox.innerText = `Score : ${score} / ${total}`;
-    scoreBox.classList.add("visible");
-}
-
-
-function resetQCM() {
-    const total = 30;
-
-    for (let i = 1; i <= total; i++) {
-
-        const block = document.getElementById(`q${i}-block`);
-        const labels = block.querySelectorAll(".qcm-options label");
-        const radios = block.querySelectorAll("input[type=radio]");
-        const panel = block.querySelector(".correction-panel");
-
-        // reset radio
-        radios.forEach(r => {
-            r.checked = false;
-            r.disabled = false;
+            if (input.checked && input.value !== correct) {
+                parent.classList.add("wrong");
+            }
         });
 
-        // reset couleurs
-        labels.forEach(l => l.classList.remove("correct-answer", "wrong-answer"));
+        explanation.style.display = "block";
+    });
 
-        // cacher explications
-        panel.classList.remove("visible");
-    }
+    scoreBox.textContent = `Score : ${score} / 30`;
+});
 
-    // cacher score
-    const scoreBox = document.getElementById("score-result");
-    scoreBox.classList.remove("visible");
-    scoreBox.innerText = "";
-}
+/* ============================ */
+/*     RÉINITIALISATION         */
+/* ============================ */
+
+resetBtn.addEventListener("click", () => {
+    location.reload();
+});
+
+/* ============================ */
+/*   AFFICHER TOUTES LES EXPL   */
+/* ============================ */
+
+openAllBtn.addEventListener("click", () => {
+    document.querySelectorAll(".explanation").forEach(exp => {
+        exp.style.display = "block";
+    });
+});
