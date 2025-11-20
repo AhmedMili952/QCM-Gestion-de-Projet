@@ -1,20 +1,10 @@
 /* ===========================================================
-   SNIPPET : toggle-correction.css — VERSION NÉON + NAV LATERALE
-   -----------------------------------------------------------
-   ✔ Glow néon partout (boutons, panels, score)
-   ✔ Fade-in / fade-out restauré
-   ✔ QCM full responsive
-   ✔ Menu latéral verre dépoli (Q1 → Q30)
-   ✔ Score en haut au milieu, animé
+   THEME QCM — VERSION SIDE BAR + NEON GLASS
    =========================================================== */
 
 /* ========================= */
 /*     FOND D'ÉCRAN GLOBAL   */
 /* ========================= */
-
-html {
-  scroll-behavior: smooth;
-}
 
 body {
   background: url("MontagneNuit.jpg") no-repeat center center fixed;
@@ -23,188 +13,198 @@ body {
   padding: 0;
   font-family: "Neo Sans Std", sans-serif;
   color: #ffffff;
-  text-align: center;
-}
-
-/* On réserve la place du menu latéral sur desktop */
-@media (min-width: 900px) {
-  body {
-    padding-left: 230px;
-  }
 }
 
 /* ========================= */
-/*  BOUTON BURGER (MOBILE)   */
+/*     LAYOUT GENERAL        */
 /* ========================= */
 
-.nav-toggle {
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ========================= */
+/*   BOUTON BURGER (MOBILE)  */
+/* ========================= */
+
+.sidebar-toggle {
   position: fixed;
-  top: 16px;
-  left: 16px;
-  z-index: 950;
-  border: 1px solid rgba(255,255,255,0.3);
+  top: 14px;
+  left: 14px;
+  width: 40px;
+  height: 32px;
+  background: rgba(0, 0, 0, 0.65);
   border-radius: 10px;
-  background: rgba(0,0,0,0.75);
-  color: #fff;
-  font-size: 1.1rem;
-  padding: 6px 10px;
-  cursor: pointer;
+  border: 1px solid rgba(255,255,255,0.15);
   display: none;
-  box-shadow: 0 0 12px rgba(0,0,0,0.7);
-}
-
-@media (max-width: 899px) {
-  .nav-toggle {
-    display: block;
-  }
-}
-
-/* ========================= */
-/*  MENU LATERAL VERRE       */
-/* ========================= */
-
-.side-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-
-  padding: 18px 14px 18px 14px;
-  box-sizing: border-box;
-
-  background: rgba(10, 10, 25, 0.82);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-
-  border-right: 1px solid rgba(255,255,255,0.08);
-  box-shadow: 0 0 28px rgba(0,0,0,0.9);
-
-  display: flex;
   flex-direction: column;
-  gap: 14px;
-
-  z-index: 900;
-}
-
-/* Largeur différente selon écran */
-@media (min-width: 900px) {
-  .side-nav {
-    width: 210px;
-  }
-}
-
-@media (max-width: 899px) {
-  .side-nav {
-    width: 220px;
-    transform: translateX(-110%);
-    transition: transform 0.3s ease;
-  }
-
-  .side-nav.open {
-    transform: translateX(0);
-  }
-
-  /* On évite que le h1 soit caché derrière le header mobile */
-  h1 {
-    margin-top: 70px;
-  }
-}
-
-/* En-tête du menu */
-.nav-header {
-  padding-bottom: 4px;
-  border-bottom: 1px solid rgba(255,255,255,0.15);
-}
-
-.nav-title {
-  font-size: 1.05rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: #e0f3ff;
-  text-shadow: 0 0 10px rgba(0,180,255,0.7);
-}
-
-/* Liste des Q1 → Q30 */
-.nav-list {
-  margin-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  overflow-y: auto;
-  padding-right: 4px;
-}
-
-/* Scroll fin */
-.nav-list::-webkit-scrollbar {
-  width: 6px;
-}
-.nav-list::-webkit-scrollbar-track {
-  background: transparent;
-}
-.nav-list::-webkit-scrollbar-thumb {
-  background: rgba(255,255,255,0.25);
-  border-radius: 8px;
-}
-
-/* Boutons Q1, Q2, ... */
-.nav-item {
-  width: 100%;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.08);
-  background: rgba(255,255,255,0.05);
-  color: #e4f6ff;
-  font-size: 0.95rem;
-  padding: 7px 10px;
-  text-align: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 0 9px;
   cursor: pointer;
+  z-index: 1100;
+}
 
+.sidebar-toggle span {
+  height: 2px;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 999px;
+}
+
+/* ========================= */
+/*      BARRE LATERALE       */
+/* ========================= */
+
+.sidebar {
+  width: 190px;
+  padding: 16px 10px;
+  background: linear-gradient(
+      145deg,
+      rgba(3, 8, 25, 0.96),
+      rgba(8, 18, 40, 0.92)
+    );
+  backdrop-filter: blur(14px);
+  box-shadow: 0 0 26px rgba(0,0,0,0.6);
+  border-right: 1px solid rgba(255,255,255,0.09);
+  position: sticky;
+  top: 0;
+  max-height: 100vh;
+  overflow-y: auto;
+  z-index: 100;
+}
+
+.sidebar-header {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.sidebar-title {
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  color: #e9f5ff;
+  text-shadow: 0 0 10px rgba(80,180,255,0.9);
+}
+
+/* Score dans la barre latérale */
+.score-result {
+  margin: 10px auto 14px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  text-align: center;
+  background: radial-gradient(circle at top, #00c3ff55, #001326dd);
+  border: 1px solid rgba(0, 230, 255, 0.65);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #e9fcff;
+  box-shadow: 0 0 18px rgba(0, 230, 255, 0.65);
+}
+
+/* Animation quand le score est mis à jour */
+.score-result.score-bump {
+  animation: scorePulse 0.6s ease;
+}
+
+@keyframes scorePulse {
+  0%   { transform: scale(1);   box-shadow: 0 0 10px rgba(0,255,200,0.5); }
+  40%  { transform: scale(1.05); box-shadow: 0 0 24px rgba(0,255,200,0.9); }
+  100% { transform: scale(1);   box-shadow: 0 0 14px rgba(0,255,200,0.65); }
+}
+
+/* Bouton global explications */
+.toggle-explanations-btn {
+  width: 100%;
+  margin: 0 auto 12px;
+  border-radius: 8px;
+  border: none;
+  padding: 8px 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #ffffff;
+  background: linear-gradient(135deg, #1e90ff, #00c3ff);
+  box-shadow: 0 0 16px rgba(0, 180, 255, 0.65);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.toggle-explanations-btn:hover:not(.disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 0 22px rgba(0, 210, 255, 0.9);
+}
+
+.toggle-explanations-btn.disabled {
+  cursor: default;
+  opacity: 0.65;
+  box-shadow: 0 0 10px rgba(180, 180, 180, 0.4);
+}
+
+/* Liste des questions */
+.sidebar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 4px;
+  padding-bottom: 10px;
+}
+
+.nav-question {
+  border: none;
+  border-radius: 8px;
+  padding: 7px 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #f5f8ff;
+  background: radial-gradient(circle at top, #323644, #181b27);
+  box-shadow: 0 0 10px rgba(0,0,0,0.65);
+  border: 1px solid rgba(255,255,255,0.08);
   transition:
     background 0.25s ease,
-    transform 0.2s ease,
     box-shadow 0.25s ease,
-    border-color 0.25s ease;
+    transform 0.18s ease,
+    border-color 0.2s ease;
 }
 
-/* Hover de base */
-@media (hover: hover) and (pointer: fine) {
-  .nav-item:hover {
-    background: rgba(0,140,255,0.3);
-    border-color: rgba(0,200,255,0.9);
-    box-shadow: 0 0 14px rgba(0,160,255,0.7);
-    transform: translateY(-1px);
-  }
+.nav-question:hover {
+  transform: translateY(-1px);
+  border-color: rgba(0, 180, 255, 0.8);
+  box-shadow: 0 0 15px rgba(0, 180, 255, 0.6);
 }
 
-/* États colorés liés aux réponses */
-.nav-item--correct {
-  background: linear-gradient(135deg, #00c853, #00e676);
-  border-color: #00ff90;
-  box-shadow: 0 0 18px rgba(0,255,120,0.9);
-  color: #ffffff;
+/* États après validation */
+.nav-question.good {
+  background: radial-gradient(circle at top, #00c853, #006b2d);
+  border-color: #00ff80;
+  box-shadow: 0 0 16px rgba(0,255,150,0.8);
 }
 
-.nav-item--wrong {
-  background: linear-gradient(135deg, #ff5252, #ff1744);
-  border-color: #ffb3b3;
-  box-shadow: 0 0 18px rgba(255,80,80,0.9);
-  color: #ffffff;
+.nav-question.bad {
+  background: radial-gradient(circle at top, #ff5252, #7f1010);
+  border-color: #ff9a9a;
+  box-shadow: 0 0 16px rgba(255,80,80,0.9);
 }
 
-.nav-item--missing {
-  background: linear-gradient(135deg, #ffb300, #ffca28);
+.nav-question.missing {
+  background: radial-gradient(circle at top, #ffb300, #7a5100);
   border-color: #ffe082;
-  box-shadow: 0 0 18px rgba(255,210,0,0.9);
-  color: #111111;
+  box-shadow: 0 0 16px rgba(255,190,80,0.9);
 }
 
 /* ========================= */
-/*       TITRES GÉNÉRAUX     */
+/*       CONTENU PRINCIPAL   */
 /* ========================= */
+
+.main-content {
+  flex: 1;
+  padding: 30px 4vw 50px;
+  text-align: center;
+}
 
 h1, h2 {
-  margin: 40px auto 20px auto;
-  width: 100%;
+  margin: 20px auto 16px;
   text-align: center;
   text-shadow: 0 0 12px rgba(180,220,255,0.7);
 }
@@ -215,53 +215,52 @@ h1, h2 {
 
 .qcm-question {
   background: rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(6px);
-  padding: 25px;
-  margin: 30px auto;
-  border-radius: 20px;
-  max-width: 720px;
-  width: 90%;
+  backdrop-filter: blur(7px);
+  padding: 24px 26px;
+  margin: 26px auto;
+  border-radius: 16px;
+  max-width: 760px;
+  width: 100%;
   transition: border 0.25s ease, box-shadow 0.35s ease;
-  box-shadow: 0 0 14px rgba(0,0,0,0.45);
+  box-shadow: 0 0 14px rgba(0,0,0,0.5);
+  border: 2px solid transparent;
 }
 
 /* Glow léger au hover */
 @media (hover: hover) and (pointer: fine) {
   .qcm-question:hover {
-    box-shadow: 0 0 25px rgba(0,150,255,0.35);
+    box-shadow: 0 0 24px rgba(0,150,255,0.35);
   }
 }
 
-/* ========================= */
-/*        TEXTES QCM         */
-/* ========================= */
-
+/* Texte */
 .qcm-question p {
-  text-align: center;
+  text-align: left;
   margin: 0 auto;
   line-height: 1.45;
+  max-width: 720px;
 }
 
-/* ===========================================================
-   STYLE DES OPTIONS A/B/C/D — VERSION BOUTONS ARRONDIS MODERNES
-   =========================================================== */
+/* ========================= */
+/*   OPTIONS A/B/C/D         */
+/* ========================= */
 
 .qcm-options {
-  margin-top: 18px;
+  margin-top: 16px;
 }
 
 .qcm-options label {
   display: block;
-  background: rgba(20,20,20,0.85);
-  padding: 14px 20px;
-  border-radius: 14px;
-  margin: 10px auto;
-  max-width: 640px;
+  background: rgba(15, 15, 20, 0.88);
+  padding: 12px 18px;
+  border-radius: 12px;
+  margin: 8px auto;
+  max-width: 720px;
   text-align: left;
   cursor: pointer;
   border: 1px solid rgba(255,255,255,0.08);
 
-  font-size: 1rem;
+  font-size: 0.98rem;
   line-height: 1.4;
 
   transition:
@@ -271,24 +270,20 @@ h1, h2 {
     border-color 0.25s ease;
 }
 
-/* Style du bouton radio */
 .qcm-options input[type="radio"] {
   margin-right: 10px;
   transform: scale(1.25);
 }
 
-/* Effet hover néon */
-@media (hover: hover) and (pointer: fine) {
-  .qcm-options label:hover {
-    background: rgba(35,35,35,0.95);
-    transform: translateY(-2px);
-    border-color: #00aaffaa;
-    box-shadow: 0 0 15px #00aaff66;
-  }
+/* Hover néon */
+.qcm-options label:hover {
+  background: rgba(35, 35, 45, 0.98);
+  transform: translateY(-2px);
+  border-color: #00aaffaa;
+  box-shadow: 0 0 15px #00aaff66;
 }
 
 /* Option sélectionnée */
-.qcm-options input[type="radio"]:checked + label,
 .qcm-options label:has(input[type="radio"]:checked) {
   background: rgba(0,110,255,0.85);
   border-color: #00c3ff;
@@ -301,13 +296,13 @@ h1, h2 {
 /* ========================= */
 
 .correction-panel {
-  background: rgba(255, 255, 255, 0.88);
+  background: rgba(255, 255, 255, 0.9);
   color: #111 !important;
-  padding: 20px;
+  padding: 18px 20px;
   margin-top: 10px;
-  border-radius: 15px;
+  border-radius: 14px;
   text-align: left;
-  max-width: 650px;
+  max-width: 720px;
   margin-left: auto;
   margin-right: auto;
 
@@ -315,7 +310,6 @@ h1, h2 {
   transform: translateY(-5px);
   pointer-events: none;
 
-  /* Glow subtil */
   box-shadow: 0 0 16px rgba(255,255,255,0.4);
 
   transition: opacity 0.35s ease, transform 0.35s ease;
@@ -328,7 +322,7 @@ h1, h2 {
   pointer-events: auto;
 }
 
-/* Animation interne */
+/* Animation interne du texte */
 .correction-panel p {
   opacity: 0;
   transform: translateY(4px);
@@ -351,7 +345,7 @@ h1, h2 {
   justify-content: center;
 
   width: 260px;
-  height: 42px;
+  height: 40px;
 
   cursor: pointer;
   user-select: none;
@@ -362,11 +356,7 @@ h1, h2 {
 .correction summary .btn-ferme,
 .correction summary .btn-ouvert {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-
+  inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -382,19 +372,25 @@ h1, h2 {
 .correction[open] summary .btn-ferme { opacity: 0; }
 .correction[open] summary .btn-ouvert { opacity: 1; }
 
+/* Quand la correction est forcée ouverte après validation :
+   on masque complètement le bouton pour ne laisser que le panel */
+.correction.force-open > summary {
+  display: none;
+}
+
 /* ========================= */
 /*     STYLE DES BOUTONS     */
 /* ========================= */
 
 .correction .btn-ferme,
 .correction .btn-ouvert {
-  border-radius: 12px;
+  border-radius: 10px;
   padding: 8px 14px;
   font-weight: 600;
   font-family: "Neo Sans Std", sans-serif;
   color: white;
 
-  box-shadow: 0 0 12px rgba(0,180,255,0.55);
+  box-shadow: 0 0 14px rgba(0,180,255,0.55);
 
   transition:
     transform 0.30s cubic-bezier(0.22,1,0.36,1),
@@ -403,64 +399,20 @@ h1, h2 {
 }
 
 .correction .btn-ferme {
-  background: linear-gradient(135deg, #0094FF, #00C3FF);
+  background: radial-gradient(circle at top, #0094FF, #00C3FF);
 }
 
 .correction .btn-ouvert {
-  background: linear-gradient(135deg, #FFA033, #FFCC66);
-  box-shadow: 0 0 12px rgba(255,180,80,0.55);
+  background: radial-gradient(circle at top, #FFA033, #FFCC66);
+  box-shadow: 0 0 14px rgba(255,180,80,0.55);
 }
 
 /* Hover néon */
 @media (hover: hover) and (pointer: fine) {
   .correction summary span[class^="btn-"]:hover {
-    transform: translateY(-3px) scale(1.06);
+    transform: translateY(-3px) scale(1.05);
     box-shadow: 0 0 18px rgba(0,200,255,0.85);
   }
-}
-
-/* ========================= */
-/*   SCORE EN HAUT CENTRE    */
-/* ========================= */
-
-@keyframes neonPulse {
-  0% {
-    box-shadow: 0 0 16px rgba(0,200,255,0.7);
-  }
-  50% {
-    box-shadow: 0 0 30px rgba(0,255,255,1);
-  }
-  100% {
-    box-shadow: 0 0 16px rgba(0,200,255,0.7);
-  }
-}
-
-.score-result {
-  position: fixed;
-  top: 18px;
-  left: 50%;
-  transform: translate(-50%, -14px);
-
-  background: rgba(0,0,0,0.83);
-  color: #fff;
-
-  padding: 12px 22px;
-  border-radius: 18px;
-  font-weight: 700;
-  font-size: 0.98rem;
-
-  opacity: 0;
-
-  box-shadow: 0 0 16px rgba(0,200,255,0.7);
-
-  transition: opacity 0.4s ease, transform 0.35s ease;
-  z-index: 1000;
-}
-
-.score-result.visible {
-  opacity: 1;
-  transform: translate(-50%, 0);
-  animation: neonPulse 1.5s ease-in-out 2;
 }
 
 /* ========================= */
@@ -468,7 +420,7 @@ h1, h2 {
 /* ========================= */
 
 .qcm-actions {
-  margin: 45px auto 60px;
+  margin: 40px auto 60px;
   display: flex;
   justify-content: center;
   gap: 18px;
@@ -478,10 +430,9 @@ h1, h2 {
 .reset-btn {
   border: none;
   border-radius: 999px;
-
-  padding: 14px 32px;
+  padding: 13px 30px;
   font-family: "Neo Sans Std", sans-serif;
-  font-size: 1.05rem;
+  font-size: 1.02rem;
   font-weight: 600;
   cursor: pointer;
 
@@ -490,14 +441,14 @@ h1, h2 {
 
 /* Glow néon VERT */
 .validate-btn {
-  background: linear-gradient(135deg, #00ff6a, #00c853);
+  background: radial-gradient(circle at top, #00ff6a, #00c853);
   color: white;
   box-shadow: 0 0 18px rgba(0,255,90,0.7);
 }
 
 /* Glow néon ROUGE LÉGER */
 .reset-btn {
-  background: linear-gradient(135deg, #ff6b6b, #ff8787);
+  background: radial-gradient(circle at top, #ff6b6b, #ff8787);
   color: white;
   box-shadow: 0 0 16px rgba(255,90,90,0.55);
 }
@@ -521,5 +472,40 @@ h1, h2 {
   .reset-btn:active {
     transform: scale(0.95);
     box-shadow: 0 0 10px rgba(0,255,120,0.55);
+  }
+}
+
+/* ========================= */
+/*       RESPONSIVE          */
+/* ========================= */
+
+@media (max-width: 900px) {
+
+  .sidebar-toggle {
+    display: flex;
+  }
+
+  .layout {
+    padding-top: 56px;
+  }
+
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+  }
+
+  body.sidebar-open .sidebar {
+    transform: translateX(0);
+  }
+
+  .main-content {
+    padding: 24px 16px 40px;
+  }
+
+  .qcm-question {
+    margin: 20px auto;
   }
 }
