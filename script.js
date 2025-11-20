@@ -35,124 +35,174 @@ const bonnesReponses = {
 };
 
 // ===============================
-//   Fonction de validation
+//   Correction + score + couleurs
 // ===============================
 function corrigerQCM() {
   const total = Object.keys(bonnesReponses).length;
   const questions = document.querySelectorAll(".qcm-question");
   let score = 0;
 
-  // Reset des bordures avant nouveau calcul
+  // Reset des bordures
   questions.forEach(q => {
-    q.style.border = "none";
+    q.style.border = "2px solid transparent";
   });
 
-  // Reset des états des boutons de navigation
-  const navItems = document.querySelectorAll(".nav-item");
-  navItems.forEach(item => {
-    item.classList.remove("nav-item--correct", "nav-item--wrong", "nav-item--missing");
+  // Reset nav buttons
+  const navButtons = document.querySelectorAll(".nav-question");
+  navButtons.forEach(btn => {
+    btn.classList.remove("good", "bad", "missing");
   });
 
   for (let q = 1; q <= total; q++) {
     const selected = document.querySelector(`input[name="q${q}"]:checked`);
     const good = bonnesReponses[q];
     const block = questions[q - 1];
-    const navItem = document.querySelector(`.nav-item[data-question="${q}"]`);
+    const navBtn = document.querySelector(`.nav-question[data-target="${q}"]`);
 
     if (!selected) {
       // Question non répondue
       block.style.border = "3px solid orange";
-      if (navItem) {
-        navItem.classList.add("nav-item--missing");
-      }
+      if (navBtn) navBtn.classList.add("missing");
       continue;
     }
 
     if (selected.value === good) {
       score++;
       block.style.border = "3px solid lime";
-      if (navItem) {
-        navItem.classList.add("nav-item--correct");
-      }
+      if (navBtn) navBtn.classList.add("good");
     } else {
       block.style.border = "3px solid #ff4444";
-      if (navItem) {
-        navItem.classList.add("nav-item--wrong");
-      }
+      if (navBtn) navBtn.classList.add("bad");
     }
   }
 
+  // Mise à jour du score dans la barre latérale
   const scoreBox = document.getElementById("score-result");
-  scoreBox.innerHTML = `<strong>Score :</strong> ${score} / ${total}`;
-  scoreBox.classList.add("visible");
+  if (scoreBox) {
+    scoreBox.textContent = `Score : ${score} / ${total}`;
+    scoreBox.classList.remove("score-bump");
+    // forcer le reflow pour relancer l'animation
+    void scoreBox.offsetWidth;
+    scoreBox.classList.add("score-bump");
+  }
+
+  // Version 1 : tout ouvrir automatiquement
+  const allDetails = document.querySelectorAll(".correction");
+  allDetails.forEach(det => {
+    det.open = true;
+    det.classList.add("force-open"); // cache le bouton, garde le panel visible
+  });
+
+  // Désactiver le bouton global d'explications
+  const toggleBtn = document.getElementById("toggle-explanations-btn");
+  if (toggleBtn) {
+    toggleBtn.disabled = true;
+    toggleBtn.textContent = "Explications affichées après validation";
+    toggleBtn.classList.add("disabled");
+  }
 }
 
 // ===============================
-//   Fonction de reset
+//   Reset complet
 // ===============================
 function resetQCM() {
   const questions = document.querySelectorAll(".qcm-question");
 
   questions.forEach(q => {
-    // On enlève les bordures de correction
-    q.style.border = "none";
+    q.style.border = "2px solid transparent";
 
-    // On décoche toutes les réponses
+    // Décoche tous les radios
     const radios = q.querySelectorAll('input[type="radio"]');
     radios.forEach(r => {
       r.checked = false;
     });
   });
 
-  // On masque le score
-  const scoreBox = document.getElementById("score-result");
-  scoreBox.classList.remove("visible");
-  scoreBox.innerHTML = "";
+  // Fermer toutes les explications
+  const allDetails = document.querySelectorAll(".correction");
+  allDetails.forEach(det => {
+    det.open = false;
+    det.classList.remove("force-open");
+  });
 
-  // On remet les boutons de navigation à l'état neutre
-  const navItems = document.querySelectorAll(".nav-item");
-  navItems.forEach(item => {
-    item.classList.remove("nav-item--correct", "nav-item--wrong", "nav-item--missing");
+  // Score remis à zéro
+  const scoreBox = document.getElementById("score-result");
+  if (scoreBox) {
+    scoreBox.textContent = "Score : — / 30";
+    scoreBox.classList.remove("score-bump");
+  }
+
+  // Réactiver le bouton global
+  const toggleBtn = document.getElementById("toggle-explanations-btn");
+  if (toggleBtn) {
+    toggleBtn.disabled = false;
+    toggleBtn.textContent = "Afficher toutes les explications";
+    toggleBtn.classList.remove("disabled");
+  }
+
+  // Reset nav buttons
+  const navButtons = document.querySelectorAll(".nav-question");
+  navButtons.forEach(btn => {
+    btn.classList.remove("good", "bad", "missing");
   });
 }
 
 // ===============================
-//   Navigation par Q1, Q2, ...
+//   Bouton "Afficher toutes les explications"
+//   (avant validation uniquement)
 // ===============================
-function initNavigation() {
-  const navItems = document.querySelectorAll(".nav-item");
+function toggleAllExplanations() {
+  const toggleBtn = document.getElementById("toggle-explanations-btn");
+  if (!toggleBtn || toggleBtn.disabled) return;
 
-  navItems.forEach(item => {
-    item.addEventListener("click", () => {
-      const num = item.getAttribute("data-question");
-      const target = document.getElementById(`q${num}`);
+  const allDetails = Array.from(document.querySelectorAll(".correction"));
+  if (allDetails.length === 0) return;
+
+  const someClosed = allDetails.some(det => !det.open);
+
+  allDetails.forEach(det => {
+    det.open = someClosed;
+  });
+
+  toggleBtn.textContent = someClosed
+    ? "Masquer toutes les explications"
+    : "Afficher toutes les explications";
+}
+
+// ===============================
+//   Navigation latérale Q1–Q30
+// ===============================
+function initSidebarNavigation() {
+  const navButtons = document.querySelectorAll(".nav-question");
+
+  navButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const qNum = btn.dataset.target;
+      const target = document.getElementById(`question-${qNum}`);
       if (target) {
         target.scrollIntoView({
           behavior: "smooth",
-          block: "start"
+          block: "center"
         });
       }
 
-      // Sur mobile, on ferme le menu après clic
-      const sideNav = document.querySelector(".side-nav");
-      if (window.innerWidth < 900 && sideNav && sideNav.classList.contains("open")) {
-        sideNav.classList.remove("open");
+      // sur mobile : refermer la side-bar après clic
+      if (window.innerWidth <= 900) {
+        document.body.classList.remove("sidebar-open");
       }
     });
   });
 }
 
 // ===============================
-//   Gestion du menu burger
+//   Burger menu (mobile)
 // ===============================
-function initBurgerMenu() {
-  const navToggle = document.getElementById("nav-toggle");
-  const sideNav = document.querySelector(".side-nav");
+function initBurger() {
+  const burger = document.getElementById("sidebar-toggle");
+  if (!burger) return;
 
-  if (!navToggle || !sideNav) return;
-
-  navToggle.addEventListener("click", () => {
-    sideNav.classList.toggle("open");
+  burger.addEventListener("click", () => {
+    document.body.classList.toggle("sidebar-open");
   });
 }
 
@@ -162,6 +212,7 @@ function initBurgerMenu() {
 document.addEventListener("DOMContentLoaded", () => {
   const validateBtn = document.getElementById("validate-btn");
   const resetBtn = document.getElementById("reset-btn");
+  const toggleBtn = document.getElementById("toggle-explanations-btn");
 
   if (validateBtn) {
     validateBtn.addEventListener("click", corrigerQCM);
@@ -171,6 +222,10 @@ document.addEventListener("DOMContentLoaded", () => {
     resetBtn.addEventListener("click", resetQCM);
   }
 
-  initNavigation();
-  initBurgerMenu();
+  if (toggleBtn) {
+    toggleBtn.addEventListener("click", toggleAllExplanations);
+  }
+
+  initSidebarNavigation();
+  initBurger();
 });
