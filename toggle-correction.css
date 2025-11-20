@@ -1,193 +1,189 @@
 /* ===========================================================
-   CSS FINAL — QCM Gestion de Projet
-   -----------------------------------------------------------
-   ✔ Glow néon doux (pas rectangulaire)
-   ✔ Aucune bordure colorée sur les blocs
-   ✔ Explications masquées avant validation
-   ✔ Score animé en haut à droite
-   ✔ Boutons arrondis mais pas trop
-   ✔ QCM 100% mobile friendly
+   UI FINALE — GESTION DE PROJET
+   ▸ Sidebar glassmorphism
+   ▸ Boutons néon
+   ▸ Réponses colorées après validation
+   ▸ Explications masquées avant validation
    =========================================================== */
 
-/* ========================= */
-/*     FOND D'ÉCRAN GLOBAL   */
-/* ========================= */
+/* =============== */
+/*  GLOBAL STYLE   */
+/* =============== */
 
 body {
-  background: url("MontagneNuit.jpg") no-repeat center center fixed;
-  background-size: cover;
-  margin: 0;
-  padding: 0;
-  font-family: "Neo Sans Std", sans-serif;
-  color: #ffffff;
-  text-align: center;
+    background: url("MontagneNuit.jpg") center/cover fixed no-repeat;
+    margin: 0;
+    padding: 0;
+    font-family: "Neo Sans Std", sans-serif;
+    color: #fff;
 }
 
-
-/* ========================= */
-/*       TITRES              */
-/* ========================= */
-
-h1, h2 {
-  margin: 40px auto 20px auto;
-  width: 100%;
-  text-align: center;
-  text-shadow: 0 0 10px rgba(190,220,255,0.6);
+/* Empêche le texte de coller au bord */
+.main-content {
+    margin-left: 260px;
+    padding: 40px 30px;
 }
 
+/* ============================ */
+/*       SIDE BAR GAUCHE        */
+/* ============================ */
 
-/* ========================= */
-/*   BLOC QUESTION QCM       */
-/* ========================= */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 240px;
+    height: 100%;
+    padding: 20px 10px;
+    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(10px);
+    box-shadow: 3px 0 12px rgba(0,0,0,0.4);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.score-box {
+    background: rgba(0,0,0,0.65);
+    padding: 12px;
+    text-align: center;
+    border-radius: 12px;
+    font-weight: 700;
+    box-shadow: 0 0 12px rgba(0,200,255,0.6);
+}
+
+.toggle-all-btn {
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    background: linear-gradient(135deg, #00c6ff, #007bff);
+    color: #fff;
+    box-shadow: 0 0 12px rgba(0,150,255,0.7);
+}
+
+.question-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow-y: auto;
+    padding-right: 6px;
+}
+
+.question-nav a {
+    text-decoration: none;
+    background: rgba(255,255,255,0.1);
+    padding: 8px;
+    text-align: center;
+    border-radius: 6px;
+    color: #fff;
+    font-weight: 600;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.question-nav a:hover {
+    background: rgba(255,255,255,0.25);
+    transform: scale(1.03);
+}
+
+/* ============================ */
+/*        QUESTIONS QCM         */
+/* ============================ */
 
 .qcm-question {
-  background: rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(6px);
-  padding: 22px;
-  margin: 28px auto;
-  border-radius: 18px;
-  max-width: 720px;
-  width: 90%;
-  box-shadow: 0 0 14px rgba(0,0,0,0.45);
-  transition: box-shadow 0.35s ease;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(10px);
+    padding: 25px;
+    border-radius: 18px;
+    margin-bottom: 45px;
+    max-width: 850px;
+    box-shadow: 0 0 16px rgba(0,0,0,0.45);
 }
 
-/* léger glow au hover */
-@media (hover:hover) and (pointer:fine) {
-  .qcm-question:hover {
-    box-shadow: 0 0 20px rgba(0,160,255,0.35);
-  }
-}
-
+/* Options */
 .qcm-options label {
-  cursor: pointer;
-  display: block;
-  margin: 6px auto;
-  text-align: left;
-  max-width: 500px;
+    display: block;
+    padding: 10px 14px;
+    background: rgba(0,0,0,0.45);
+    border-radius: 10px;
+    margin: 6px 0;
+    cursor: pointer;
+    transition: background 0.25s ease;
 }
 
-
-/* ========================= */
-/*   STYLES DES RÉPONSES     */
-/* ========================= */
-
-.qcm-options input[type=radio] {
-  accent-color: #00c3ff;
-  transform: scale(1.2);
-  cursor: pointer;
+.qcm-options input {
+    margin-right: 10px;
 }
 
-/* Couleurs appliquées APRES validation */
-.correct-answer {
-  background: rgba(0,180,90,0.28);
-  border-radius: 10px;
-  padding: 4px 6px;
+/* Bonne réponse après validation */
+.correct {
+    background: rgba(0,255,100,0.35) !important;
+    box-shadow: 0 0 10px rgba(0,255,100,0.7);
 }
 
-.wrong-answer {
-  background: rgba(255,70,70,0.28);
-  border-radius: 10px;
-  padding: 4px 6px;
+/* Mauvaise réponse */
+.wrong {
+    background: rgba(255,40,40,0.35) !important;
+    box-shadow: 0 0 10px rgba(255,40,40,0.7);
 }
 
-
-/* ========================= */
-/*   PANNEAU D’EXPLICATION   */
-/* ========================= */
-
-.correction-panel {
-  background: rgba(255, 255, 255, 0.88);
-  color: #111 !important;
-  padding: 20px;
-  margin-top: 12px;
-  border-radius: 14px;
-  text-align: left;
-  max-width: 650px;
-  margin-left: auto;
-  margin-right: auto;
-  opacity: 0;
-  transform: translateY(-6px);
-  pointer-events: none;
-  box-shadow: 0 0 14px rgba(255,255,255,0.35);
-  transition: opacity 0.35s ease, transform 0.35s ease;
+/* Option cochée mais correcte */
+.selected-correct {
+    background: rgba(0,130,255,0.4) !important;
 }
 
-/* Devient visible après validation */
-.correction-panel.visible {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
+/* ============================ */
+/*      EXPLICATION PANELS      */
+/* ============================ */
+
+.explanation {
+    background: rgba(255,255,255,0.9);
+    color: #111;
+    padding: 18px;
+    border-radius: 12px;
+    margin-top: 15px;
+    box-shadow: 0 0 14px rgba(255,255,255,0.4);
+    display: none;
 }
 
+.hidden {
+    display: none !important;
+}
 
-/* ========================= */
-/*   BOUTONS GLOBAUX         */
-/* ========================= */
+/* ============================ */
+/*     BOUTONS VALIDATION       */
+/* ============================ */
 
 .qcm-actions {
-  margin: 45px auto 60px;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
-.validate-btn,
-.reset-btn {
-  border: none;
-  border-radius: 14px;   /* légèrement arrondi */
-  padding: 14px 32px;
-  font-family: "Neo Sans Std", sans-serif;
-  font-size: 1.05rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+.validate-btn, .reset-btn {
+    border: none;
+    border-radius: 30px;
+    padding: 14px 28px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 700;
+    transition: transform 0.2s ease;
 }
 
-/* Bouton VERT */
 .validate-btn {
-  background: linear-gradient(135deg, #00ff6a, #00c853);
-  color: white;
-  box-shadow: 0 0 18px rgba(0,255,90,0.55);
+    background: linear-gradient(135deg, #00ff6a, #00c853);
+    color: white;
+    box-shadow: 0 0 14px rgba(0,255,120,0.6);
 }
 
-/* Bouton ROUGE (reset) */
 .reset-btn {
-  background: linear-gradient(135deg, #ff6b6b, #ff8787);
-  color: white;
-  box-shadow: 0 0 18px rgba(255,90,90,0.55);
+    background: linear-gradient(135deg, #ff6b6b, #ff8787);
+    color: white;
+    box-shadow: 0 0 14px rgba(255,110,110,0.6);
 }
 
-/* Hover desktop */
-@media (hover:hover) and (pointer:fine) {
-  .validate-btn:hover,
-  .reset-btn:hover {
-    transform: translateY(-3px) scale(1.04);
-  }
-}
-
-
-/* ========================= */
-/*     SCORE ANIMÉ           */
-/* ========================= */
-
-.score-result {
-  position: fixed;
-  top: 20px;
-  right: 50%;
-  transform: translateX(50%) translateY(-10px);
-  background: rgba(0,0,0,0.78);
-  color: #fff;
-  padding: 12px 20px;
-  border-radius: 14px;
-  font-weight: 700;
-  opacity: 0;
-  box-shadow: 0 0 20px rgba(0,200,255,0.6);
-  transition: opacity 0.4s ease, transform 0.35s ease;
-  z-index: 1000;
-}
-
-.score-result.visible {
-  opacity: 1;
-  transform: translateX(50%) translateY(0);
+.validate-btn:hover, .reset-btn:hover {
+    transform: scale(1.05);
 }
