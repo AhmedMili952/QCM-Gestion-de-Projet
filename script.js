@@ -1,231 +1,93 @@
-// ===============================
-//   Bonnes réponses du QCM
-// ===============================
-const bonnesReponses = {
-  1: "B",
-  2: "B",
-  3: "B",
-  4: "B",
-  5: "B",
-  6: "A",
-  7: "B",
-  8: "A",
-  9: "B",
-  10: "B",
-  11: "B",
-  12: "B",
-  13: "B",
-  14: "B",
-  15: "B",
-  16: "C",
-  17: "B",
-  18: "B",
-  19: "B",
-  20: "B",
-  21: "B",
-  22: "B",
-  23: "B",
-  24: "B",
-  25: "B",
-  26: "B",
-  27: "C",
-  28: "B",
-  29: "B",
-  30: "B"
-};
+/* ===========================================================
+   SCRIPT FINAL — Gestion QCM
+   -----------------------------------------------------------
+   ✔ Bloque les réponses après validation
+   ✔ Colore VERT ou ROUGE la réponse sélectionnée
+   ✔ Affiche toutes les explications automatiquement
+   ✔ Score animé au centre en haut
+   ✔ Reset complet
+   =========================================================== */
 
-// ===============================
-//   Correction + score + couleurs
-// ===============================
-function corrigerQCM() {
-  const total = Object.keys(bonnesReponses).length;
-  const questions = document.querySelectorAll(".qcm-question");
-  let score = 0;
+document.getElementById("validate-btn").addEventListener("click", validateQCM);
+document.getElementById("reset-btn").addEventListener("click", resetQCM);
 
-  // Reset des bordures
-  questions.forEach(q => {
-    q.style.border = "2px solid transparent";
-  });
+function validateQCM() {
+    let score = 0;
+    const total = 30;
 
-  // Reset nav buttons
-  const navButtons = document.querySelectorAll(".nav-question");
-  navButtons.forEach(btn => {
-    btn.classList.remove("good", "bad", "missing");
-  });
+    // parcourt toutes les questions
+    for (let i = 1; i <= total; i++) {
 
-  for (let q = 1; q <= total; q++) {
-    const selected = document.querySelector(`input[name="q${q}"]:checked`);
-    const good = bonnesReponses[q];
-    const block = questions[q - 1];
-    const navBtn = document.querySelector(`.nav-question[data-target="${q}"]`);
+        const questionName = "q" + i;
+        const selected = document.querySelector(`input[name=${questionName}]:checked`);
+        const correctionPanel = document.querySelector(`#q${i}-block .correction-panel`);
 
-    if (!selected) {
-      // Question non répondue
-      block.style.border = "3px solid orange";
-      if (navBtn) navBtn.classList.add("missing");
-      continue;
+        // récupère la bonne réponse (dans le panel)
+        const good = correctionPanel.querySelector("p b").innerText.replace("Bonne réponse :", "").trim();
+
+        // colore les réponses
+        const labels = document.querySelectorAll(`#q${i}-block .qcm-options label`);
+
+        labels.forEach(label => label.classList.remove("correct-answer", "wrong-answer"));
+
+        if (selected) {
+            const value = selected.value;
+
+            if (value === good) {
+                score++;
+                selected.parentElement.classList.add("correct-answer");
+            } else {
+                selected.parentElement.classList.add("wrong-answer");
+
+                // met la bonne réponse en vert
+                labels.forEach(l => {
+                    if (l.innerText.trim().startsWith(good)) {
+                        l.classList.add("correct-answer");
+                    }
+                });
+            }
+        }
+
+        // bloque les boutons radio
+        const radios = document.querySelectorAll(`#q${i}-block input[type=radio]`);
+        radios.forEach(r => r.disabled = true);
+
+        // affiche le panneau d’explication
+        correctionPanel.classList.add("visible");
     }
 
-    if (selected.value === good) {
-      score++;
-      block.style.border = "3px solid lime";
-      if (navBtn) navBtn.classList.add("good");
-    } else {
-      block.style.border = "3px solid #ff4444";
-      if (navBtn) navBtn.classList.add("bad");
-    }
-  }
-
-  // Mise à jour du score dans la barre latérale
-  const scoreBox = document.getElementById("score-result");
-  if (scoreBox) {
-    scoreBox.textContent = `Score : ${score} / ${total}`;
-    scoreBox.classList.remove("score-bump");
-    // forcer le reflow pour relancer l'animation
-    void scoreBox.offsetWidth;
-    scoreBox.classList.add("score-bump");
-  }
-
-  // Version 1 : tout ouvrir automatiquement
-  const allDetails = document.querySelectorAll(".correction");
-  allDetails.forEach(det => {
-    det.open = true;
-    det.classList.add("force-open"); // cache le bouton, garde le panel visible
-  });
-
-  // Désactiver le bouton global d'explications
-  const toggleBtn = document.getElementById("toggle-explanations-btn");
-  if (toggleBtn) {
-    toggleBtn.disabled = true;
-    toggleBtn.textContent = "Explications affichées après validation";
-    toggleBtn.classList.add("disabled");
-  }
+    // affiche le score
+    const scoreBox = document.getElementById("score-result");
+    scoreBox.innerText = `Score : ${score} / ${total}`;
+    scoreBox.classList.add("visible");
 }
 
-// ===============================
-//   Reset complet
-// ===============================
+
 function resetQCM() {
-  const questions = document.querySelectorAll(".qcm-question");
+    const total = 30;
 
-  questions.forEach(q => {
-    q.style.border = "2px solid transparent";
+    for (let i = 1; i <= total; i++) {
 
-    // Décoche tous les radios
-    const radios = q.querySelectorAll('input[type="radio"]');
-    radios.forEach(r => {
-      r.checked = false;
-    });
-  });
+        const block = document.getElementById(`q${i}-block`);
+        const labels = block.querySelectorAll(".qcm-options label");
+        const radios = block.querySelectorAll("input[type=radio]");
+        const panel = block.querySelector(".correction-panel");
 
-  // Fermer toutes les explications
-  const allDetails = document.querySelectorAll(".correction");
-  allDetails.forEach(det => {
-    det.open = false;
-    det.classList.remove("force-open");
-  });
-
-  // Score remis à zéro
-  const scoreBox = document.getElementById("score-result");
-  if (scoreBox) {
-    scoreBox.textContent = "Score : — / 30";
-    scoreBox.classList.remove("score-bump");
-  }
-
-  // Réactiver le bouton global
-  const toggleBtn = document.getElementById("toggle-explanations-btn");
-  if (toggleBtn) {
-    toggleBtn.disabled = false;
-    toggleBtn.textContent = "Afficher toutes les explications";
-    toggleBtn.classList.remove("disabled");
-  }
-
-  // Reset nav buttons
-  const navButtons = document.querySelectorAll(".nav-question");
-  navButtons.forEach(btn => {
-    btn.classList.remove("good", "bad", "missing");
-  });
-}
-
-// ===============================
-//   Bouton "Afficher toutes les explications"
-//   (avant validation uniquement)
-// ===============================
-function toggleAllExplanations() {
-  const toggleBtn = document.getElementById("toggle-explanations-btn");
-  if (!toggleBtn || toggleBtn.disabled) return;
-
-  const allDetails = Array.from(document.querySelectorAll(".correction"));
-  if (allDetails.length === 0) return;
-
-  const someClosed = allDetails.some(det => !det.open);
-
-  allDetails.forEach(det => {
-    det.open = someClosed;
-  });
-
-  toggleBtn.textContent = someClosed
-    ? "Masquer toutes les explications"
-    : "Afficher toutes les explications";
-}
-
-// ===============================
-//   Navigation latérale Q1–Q30
-// ===============================
-function initSidebarNavigation() {
-  const navButtons = document.querySelectorAll(".nav-question");
-
-  navButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-      const qNum = btn.dataset.target;
-      const target = document.getElementById(`question-${qNum}`);
-      if (target) {
-        target.scrollIntoView({
-          behavior: "smooth",
-          block: "center"
+        // reset radio
+        radios.forEach(r => {
+            r.checked = false;
+            r.disabled = false;
         });
-      }
 
-      // sur mobile : refermer la side-bar après clic
-      if (window.innerWidth <= 900) {
-        document.body.classList.remove("sidebar-open");
-      }
-    });
-  });
+        // reset couleurs
+        labels.forEach(l => l.classList.remove("correct-answer", "wrong-answer"));
+
+        // cacher explications
+        panel.classList.remove("visible");
+    }
+
+    // cacher score
+    const scoreBox = document.getElementById("score-result");
+    scoreBox.classList.remove("visible");
+    scoreBox.innerText = "";
 }
-
-// ===============================
-//   Burger menu (mobile)
-// ===============================
-function initBurger() {
-  const burger = document.getElementById("sidebar-toggle");
-  if (!burger) return;
-
-  burger.addEventListener("click", () => {
-    document.body.classList.toggle("sidebar-open");
-  });
-}
-
-// ===============================
-//   Initialisation globale
-// ===============================
-document.addEventListener("DOMContentLoaded", () => {
-  const validateBtn = document.getElementById("validate-btn");
-  const resetBtn = document.getElementById("reset-btn");
-  const toggleBtn = document.getElementById("toggle-explanations-btn");
-
-  if (validateBtn) {
-    validateBtn.addEventListener("click", corrigerQCM);
-  }
-
-  if (resetBtn) {
-    resetBtn.addEventListener("click", resetQCM);
-  }
-
-  if (toggleBtn) {
-    toggleBtn.addEventListener("click", toggleAllExplanations);
-  }
-
-  initSidebarNavigation();
-  initBurger();
-});
