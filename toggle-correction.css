@@ -5,6 +5,7 @@
    ✔️ Blocs QCM centrés parfaitement
    ✔️ Boutons Show/Hide stylés
    ✔️ Panel de correction animé
+   ✔️ Score en haut à droite + boutons Valider / Reset
    =========================================================== */
 
 /* ========================= */
@@ -21,7 +22,6 @@ body {
   text-align: center;
 }
 
-
 /* ========================= */
 /*       TITRES GÉNÉRAUX     */
 /* ========================= */
@@ -31,7 +31,6 @@ h1, h2 {
   width: 100%;
   text-align: center;
 }
-
 
 /* ========================= */
 /*    BLOC DES QCM QUESTIONS */
@@ -47,6 +46,7 @@ h1, h2 {
   max-width: 720px;
   width: 90%;
   text-align: center;
+  transition: border 0.25s ease;
 }
 
 .qcm-question p {
@@ -55,6 +55,16 @@ h1, h2 {
   line-height: 1.45;
 }
 
+/* Options du QCM (A, B, C, D…) */
+.qcm-options {
+  margin-top: 10px;
+}
+
+.qcm-options label {
+  display: inline-block;
+  margin: 3px 0;
+  cursor: pointer;
+}
 
 /* ========================= */
 /*  PANNEAU DE CORRECTION    */
@@ -78,15 +88,15 @@ h1, h2 {
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
+/* Affichage du panel quand le <details> est ouvert */
 .details-wrap:has(> details[open]) + .correction-panel {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
 }
 
-
 /* ========================= */
-/*   STRUCTURE DES BOUTONS    */
+/*   STRUCTURE DES BOUTONS   */
 /* ========================= */
 
 .correction summary {
@@ -116,7 +126,6 @@ h1, h2 {
 .correction[open] summary .btn-ferme { opacity: 0; }
 .correction[open] summary .btn-ouvert { opacity: 1; }
 
-
 /* ========================= */
 /*     STYLE DES BOUTONS     */
 /* ========================= */
@@ -141,7 +150,6 @@ h1, h2 {
   background: linear-gradient(135deg, #ff9900, #ffbb33);
 }
 
-
 /* ========================= */
 /*      HOVER ANIMATION      */
 /* ========================= */
@@ -158,7 +166,6 @@ h1, h2 {
   }
 }
 
-
 /* ========================= */
 /*  ANIMATION CONTENU PANEL  */
 /* ========================= */
@@ -172,4 +179,91 @@ h1, h2 {
 .details-wrap:has(> details[open]) + .correction-panel p {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ========================= */
+/*   SCORE EN HAUT À DROITE  */
+/* ========================= */
+
+.score-result {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(0,0,0,0.78);
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+}
+
+.score-result.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* ========================= */
+/*  BOUTONS VALIDER / RESET  */
+/* ========================= */
+
+.qcm-actions {
+  margin: 40px auto 60px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.validate-btn,
+.reset-btn {
+  border: none;
+  border-radius: 999px;
+  padding: 12px 26px;
+  font-family: "Neo Sans Std", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.validate-btn {
+  background: linear-gradient(135deg, #00c853, #64dd17);
+  color: #fff;
+}
+
+.reset-btn {
+  background: rgba(255,255,255,0.9);
+  color: #111;
+}
+
+/* Hover boutons (PC) */
+@media (hover: hover) and (pointer: fine) {
+  .validate-btn:hover,
+  .reset-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.45);
+  }
+
+  .validate-btn:active,
+  .reset-btn:active {
+    transform: translateY(0);
+    filter: brightness(0.97);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.35);
+  }
+}
+
+/* Mobile : touches plus "douces" */
+@media (hover: none) and (pointer: coarse) {
+  .validate-btn:active,
+  .reset-btn:active {
+    transform: scale(0.97);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.35);
+  }
 }
