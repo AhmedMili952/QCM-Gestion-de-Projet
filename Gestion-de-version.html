@@ -1,126 +1,81 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>QCM XTI103 — Git & GitHub</title>
-  <link rel="stylesheet" href="QCM.css">
+    <meta charset="UTF-8">
+    <title>QCM XTI103 — Git & GitHub</title>
+    <link rel="stylesheet" href="QCM.css">
 </head>
-
 <body>
 
 <div class="container">
+    <h1>QCM XTI103 — Git & GitHub</h1>
 
-<h1>QCM XTI103 — Git & GitHub</h1>
+    <!-- QUESTION 1 -->
+    <div class="question" data-correct="B">
+        <div class="question-title">
+            1. Quelle commande permet de créer une branche dev ?
+        </div>
 
-<!-- QUESTION 1 -->
-<div class="question">
-  <p class="question-title">1. Quelle commande permet de créer une branche dev ?</p>
+        <div class="options">
+            <label><input type="radio" name="q1" value="A"> A. git switch dev</label>
+            <label><input type="radio" name="q1" value="B"> B. git branch dev</label>
+            <label><input type="radio" name="q1" value="C"> C. git merge dev</label>
+            <label><input type="radio" name="q1" value="D"> D. git pull dev</label>
+        </div>
 
-  <label><input type="radio" name="q1"> git switch dev</label>
-  <label><input type="radio" name="q1" value="1"> git branch dev</label>
-  <label><input type="radio" name="q1"> git merge dev</label>
-  <label><input type="radio" name="q1"> git pull dev</label>
+        <div class="explanation">
+            Bonne réponse : <b>B</b><br>
+            La commande <code>git branch dev</code> crée une nouvelle branche sans s’y déplacer.
+        </div>
+    </div>
 
-  <div class="explanation">
-    La commande <code>git branch dev</code> crée une nouvelle branche sans s’y déplacer.
-  </div>
-</div>
+    <!-- QUESTION 2 -->
+    <div class="question" data-correct="B">
+        <div class="question-title">
+            2. Qu’est-ce qu’une branche Git ?
+        </div>
 
-<!-- QUESTION 2 -->
-<div class="question">
-  <p class="question-title">2. Qu’est-ce qu’une branche Git ?</p>
+        <div class="options">
+            <label><input type="radio" name="q2" value="A"> A. Une copie complète du dépôt</label>
+            <label><input type="radio" name="q2" value="B"> B. Une ligne de développement indépendante</label>
+            <label><input type="radio" name="q2" value="C"> C. Un simple dossier</label>
+            <label><input type="radio" name="q2" value="D"> D. Un commit spécial</label>
+        </div>
 
-  <label><input type="radio" name="q2"> Une copie complète du dépôt</label>
-  <label><input type="radio" name="q2" value="1"> Une ligne de développement indépendante</label>
-  <label><input type="radio" name="q2"> Un simple dossier</label>
-  <label><input type="radio" name="q2"> Un commit spécial</label>
+        <div class="explanation">
+            Bonne réponse : <b>B</b><br>
+            Une branche est un pointeur vers une suite de commits représentant une ligne de développement.
+        </div>
+    </div>
 
-  <div class="explanation">
-    Une branche est un pointeur vers une suite de commits représentant une ligne de développement.
-  </div>
-</div>
-
-<!-- QUESTION 3 -->
-<div class="question">
-  <p class="question-title">3. Qu’est-ce qu’un commit Git ?</p>
-
-  <label><input type="radio" name="q3"> Une modification temporaire</label>
-  <label><input type="radio" name="q3" value="1"> Une sauvegarde de l’état du projet</label>
-  <label><input type="radio" name="q3"> Une branche distante</label>
-  <label><input type="radio" name="q3"> Un dépôt GitHub</label>
-
-  <div class="explanation">
-    Un commit est un snapshot du projet à un instant donné avec un message et un hash.
-  </div>
-</div>
-
-<!-- QUESTION 4 -->
-<div class="question">
-  <p class="question-title">4. Que fait la commande git merge ?</p>
-
-  <label><input type="radio" name="q4"> Supprime une branche</label>
-  <label><input type="radio" name="q4" value="1"> Intègre une branche dans une autre</label>
-  <label><input type="radio" name="q4"> Renomme une branche</label>
-  <label><input type="radio" name="q4"> Annule un commit</label>
-
-  <div class="explanation">
-    <code>git merge</code> combine l’historique d’une branche source dans la branche courante.
-  </div>
-</div>
-
-<!-- QUESTION 5 -->
-<div class="question">
-  <p class="question-title">5. Que représente HEAD dans Git ?</p>
-
-  <label><input type="radio" name="q5"> Le premier commit</label>
-  <label><input type="radio" name="q5" value="1"> Le commit parent du prochain commit</label>
-  <label><input type="radio" name="q5"> Le dépôt distant</label>
-  <label><input type="radio" name="q5"> Un tag GitHub</label>
-
-  <div class="explanation">
-    HEAD pointe vers le commit courant, qui sera le parent du prochain commit.
-  </div>
-</div>
-
-<div class="actions">
-  <button onclick="corriger()">Corriger</button>
-  <button id="restartBtn" onclick="location.reload()">Recommencer</button>
-</div>
-
-<div id="result" class="result"></div>
-
+    <button id="correctBtn">Corriger</button>
 </div>
 
 <script>
-function corriger() {
-  let score = 0;
-  const questions = document.querySelectorAll(".question");
+document.getElementById("correctBtn").addEventListener("click", () => {
+    document.querySelectorAll(".question").forEach(question => {
+        const correct = question.dataset.correct;
+        const checked = question.querySelector("input:checked");
+        const title = question.querySelector(".question-title");
+        const explanation = question.querySelector(".explanation");
 
-  questions.forEach(q => {
-    const checked = q.querySelector("input[type=radio]:checked");
-    const explanation = q.querySelector(".explanation");
+        question.classList.remove("unanswered");
 
-    q.classList.remove("unanswered");
+        if (!checked) {
+            question.classList.add("unanswered");
+            explanation.style.display = "block";
+            return;
+        }
 
-    if (!checked) {
-      q.classList.add("unanswered");
-    } else {
-      if (checked.value === "1") {
-        score++;
-        checked.parentElement.classList.add("correct");
-      } else {
-        checked.parentElement.classList.add("wrong");
-      }
-    }
+        if (checked.value === correct) {
+            checked.parentElement.classList.add("correct");
+        } else {
+            checked.parentElement.classList.add("wrong");
+        }
 
-    explanation.style.display = "block";
-  });
-
-  document.getElementById("result").textContent =
-    `Score : ${score} / ${questions.length}`;
-
-  document.getElementById("restartBtn").style.display = "inline-block";
-}
+        explanation.style.display = "block";
+    });
+});
 </script>
 
 </body>
