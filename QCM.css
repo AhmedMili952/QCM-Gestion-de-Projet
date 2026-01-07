@@ -1,143 +1,75 @@
-/* RESET */
-* {
-  box-sizing: border-box;
-}
-
-/* PAGE */
+/* ====== GLOBAL ====== */
 body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: url("MontagneNuit.jpg") no-repeat center center fixed;
-  background-size: cover;
-  color: #e5e7eb;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url("MontagneNuit.jpg") no-repeat center center fixed;
+    background-size: cover;
+    color: #ffffff;
 }
 
-/* CONTENEUR */
 .container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 30px 20px 80px;
-  background-color: rgba(2, 6, 23, 0.85);
-  border-radius: 16px;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
 }
 
-/* TITRE */
-h1 {
-  text-align: center;
-  color: #60a5fa;
-  margin-bottom: 40px;
-}
-
-/* QUESTION */
+/* ====== QUESTION ====== */
 .question {
     background: rgba(20, 28, 45, 0.92);
     border-radius: 14px;
     padding: 20px;
-    margin-bottom: 22px;
-    transition: border 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 24px;
+    transition: box-shadow 0.3s ease;
 }
 
-
-/* TITRE QUESTION */
 .question-title {
-  font-weight: bold;
-  margin-bottom: 15px;
+    font-weight: bold;
+    margin-bottom: 12px;
 }
 
-/* RÉPONSES */
-.question label {
-  display: block;
-  padding: 8px 10px;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-bottom: 6px;
+/* ====== OPTIONS ====== */
+.options label {
+    display: block;
+    margin-bottom: 8px;
+    cursor: pointer;
 }
 
-.question label:hover {
-  background-color: #334155;
-}
-
-/* RADIO */
-input[type="radio"] {
-  margin-right: 8px;
-}
-
-/* BON / MAUVAIS */
+/* ====== STATES ====== */
 .correct {
-  color: #22c55e;
-  font-weight: bold;
+    color: #00ff88;
+    font-weight: bold;
 }
 
 .wrong {
-  color: #ef4444;
-  font-weight: bold;
+    color: #ff4d4d;
+    font-weight: bold;
 }
 
-/* NON RÉPONDUE */
-.unanswered {
-  border: 2px solid #f59e0b;
-  background-color: rgba(245, 158, 11, 0.08);
+/* QUESTION NON RÉPONDUE */
+.question.unanswered .question-title {
+    color: orange;
 }
 
-.question.unanswered {
-    background: rgba(20, 28, 45, 0.92); /* IMPORTANT */
-    border: 2px solid orange;
-    box-shadow: 0 0 12px rgba(255, 165, 0, 0.6);
-}
-
-
-.unanswered .question-title {
-  color: #fbbf24;
-}
-
-/* EXPLICATION */
+/* ====== EXPLICATION ====== */
 .explanation {
-  display: none;
-  margin-top: 15px;
-  padding: 15px;
-  background-color: #020617;
-  border-left: 4px solid #60a5fa;
-  border-radius: 6px;
-  font-size: 14px;
+    display: none;
+    margin-top: 14px;
+    padding-left: 12px;
+    border-left: 4px solid #3aa0ff;
+    color: #cfe8ff;
 }
 
-/* ACTIONS */
-.actions {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 30px;
-}
-
-/* BOUTONS */
+/* ====== BUTTONS ====== */
 button {
-  background-color: #2563eb;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  padding: 12px 24px;
-  font-size: 16px;
-  cursor: pointer;
+    background: #3aa0ff;
+    color: #fff;
+    border: none;
+    padding: 12px 22px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
 button:hover {
-  background-color: #1d4ed8;
-}
-
-/* RESTART */
-#restartBtn {
-  display: none;
-  background-color: #475569;
-}
-
-#restartBtn:hover {
-  background-color: #334155;
-}
-
-/* SCORE */
-.result {
-  margin-top: 30px;
-  font-size: 22px;
-  text-align: center;
-  font-weight: bold;
+    background: #1f78d1;
 }
