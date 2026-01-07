@@ -5,121 +5,90 @@
   <title>QCM XTI103 — Git & GitHub</title>
   <link rel="stylesheet" href="QCM.css">
 </head>
+
 <body>
 
 <div class="container">
-<h1>QCM XTI103 — Git & GitHub</h1>
 
-<form id="qcm">
+<h1>QCM XTI103 — Git & GitHub</h1>
 
 <!-- QUESTION 1 -->
 <div class="question">
-  <p class="question-title">1. Quel est l’objectif principal de la gestion de versions ?</p>
-  <label><input type="radio" name="q1" value="0"> Compiler automatiquement le code</label>
-  <label><input type="radio" name="q1" value="1"> Conserver un historique des modifications</label>
-  <label><input type="radio" name="q1" value="0"> Accélérer l’exécution des programmes</label>
-  <label><input type="radio" name="q1" value="0"> Remplacer les sauvegardes manuelles</label>
-  <div class="explanation">La gestion de versions sert à suivre, retrouver et comprendre les modifications du projet.</div>
+  <p class="question-title">1. Quelle commande permet de créer une branche dev ?</p>
+
+  <label><input type="radio" name="q1"> git switch dev</label>
+  <label><input type="radio" name="q1" value="1"> git branch dev</label>
+  <label><input type="radio" name="q1"> git merge dev</label>
+  <label><input type="radio" name="q1"> git pull dev</label>
+
+  <div class="explanation">
+    La commande <code>git branch dev</code> crée une nouvelle branche sans s’y déplacer.
+  </div>
 </div>
 
 <!-- QUESTION 2 -->
 <div class="question">
-  <p class="question-title">2. Git est un système de gestion de versions :</p>
-  <label><input type="radio" name="q2" value="0"> Centralisé</label>
-  <label><input type="radio" name="q2" value="1"> Décentralisé</label>
-  <label><input type="radio" name="q2" value="0"> Basé sur le cloud uniquement</label>
-  <label><input type="radio" name="q2" value="0"> Temps réel</label>
-  <div class="explanation">Chaque développeur possède une copie complète du dépôt.</div>
+  <p class="question-title">2. Qu’est-ce qu’une branche Git ?</p>
+
+  <label><input type="radio" name="q2"> Une copie complète du dépôt</label>
+  <label><input type="radio" name="q2" value="1"> Une ligne de développement indépendante</label>
+  <label><input type="radio" name="q2"> Un simple dossier</label>
+  <label><input type="radio" name="q2"> Un commit spécial</label>
+
+  <div class="explanation">
+    Une branche est un pointeur vers une suite de commits représentant une ligne de développement.
+  </div>
 </div>
 
 <!-- QUESTION 3 -->
 <div class="question">
-  <p class="question-title">3. Que fait la commande <code>git init</code> ?</p>
-  <label><input type="radio" name="q3" value="1"> Initialise un dépôt Git</label>
-  <label><input type="radio" name="q3" value="0"> Clone un dépôt distant</label>
-  <label><input type="radio" name="q3" value="0"> Supprime l’historique</label>
-  <label><input type="radio" name="q3" value="0"> Crée une branche</label>
-  <div class="explanation">git init crée le dossier .git et démarre le versionnage.</div>
+  <p class="question-title">3. Qu’est-ce qu’un commit Git ?</p>
+
+  <label><input type="radio" name="q3"> Une modification temporaire</label>
+  <label><input type="radio" name="q3" value="1"> Une sauvegarde de l’état du projet</label>
+  <label><input type="radio" name="q3"> Une branche distante</label>
+  <label><input type="radio" name="q3"> Un dépôt GitHub</label>
+
+  <div class="explanation">
+    Un commit est un snapshot du projet à un instant donné avec un message et un hash.
+  </div>
 </div>
 
 <!-- QUESTION 4 -->
 <div class="question">
-  <p class="question-title">4. Quelle commande permet de créer une branche dev ?</p>
-  <label><input type="radio" name="q4" value="0"> git switch dev</label>
-  <label><input type="radio" name="q4" value="1"> git branch dev</label>
-  <label><input type="radio" name="q4" value="0"> git merge dev</label>
-  <label><input type="radio" name="q4" value="0"> git pull dev</label>
-  <div class="explanation">git branch crée une branche sans s’y déplacer.</div>
+  <p class="question-title">4. Que fait la commande git merge ?</p>
+
+  <label><input type="radio" name="q4"> Supprime une branche</label>
+  <label><input type="radio" name="q4" value="1"> Intègre une branche dans une autre</label>
+  <label><input type="radio" name="q4"> Renomme une branche</label>
+  <label><input type="radio" name="q4"> Annule un commit</label>
+
+  <div class="explanation">
+    <code>git merge</code> combine l’historique d’une branche source dans la branche courante.
+  </div>
 </div>
 
 <!-- QUESTION 5 -->
 <div class="question">
-  <p class="question-title">5. Qu’est-ce qu’un commit Git ?</p>
-  <label><input type="radio" name="q5" value="0"> Une modification temporaire</label>
-  <label><input type="radio" name="q5" value="1"> Une sauvegarde de l’état du projet</label>
-  <label><input type="radio" name="q5" value="0"> Une branche distante</label>
-  <label><input type="radio" name="q5" value="0"> Un dépôt GitHub</label>
-  <div class="explanation">Un commit enregistre un snapshot du projet à un instant donné.</div>
-</div>
+  <p class="question-title">5. Que représente HEAD dans Git ?</p>
 
-<!-- QUESTION 6 -->
-<div class="question">
-  <p class="question-title">6. À quoi sert la staging area ?</p>
-  <label><input type="radio" name="q6" value="1"> Préparer le contenu du prochain commit</label>
-  <label><input type="radio" name="q6" value="0"> Sauvegarder automatiquement</label>
-  <label><input type="radio" name="q6" value="0"> Supprimer des fichiers</label>
-  <label><input type="radio" name="q6" value="0"> Cloner un dépôt</label>
-  <div class="explanation">Elle permet de choisir précisément ce qui sera commit.</div>
-</div>
+  <label><input type="radio" name="q5"> Le premier commit</label>
+  <label><input type="radio" name="q5" value="1"> Le commit parent du prochain commit</label>
+  <label><input type="radio" name="q5"> Le dépôt distant</label>
+  <label><input type="radio" name="q5"> Un tag GitHub</label>
 
-<!-- QUESTION 7 -->
-<div class="question">
-  <p class="question-title">7. Quelle commande ajoute un fichier au prochain commit ?</p>
-  <label><input type="radio" name="q7" value="1"> git add</label>
-  <label><input type="radio" name="q7" value="0"> git commit</label>
-  <label><input type="radio" name="q7" value="0"> git push</label>
-  <label><input type="radio" name="q7" value="0"> git pull</label>
-  <div class="explanation">git add place les fichiers dans la staging area.</div>
-</div>
-
-<!-- QUESTION 8 -->
-<div class="question">
-  <p class="question-title">8. Que fait git merge ?</p>
-  <label><input type="radio" name="q8" value="0"> Supprime une branche</label>
-  <label><input type="radio" name="q8" value="1"> Intègre une branche dans une autre</label>
-  <label><input type="radio" name="q8" value="0"> Renomme une branche</label>
-  <label><input type="radio" name="q8" value="0"> Annule un commit</label>
-  <div class="explanation">git merge combine l’historique de deux branches.</div>
-</div>
-
-<!-- QUESTION 9 -->
-<div class="question">
-  <p class="question-title">9. Que représente HEAD ?</p>
-  <label><input type="radio" name="q9" value="0"> Le premier commit</label>
-  <label><input type="radio" name="q9" value="1"> Le commit courant</label>
-  <label><input type="radio" name="q9" value="0"> Le dépôt distant</label>
-  <label><input type="radio" name="q9" value="0"> Un tag</label>
-  <div class="explanation">HEAD pointe sur le commit actuellement utilisé.</div>
-</div>
-
-<!-- QUESTION 10 -->
-<div class="question">
-  <p class="question-title">10. Quelle commande récupère ET fusionne les commits distants ?</p>
-  <label><input type="radio" name="q10" value="1"> git pull</label>
-  <label><input type="radio" name="q10" value="0"> git fetch</label>
-  <label><input type="radio" name="q10" value="0"> git clone</label>
-  <label><input type="radio" name="q10" value="0"> git init</label>
-  <div class="explanation">git pull = fetch + merge.</div>
+  <div class="explanation">
+    HEAD pointe vers le commit courant, qui sera le parent du prochain commit.
+  </div>
 </div>
 
 <div class="actions">
-  <button type="button" onclick="corriger()">Corriger</button>
-  <button type="button" id="restartBtn" onclick="location.reload()">Recommencer</button>
+  <button onclick="corriger()">Corriger</button>
+  <button id="restartBtn" onclick="location.reload()">Recommencer</button>
 </div>
 
-<div class="result" id="result"></div>
+<div id="result" class="result"></div>
 
-</form>
 </div>
 
 <script>
@@ -131,7 +100,11 @@ function corriger() {
     const checked = q.querySelector("input[type=radio]:checked");
     const explanation = q.querySelector(".explanation");
 
-    if (checked) {
+    q.classList.remove("unanswered");
+
+    if (!checked) {
+      q.classList.add("unanswered");
+    } else {
       if (checked.value === "1") {
         score++;
         checked.parentElement.classList.add("correct");
