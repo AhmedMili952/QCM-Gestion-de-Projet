@@ -1,5 +1,5 @@
 /* ===========================================================
-   THEME QCM — VERSION EXPERT OPTIMISÉE
+   THEME QCM — VERSION EXPERT OPTIMISÉE (ANIMÉE)
    =========================================================== */
 
 /* ========================= */
@@ -188,7 +188,7 @@ h1, h2 {
   max-width: 760px;
   width: 100%;
   transition: all 0.3s ease;
-  border: 3px solid transparent; /* Épaissi pour mieux voir la correction */
+  border: 3px solid transparent; 
   box-shadow: 0 0 14px rgba(0,0,0,0.5);
 }
 
@@ -201,7 +201,7 @@ h1, h2 {
 }
 
 /* ========================= */
-/* OPTIONS A/B/C/D       */
+/* OPTIONS A/B/C/D        */
 /* ========================= */
 
 .qcm-options {
@@ -252,37 +252,54 @@ h1, h2 {
 }
 
 .qcm-options label:has(input:disabled:not(:checked)) {
-  opacity: 0.5; /* Grise les réponses non choisies */
+  opacity: 0.5; 
 }
 
 .qcm-options label:has(input:disabled:checked) {
-  opacity: 1 !important; /* Force la visibilité max de tes réponses */
+  opacity: 1 !important; 
   background: rgba(0, 110, 255, 0.95) !important;
 }
-
 /* ========================= */
-/* PANNEAU EXPLICATION     */
+/* PANNEAU EXPLICATION       */
 /* ========================= */
 
 .correction-panel {
   background: #ffffff !important;
   color: #111 !important;
-  padding: 20px;
-  margin-top: 15px;
+  padding: 0 20px; /* On met le padding vertical à 0 pour l'animation */
+  margin-top: 0;
   border-radius: 14px;
   max-width: 720px;
   margin-left: auto;
   margin-right: auto;
   text-align: left;
   
-  /* Masqué par défaut */
-  display: none; 
-  opacity: 0;
-  transform: translateY(-10px);
+  /* --- L'ANIMATION PARFAITE (Déploiement) --- */
+  display: block !important; /* Indispensable pour animer la hauteur */
+  max-height: 0;             /* Fermé au départ */
+  overflow: hidden;          /* Cache le texte pendant l'ouverture */
+  opacity: 0;                /* Invisible au départ */
+  transform: translateY(15px);
   
   box-shadow: 0 0 20px rgba(255,255,255,0.3);
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  /* Courbe Bézier Premium pour un effet organique */
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   border-left: 6px solid #00c3ff;
+}
+
+/* ÉTAT VISIBLE (Déclenché par le JS via la classe .visible) */
+.correction-panel.visible {
+  max-height: 1000px;        /* Permet au panneau de s'ouvrir complètement */
+  opacity: 1;
+  padding: 20px;             /* Le padding revient à l'ouverture pour l'espace intérieur */
+  transform: translateY(0);
+  margin-top: 15px;
+}
+
+.correction-panel p {
+  margin: 10px 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
 }
 
 .correction-panel p {
@@ -332,7 +349,7 @@ h1, h2 {
 }
 
 /* ========================= */
-/* RESPONSIVE       */
+/* RESPONSIVE        */
 /* ========================= */
 
 @media (max-width: 900px) {
@@ -349,4 +366,63 @@ h1, h2 {
   .main-content {
     padding: 20px 15px 40px;
   }
+}
+
+
+/* Conteneur des boutons */
+.fixed-controls {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(15, 23, 42, 0.8); 
+    backdrop-filter: blur(10px); 
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    position: sticky;
+    bottom: 0;
+}
+
+/* Style de base des boutons */
+.btn-modern {
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+}
+
+/* Bouton Valider (Bleu néon) */
+.btn-validate {
+    background: linear-gradient(135deg, #007bff, #00d4ff);
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+.btn-validate:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.5);
+    filter: brightness(1.1);
+}
+
+/* Bouton Recommencer (Gris/Rouge discret) */
+.btn-reset {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+}
+
+.btn-reset:hover {
+    background: rgba(220, 53, 69, 0.2);
+    border-color: #dc3545;
+    color: #ff4d5e;
+    transform: translateY(-2px);
+}
+
+/* Effet au clic */
+.btn-modern:active {
+    transform: translateY(0);
 }

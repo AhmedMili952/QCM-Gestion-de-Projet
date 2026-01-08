@@ -1,3 +1,6 @@
+/* ===========================================================
+   CONFIGURATION & DONNÉES
+   =========================================================== */
 const bonnesReponses = {
     1: "B", 2: ["A", "B"], 3: "C", 4: ["B", "D"], 5: "B",
     6: "C", 7: ["A", "C", "D"], 8: "B", 9: "B", 10: "C",
@@ -7,164 +10,167 @@ const bonnesReponses = {
     26: "C", 27: ["A", "B", "C"], 28: "A", 29: "B", 30: "C"
 };
 
-// --- ALGORITHME DE FISHER-YATES AVEC NETTOYAGE ---
+const LETTRES = ["A", "B", "C", "D"];
+
+/* ===========================================================
+   FONCTIONS DE MÉLANGE (UI)
+   =========================================================== */
 function algorithmeDeFisherYates() {
+    const LETTRES = ["A", "B", "C", "D"];
+
     document.querySelectorAll(".qcm-question").forEach(q => {
+        const id = q.dataset.question;
         const container = q.querySelector(".qcm-options");
-        if (!container) return;
+        if (!container || !bonnesReponses[id]) return;
 
         const labels = Array.from(container.querySelectorAll("label"));
-        
-        // 1. Mélange des éléments
-        for (let i = labels.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [labels[i], labels[j]] = [labels[j], labels[i]];
-        }
+        const reponseAttendue = bonnesReponses[id];
 
-        // 2. Reconstruction et Nettoyage
+        // On trouve quelle était la lettre de la bonne réponse AVANT le mélange
+        // (En cherchant quel label contient l'input avec la valeur correcte)
+        const indexAncien = labels.findIndex(l => {
+            const val = l.querySelector("input").value;
+            return Array.isArray(reponseAttendue) ? reponseAttendue.includes(val) : val === reponseAttendue;
+        });
+
+        let tentatives = 0;
+        let indexNouveau = -1;
+
+        do {
+            // Mélange classique Fisher-Yates
+            for (let i = labels.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [labels[i], labels[j]] = [labels[j], labels[i]];
+            }
+
+            // On regarde où a atterri la bonne réponse
+            indexNouveau = labels.findIndex(l => {
+                const val = l.querySelector("input").value;
+                return Array.isArray(reponseAttendue) ? reponseAttendue.includes(val) : val === reponseAttendue;
+            });
+
+            tentatives++;
+            // On recommence si la bonne réponse est sur la même lettre qu'avant
+            // (Sauf si on boucle trop, par sécurité)
+        } while (indexNouveau === indexAncien && tentatives < 15);
+
+        // Reconstruction du HTML avec les nouvelles lettres
         container.innerHTML = "";
-        labels.forEach((label) => {
+        labels.forEach((label, index) => {
             const input = label.querySelector("input");
+            let texteBrut = label.textContent.replace(/^[A-Z0-9][\.\s-]*/gi, "").trim();
             
-            // On récupère le texte existant en supprimant d'éventuels préfixes "A. ", "B. " déjà présents
-            let texteBrut = label.textContent.replace(/^[A-Z][\.\s]*/i, "").trim();
+            label.innerHTML = ""; 
+            label.appendChild(input); 
             
-            label.innerHTML = ""; // Vide le label
-            label.appendChild(input); // Remet l'input
+            const spanLettre = document.createElement("strong");
+            spanLettre.textContent = `${LETTRES[index]}. `;
             
-            // Ajoute le texte de l'option (on ne force plus A, B, C visuellement ici pour 
-            // ne pas confondre l'utilisateur avec la valeur réelle de l'input)
-            label.appendChild(document.createTextNode(` ${texteBrut}`));
+            label.appendChild(spanLettre);
+            label.appendChild(document.createTextNode(texteBrut));
             container.appendChild(label);
         });
     });
 }
 
-// --- LOGIQUE DE CORRECTION ---
+/* ===========================================================
+   LOGIQUE DE CORRECTION
+   =========================================================== */
 function corrigerQCM() {
     let scoreTotal = 0;
-    
+
     document.querySelectorAll(".qcm-question").forEach(q => {
         const id = q.dataset.question;
         const type = q.dataset.type;
         const attendu = bonnesReponses[id];
-        const navBtn = document.querySelector(`.nav-question[data-target="${id}"]`);
-        
         const inputs = Array.from(q.querySelectorAll(".qcm-options input"));
-        const coches = [];
         
-        inputs.forEach(input => {
-            if (input.checked) {
-                coches.push(input.value); // On utilise la VALUE (A, B, C, D) définie dans le HTML
-            }
+        // 1. Détermination des nouvelles lettres correctes après mélange
+        let lettresCorrectes = [];
+        inputs.forEach((input, index) => {
+            const isMatch = Array.isArray(attendu) ? attendu.includes(input.value) : input.value === attendu;
+            if (isMatch) lettresCorrectes.push(LETTRES[index]);
         });
 
+        // 2. Mise à jour de l'affichage de la correction
+        const spanLettre = q.querySelector(".lettre-correcte");
+        if (spanLettre) spanLettre.textContent = lettresCorrectes.join(" et ");
+
+        const panel = q.querySelector(".correction-panel");
+        if (panel) panel.classList.add("visible");
+
+        // 3. Calcul précis des points
+        const coches = inputs.filter(i => i.checked).map(i => i.value);
         let pts = 0;
+
         if (coches.length > 0) {
             if (type === "single") {
-                // Pour une question à choix unique
-                if (coches[0] === attendu) pts = 1;
+                pts = (coches[0] === attendu) ? 1 : 0;
             } else {
-                // Pour une question à choix multiples
-                let trouves = 0;
-                let erreurs = 0;
-                
-                coches.forEach(v => {
-                    if (attendu.includes(v)) trouves++;
-                    else erreurs++;
-                });
-
-                // Calcul proportionnel : (Bonnes réponses cochées / Total attendu) - fautes
-                if (erreurs === 0) {
-                    pts = trouves / attendu.length;
-                } else {
-                    pts = 0; // On annule les points si une erreur est cochée (règle stricte)
-                }
-            }
-        }
-
-        // Style visuel
-        if (coches.length === 0) {
-            q.style.borderLeft = "8px solid #cccccc";
-            if (navBtn) navBtn.classList.add("missing");
-        } else {
-            q.style.borderLeft = pts === 1 ? "8px solid #00ff80" : (pts > 0 ? "8px solid #ffb300" : "8px solid #ff5252");
-            if (navBtn) {
-                navBtn.classList.remove("good", "bad", "missing");
-                navBtn.classList.add(pts === 1 ? "good" : (pts > 0 ? "missing" : "bad"));
+                let trouves = 0, erreurs = 0;
+                coches.forEach(v => attendu.includes(v) ? trouves++ : erreurs++);
+                pts = (erreurs === 0) ? (trouves / attendu.length) : 0;
             }
         }
         
-        // Affichage du panel de correction
-        const panel = q.querySelector(".correction-panel");
-        if (panel) panel.style.display = "block";
-        
-        // Désactivation des inputs
-        q.querySelectorAll("input").forEach(i => i.disabled = true);
-        
+        // 4. Feedback Visuel
+        q.style.borderLeft = (pts === 1) ? "8px solid #00ff80" : (pts > 0 ? "8px solid #ffb300" : "8px solid #ff5252");
+        inputs.forEach(i => i.disabled = true);
         scoreTotal += pts;
     });
 
-    // Mise à jour du score final
-    const sb = document.getElementById("score-result");
-    if (sb) sb.textContent = `Score : ${scoreTotal.toFixed(1)} / 30`;
-    
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    afficherScore(scoreTotal);
 }
 
-// --- LOGIQUE DE REINITIALISATION ---
+/* ===========================================================
+   FONCTIONS UTILITAIRES
+   =========================================================== */
+function afficherScore(score) {
+    const scoreEl = document.getElementById("score-result");
+    scoreEl.textContent = `Score : ${score.toFixed(1)} / 30`;
+    
+    // Relance l'animation bump
+    scoreEl.classList.remove("score-bump");
+    void scoreEl.offsetWidth; 
+    scoreEl.classList.add("score-bump");
+}
+
 function resetQCM() {
+    // Reset des inputs
     document.querySelectorAll("input").forEach(i => {
         i.checked = false;
         i.disabled = false;
     });
 
+    // Reset des questions et panneaux
     document.querySelectorAll(".qcm-question").forEach(q => {
         q.style.borderLeft = "none";
         const panel = q.querySelector(".correction-panel");
-        if (panel) panel.style.display = "none";
+        if (panel) panel.classList.remove("visible");
     });
 
-    document.querySelectorAll(".nav-question").forEach(btn => {
-        btn.classList.remove("good", "bad", "missing");
-    });
-
-    const sb = document.getElementById("score-result");
-    if (sb) sb.textContent = "Score : — / 30";
+    // Reset Sidebar et Score
+    document.querySelectorAll(".nav-question").forEach(btn => btn.classList.remove("good", "bad", "missing"));
+    document.getElementById("score-result").textContent = "Score : — / 30";
     
-    // On remélange les questions
     algorithmeDeFisherYates(); 
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// --- INITIALISATION ---
+/* ===========================================================
+   INITIALISATION
+   =========================================================== */
 document.addEventListener("DOMContentLoaded", () => {
-    // Mélange initial
     algorithmeDeFisherYates();
-    
-    // Boutons de contrôle
-    const btnV = document.getElementById("validate-qcm");
-    if (btnV) btnV.onclick = corrigerQCM;
 
-    const btnR = document.getElementById("reset-qcm");
-    if (btnR) btnR.onclick = resetQCM;
+    document.getElementById("validate-qcm").onclick = corrigerQCM;
+    document.getElementById("reset-qcm").onclick = resetQCM;
 
-    // Navigation Sidebar
+    // Navigation fluide vers les questions
     document.querySelectorAll(".nav-question").forEach(btn => {
         btn.onclick = () => {
-            const targetId = btn.dataset.target;
-            const targetElement = document.getElementById(`question-${targetId}`);
-            if (targetElement) {
-                targetElement.scrollIntoView({ behavior: "smooth", block: "center" });
-            }
+            const target = document.getElementById(`question-${btn.dataset.target}`);
+            if (target) target.scrollIntoView({ behavior: "smooth", block: "center" });
         };
     });
-
-    // Sidebar mobile toggle (optionnel si vous avez le bouton)
-    const toggle = document.getElementById("sidebar-toggle");
-    if (toggle) {
-        toggle.onclick = () => {
-            document.querySelector(".sidebar").classList.toggle("active");
-        };
-    }
 });
