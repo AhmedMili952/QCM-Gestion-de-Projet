@@ -31,9 +31,16 @@ function corrigerQCM() {
             if (block) block.style.border = "3px solid orange";
             navBtn?.classList.add("missing");
         } else {
-            let estCorrect = (type === "single") 
-                ? reponsesUser[0] === attendu 
-                : (reponsesUser.length === attendu.length && reponsesUser.every(val => attendu.includes(val)));
+            let estCorrect = false;
+
+            if (type === "single") {
+                estCorrect = reponsesUser[0] === attendu;
+            } else {
+                // CORRECTION ICI : On trie les deux tableaux pour être sûr que l'ordre ne bloque pas
+                const trieUser = [...reponsesUser].sort().join(",");
+                const trieAttendu = Array.isArray(attendu) ? [...attendu].sort().join(",") : attendu;
+                estCorrect = trieUser === trieAttendu;
+            }
 
             if (estCorrect) {
                 score++;
@@ -45,25 +52,18 @@ function corrigerQCM() {
             }
         }
 
-        // --- CORRECTION AFFICHAGE ---
         const panel = q.querySelector(".correction-panel");
         if (panel) {
-            // On force l'affichage malgré l'opacity 0 du CSS
+            panel.style.display = "block";
             panel.style.opacity = "1";
             panel.style.transform = "translateY(0)";
             panel.style.pointerEvents = "auto";
-            panel.style.display = "block"; 
         }
     });
 
     const scoreBox = document.getElementById("score-result");
-    if (scoreBox) {
-        scoreBox.textContent = `Score : ${score} / 30`;
-        scoreBox.classList.remove("score-bump");
-        void scoreBox.offsetWidth; 
-        scoreBox.classList.add("score-bump");
-    }
-
+    if (scoreBox) scoreBox.textContent = `Score : ${score} / 30`;
+    
     document.querySelectorAll("input").forEach(i => i.disabled = true);
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
