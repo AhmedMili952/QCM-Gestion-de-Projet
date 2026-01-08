@@ -14,8 +14,7 @@ function algorithmeDeFisherYates() {
         if (!container) return;
 
         const labels = Array.from(container.querySelectorAll("label"));
-        const lettresOrdre = ["A", "B", "C", "D"];
-
+        
         // 1. Mélange des éléments
         for (let i = labels.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -24,17 +23,18 @@ function algorithmeDeFisherYates() {
 
         // 2. Reconstruction et Nettoyage
         container.innerHTML = "";
-        labels.forEach((label, index) => {
+        labels.forEach((label) => {
             const input = label.querySelector("input");
             
-            // On retire les anciennes lettres (A., B., etc.) pour éviter l'accumulation
-            let texteBrut = label.innerText.replace(/^([A-Z][\.\s]*)+/i, "").trim();
+            // On récupère le texte existant en supprimant d'éventuels préfixes "A. ", "B. " déjà présents
+            let texteBrut = label.textContent.replace(/^[A-Z][\.\s]*/i, "").trim();
             
-            label.innerHTML = ""; 
-            label.appendChild(input);
+            label.innerHTML = ""; // Vide le label
+            label.appendChild(input); // Remet l'input
             
-            // On réassigne la lettre correcte selon la position actuelle
-            label.appendChild(document.createTextNode(` ${lettresOrdre[index]}. ${texteBrut}`));
+            // Ajoute le texte de l'option (on ne force plus A, B, C visuellement ici pour 
+            // ne pas confondre l'utilisateur avec la valeur réelle de l'input)
+            label.appendChild(document.createTextNode(` ${texteBrut}`));
             container.appendChild(label);
         });
     });
@@ -43,44 +43,72 @@ function algorithmeDeFisherYates() {
 // --- LOGIQUE DE CORRECTION ---
 function corrigerQCM() {
     let scoreTotal = 0;
+    
     document.querySelectorAll(".qcm-question").forEach(q => {
         const id = q.dataset.question;
         const type = q.dataset.type;
         const attendu = bonnesReponses[id];
         const navBtn = document.querySelector(`.nav-question[data-target="${id}"]`);
         
-        const labels = Array.from(q.querySelectorAll(".qcm-options label"));
+        const inputs = Array.from(q.querySelectorAll(".qcm-options input"));
         const coches = [];
-        labels.forEach((label, index) => {
-            if (label.querySelector("input").checked) {
-                coches.push(["A", "B", "C", "D"][index]);
+        
+        inputs.forEach(input => {
+            if (input.checked) {
+                coches.push(input.value); // On utilise la VALUE (A, B, C, D) définie dans le HTML
             }
         });
 
         let pts = 0;
         if (coches.length > 0) {
             if (type === "single") {
+                // Pour une question à choix unique
                 if (coches[0] === attendu) pts = 1;
             } else {
-                let trouves = 0, erreurs = 0;
-                coches.forEach(v => attendu.includes(v) ? trouves++ : erreurs++);
-                pts = (erreurs === 0) ? (trouves / attendu.length) : 0;
+                // Pour une question à choix multiples
+                let trouves = 0;
+                let erreurs = 0;
+                
+                coches.forEach(v => {
+                    if (attendu.includes(v)) trouves++;
+                    else erreurs++;
+                });
+
+                // Calcul proportionnel : (Bonnes réponses cochées / Total attendu) - fautes
+                if (erreurs === 0) {
+                    pts = trouves / attendu.length;
+                } else {
+                    pts = 0; // On annule les points si une erreur est cochée (règle stricte)
+                }
             }
         }
 
-        q.style.borderLeft = pts === 1 ? "8px solid #00ff80" : (pts > 0 ? "8px solid #ffb300" : "8px solid #ff5252");
-        if (navBtn) {
-            navBtn.classList.remove("good", "bad", "missing");
-            navBtn.classList.add(pts === 1 ? "good" : (pts > 0 ? "missing" : "bad"));
+        // Style visuel
+        if (coches.length === 0) {
+            q.style.borderLeft = "8px solid #cccccc";
+            if (navBtn) navBtn.classList.add("missing");
+        } else {
+            q.style.borderLeft = pts === 1 ? "8px solid #00ff80" : (pts > 0 ? "8px solid #ffb300" : "8px solid #ff5252");
+            if (navBtn) {
+                navBtn.classList.remove("good", "bad", "missing");
+                navBtn.classList.add(pts === 1 ? "good" : (pts > 0 ? "missing" : "bad"));
+            }
         }
+        
+        // Affichage du panel de correction
         const panel = q.querySelector(".correction-panel");
         if (panel) panel.style.display = "block";
+        
+        // Désactivation des inputs
         q.querySelectorAll("input").forEach(i => i.disabled = true);
+        
         scoreTotal += pts;
     });
 
+    // Mise à jour du score final
     const sb = document.getElementById("score-result");
     if (sb) sb.textContent = `Score : ${scoreTotal.toFixed(1)} / 30`;
+    
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -104,25 +132,39 @@ function resetQCM() {
     const sb = document.getElementById("score-result");
     if (sb) sb.textContent = "Score : — / 30";
     
-    // On remélange proprement après avoir tout vidé
+    // On remélange les questions
     algorithmeDeFisherYates(); 
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 // --- INITIALISATION ---
 document.addEventListener("DOMContentLoaded", () => {
+    // Mélange initial
     algorithmeDeFisherYates();
     
+    // Boutons de contrôle
     const btnV = document.getElementById("validate-qcm");
-    if (btnV) btnV.onclick = corrigerQCM; // Re-liaison de la fonction
+    if (btnV) btnV.onclick = corrigerQCM;
 
     const btnR = document.getElementById("reset-qcm");
-    if (btnR) btnR.onclick = resetQCM; // Re-liaison de la fonction
+    if (btnR) btnR.onclick = resetQCM;
 
+    // Navigation Sidebar
     document.querySelectorAll(".nav-question").forEach(btn => {
         btn.onclick = () => {
-            const t = document.getElementById(`question-${btn.dataset.target}`);
-            if (t) t.scrollIntoView({ behavior: "smooth", block: "center" });
+            const targetId = btn.dataset.target;
+            const targetElement = document.getElementById(`question-${targetId}`);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: "smooth", block: "center" });
+            }
         };
     });
+
+    // Sidebar mobile toggle (optionnel si vous avez le bouton)
+    const toggle = document.getElementById("sidebar-toggle");
+    if (toggle) {
+        toggle.onclick = () => {
+            document.querySelector(".sidebar").classList.toggle("active");
+        };
+    }
 });
