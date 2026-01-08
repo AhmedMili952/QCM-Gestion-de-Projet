@@ -1,17 +1,18 @@
 // ===============================
 //   Bonnes réponses du QCM
+//   (Synchronisées avec le HTML)
 // ===============================
 const bonnesReponses = {
-  1: "B", 2: "B", 3: "B", 4: "B", 5: "B",
-  6: "A", 7: "B", 8: "A", 9: "B", 10: "B",
-  11: "B", 12: "B", 13: "B", 14: "B", 15: "B",
-  16: "C", 17: "B", 18: "B", 19: "B", 20: "B",
-  21: "B", 22: "B", 23: "B", 24: "B", 25: "B",
-  26: "B", 27: "C", 28: "B", 29: "B", 30: "B"
+  1: "A", 2: "D", 3: "C", 4: "B", 5: "D",
+  6: "A", 7: "C", 8: "B", 9: "D", 10: "A",
+  11: "C", 12: "D", 13: "B", 14: "A", 15: "C",
+  16: "D", 17: "A", 18: "B", 19: "C", 20: "D",
+  21: "A", 22: "C", 23: "B", 24: "D", 25: "A",
+  26: "C", 27: "D", 28: "B", 29: "A", 30: "C"
 };
 
 // ===============================
-//  Fonction de validation
+//   Fonction de validation
 // ===============================
 function corrigerQCM() {
   const questions = document.querySelectorAll(".qcm-question");
@@ -32,17 +33,20 @@ function corrigerQCM() {
     const navBtn = document.querySelector(`.nav-question[data-target="${i}"]`);
 
     if (!selected) {
-      block.style.border = "3px solid orange";
+      // Question non répondue
+      if (block) block.style.border = "3px solid orange";
       navBtn?.classList.add("missing");
       continue;
     }
 
     if (selected.value === bonnesReponses[i]) {
+      // Bonne réponse
       score++;
-      block.style.border = "3px solid lime";
+      if (block) block.style.border = "3px solid #2ecc71"; // Vert émeraude
       navBtn?.classList.add("good");
     } else {
-      block.style.border = "3px solid #ff4444";
+      // Mauvaise réponse
+      if (block) block.style.border = "3px solid #e74c3c"; // Rouge corail
       navBtn?.classList.add("bad");
     }
   }
@@ -50,8 +54,10 @@ function corrigerQCM() {
   // Affichage du score
   const scoreBox = document.getElementById("score-result");
   scoreBox.textContent = `Score : ${score} / 30`;
+  
+  // Animation du score
   scoreBox.classList.remove("score-bump");
-  void scoreBox.offsetWidth; // reset animation
+  void scoreBox.offsetWidth; // Force le reflux (reflow) pour relancer l'animation
   scoreBox.classList.add("score-bump");
 
   // Afficher toutes les explications
@@ -59,27 +65,26 @@ function corrigerQCM() {
     p.style.opacity = "1";
     p.style.transform = "translateY(0)";
     p.style.pointerEvents = "auto";
+    p.style.display = "block"; // S'assure que le panneau est visible
   });
 
-  // Désactivation des réponses
+  // Désactivation des boutons radio pour empêcher de tricher après validation
   document.querySelectorAll("input[type='radio']").forEach(r => {
     r.disabled = true;
   });
 }
 
 // ===============================
-//  Reset complet
+//   Reset complet
 // ===============================
 function resetQCM() {
-  // Réinitialisation graphique
-  const questions = document.querySelectorAll(".qcm-question");
-  questions.forEach(q => {
+  // Réinitialisation des questions et des radios
+  document.querySelectorAll(".qcm-question").forEach(q => {
     q.style.border = "2px solid transparent";
-    q.querySelectorAll("input[type='radio']").forEach(r => r.checked = false);
   });
 
-  // Réactivation des radios
   document.querySelectorAll("input[type='radio']").forEach(r => {
+    r.checked = false;
     r.disabled = false;
   });
 
@@ -94,21 +99,29 @@ function resetQCM() {
   const scoreBox = document.getElementById("score-result");
   scoreBox.textContent = "Score : — / 30";
 
-  // Reset sidebar colors
+  // Reset couleurs sidebar
   document.querySelectorAll(".nav-question").forEach(btn => {
     btn.classList.remove("good", "bad", "missing");
   });
+
+  // Scroll en haut
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 // ===============================
-//   Navigation sidebar
+//   Navigation et Menu
 // ===============================
 function initSidebarNavigation() {
   document.querySelectorAll(".nav-question").forEach(btn => {
     btn.addEventListener("click", () => {
-      const target = document.getElementById(`question-${btn.dataset.target}`);
-      target.scrollIntoView({ behavior: "smooth", block: "center" });
+      const targetId = `question-${btn.dataset.target}`;
+      const targetElement = document.getElementById(targetId);
+      
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
 
+      // Fermer le menu sur mobile après clic
       if (window.innerWidth <= 900) {
         document.body.classList.remove("sidebar-open");
       }
@@ -116,9 +129,6 @@ function initSidebarNavigation() {
   });
 }
 
-// ===============================
-//   Burger menu
-// ===============================
 function initBurger() {
   const burger = document.getElementById("sidebar-toggle");
   if (burger) {
@@ -135,6 +145,9 @@ document.addEventListener("DOMContentLoaded", () => {
   initSidebarNavigation();
   initBurger();
 
-  document.getElementById("validate-btn").addEventListener("click", corrigerQCM);
-  document.getElementById("reset-btn").addEventListener("click", resetQCM);
+  const validateBtn = document.getElementById("validate-btn");
+  const resetBtn = document.getElementById("reset-btn");
+
+  if (validateBtn) validateBtn.addEventListener("click", corrigerQCM);
+  if (resetBtn) resetBtn.addEventListener("click", resetQCM);
 });
