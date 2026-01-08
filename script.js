@@ -11,6 +11,25 @@ const bonnesReponses = {
 };
 
 // ===============================
+//    Fonction de Mélange (Shuffle)
+// ===============================
+function melangerOptions(questionBlock) {
+    const optionsContainer = questionBlock.querySelector(".qcm-options");
+    if (!optionsContainer) return;
+
+    const labels = Array.from(optionsContainer.querySelectorAll("label"));
+    
+    // Algorithme de Fisher-Yates
+    for (let i = labels.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [labels[i], labels[j]] = [labels[j], labels[i]];
+    }
+
+    // Ré-insertion dans le DOM
+    labels.forEach(label => optionsContainer.appendChild(label));
+}
+
+// ===============================
 //    Fonction de validation
 // ===============================
 function corrigerQCM() {
@@ -21,38 +40,30 @@ function corrigerQCM() {
         const id = q.dataset.question;
         const type = q.dataset.type;
         const attendu = bonnesReponses[id];
-        const block = document.getElementById(`question-${id}`);
         const navBtn = document.querySelector(`.nav-question[data-target="${id}"]`);
         
-        const inputsChecked = Array.from(q.querySelectorAll(`input[name="q${id}"]:checked`));
+        const inputsChecked = Array.from(q.querySelectorAll(`input:checked`));
         const reponsesUser = inputsChecked.map(input => input.value);
 
         let pointsQuestion = 0;
 
         if (reponsesUser.length === 0) {
-            if (block) block.style.border = "3px solid orange";
+            q.style.border = "3px solid orange";
             navBtn?.classList.add("missing");
         } else {
             if (type === "single") {
-                // Choix unique : 1 pt ou 0 pt
-                if (reponsesUser[0] === attendu) {
-                    pointsQuestion = 1;
-                }
+                if (reponsesUser[0] === attendu) pointsQuestion = 1;
             } else {
-                // Choix multiple : Points partiels
                 const nbBonnesTotal = attendu.length;
                 let bonnesTrouvees = 0;
                 let erreurs = 0;
 
                 reponsesUser.forEach(val => {
-                    if (attendu.includes(val)) {
-                        bonnesTrouvees++;
-                    } else {
-                        erreurs++;
-                    }
+                    if (attendu.includes(val)) bonnesTrouvees++;
+                    else erreurs++;
                 });
 
-                // Règle : Si aucune erreur, on donne le prorata. Si une erreur, 0 point.
+                // Ta règle : Pas d'erreur = prorata, 1 erreur = 0
                 if (erreurs === 0) {
                     pointsQuestion = bonnesTrouvees / nbBonnesTotal;
                 } else {
@@ -60,50 +71,37 @@ function corrigerQCM() {
                 }
             }
 
-            // --- GESTION VISUELLE ---
+            // Gestion visuelle
             if (pointsQuestion === 1) {
-                // Tout bon
-                if (block) block.style.border = "3px solid #00ff80";
+                q.style.border = "3px solid #00ff80";
                 navBtn?.classList.add("good");
             } else if (pointsQuestion > 0) {
-                // Partiel (Orange)
-                if (block) block.style.border = "3px solid #ffb300";
+                q.style.border = "3px solid #ffb300"; // Orange pour partiel
                 navBtn?.classList.add("missing");
             } else {
-                // Faux (Rouge)
-                if (block) block.style.border = "3px solid #ff5252";
+                q.style.border = "3px solid #ff5252";
                 navBtn?.classList.add("bad");
             }
         }
 
         scoreTotal += pointsQuestion;
 
-        // Affichage du panneau de correction
         const panel = q.querySelector(".correction-panel");
         if (panel) {
             panel.style.display = "block";
             panel.style.opacity = "1";
-            panel.style.transform = "translateY(0)";
-            panel.style.pointerEvents = "auto";
         }
     });
 
-    // Mise à jour du score avec un seul chiffre après la virgule
     const scoreBox = document.getElementById("score-result");
-    if (scoreBox) {
-        scoreBox.textContent = `Score : ${scoreTotal.toFixed(1)} / 30`;
-        scoreBox.classList.remove("score-bump");
-        void scoreBox.offsetWidth; // Reset animation
-        scoreBox.classList.add("score-bump");
-    }
+    if (scoreBox) scoreBox.textContent = `Score : ${scoreTotal.toFixed(1)} / 30`;
 
-    // Désactivation et scroll
     document.querySelectorAll("input").forEach(i => i.disabled = true);
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 // ===============================
-//    Reset (Version Nettoyage)
+//    Reset (Avec Shuffle)
 // ===============================
 function resetQCM() {
     document.querySelectorAll('input').forEach(input => {
@@ -111,13 +109,16 @@ function resetQCM() {
         input.disabled = false;
     });
 
-    document.querySelectorAll(".correction-panel").forEach(panel => {
-        panel.style.display = "none";
-        panel.style.opacity = "0";
-    });
-
     document.querySelectorAll(".qcm-question").forEach(q => {
         q.style.border = "2px solid transparent";
+        const panel = q.querySelector(".correction-panel");
+        if (panel) {
+            panel.style.display = "none";
+            panel.style.opacity = "0";
+        }
+        
+        // ON MÉLANGE ICI
+        melangerOptions(q);
     });
 
     document.querySelectorAll(".nav-question").forEach(btn => {
@@ -131,9 +132,10 @@ function resetQCM() {
 }
 
 // ===============================
-//    Navigation et Initialisation
+//    Initialisation
 // ===============================
-function initSidebarNavigation() {
+document.addEventListener("DOMContentLoaded", () => {
+    // Navigation Sidebar
     document.querySelectorAll(".nav-question").forEach(btn => {
         btn.addEventListener("click", () => {
             const targetId = `question-${btn.dataset.target}`;
@@ -141,25 +143,18 @@ function initSidebarNavigation() {
             if (targetElement) {
                 targetElement.scrollIntoView({ behavior: "smooth", block: "center" });
             }
-            if (window.innerWidth <= 900) {
-                document.body.classList.remove("sidebar-open");
-            }
         });
     });
-}
 
-function initBurger() {
+    // Burger Menu
     const burger = document.getElementById("sidebar-toggle");
     if (burger) {
         burger.addEventListener("click", () => {
             document.body.classList.toggle("sidebar-open");
         });
     }
-}
 
-document.addEventListener("DOMContentLoaded", () => {
-    initSidebarNavigation();
-    initBurger();
+    // Initialiser les boutons si présents
     const validateBtn = document.getElementById("validate-btn");
     const resetBtn = document.getElementById("reset-btn");
     if (validateBtn) validateBtn.addEventListener("click", corrigerQCM);
