@@ -12,24 +12,18 @@ function algorithmeDeFisherYates() {
     document.querySelectorAll(".qcm-question").forEach(q => {
         const container = q.querySelector(".qcm-options");
         if (!container) return;
-
         const labels = Array.from(container.querySelectorAll("label"));
         const lettresOrdre = ["A", "B", "C", "D"];
 
-        // Application de l'algorithme selon ton image
         for (let i = labels.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [labels[i], labels[j]] = [labels[j], labels[i]];
         }
 
-        // Reconstruction du HTML
         container.innerHTML = "";
         labels.forEach((label, index) => {
             const input = label.querySelector("input");
-            
-            // Nettoyage des anciennes lettres pour eviter les doublons (A. C. Texte)
             let texteBrut = label.innerText.replace(/^([A-Z][\.\s]*)+/i, "").trim();
-            
             label.innerHTML = "";
             label.appendChild(input);
             label.appendChild(document.createTextNode(` ${lettresOrdre[index]}. ${texteBrut}`));
@@ -49,8 +43,6 @@ function corrigerQCM() {
         
         const labels = Array.from(q.querySelectorAll(".qcm-options label"));
         const coches = [];
-        
-        // On identifie quelles lettres (A, B, C, D) ont ete cochees apres melange
         labels.forEach((label, index) => {
             if (label.querySelector("input").checked) {
                 coches.push(["A", "B", "C", "D"][index]);
@@ -68,20 +60,13 @@ function corrigerQCM() {
             }
         }
 
-        // Style visuel de la question
         q.style.borderLeft = pts === 1 ? "8px solid #00ff80" : (pts > 0 ? "8px solid #ffb300" : "8px solid #ff5252");
-        
-        // Mise a jour de la barre de navigation
         if (navBtn) {
             navBtn.classList.remove("good", "bad", "missing");
-            if (coches.length === 0) navBtn.classList.add("missing");
-            else navBtn.classList.add(pts === 1 ? "good" : (pts > 0 ? "missing" : "bad"));
+            navBtn.classList.add(pts === 1 ? "good" : (pts > 0 ? "missing" : "bad"));
         }
-        
-        // Affichage du panel de correction
         const panel = q.querySelector(".correction-panel");
         if (panel) panel.style.display = "block";
-
         q.querySelectorAll("input").forEach(i => i.disabled = true);
         scoreTotal += pts;
     });
@@ -91,15 +76,37 @@ function corrigerQCM() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+// --- LOGIQUE DE REINITIALISATION ---
+function resetQCM() {
+    document.querySelectorAll("input").forEach(i => {
+        i.checked = false;
+        i.disabled = false;
+    });
+    document.querySelectorAll(".qcm-question").forEach(q => {
+        q.style.borderLeft = "none";
+        const panel = q.querySelector(".correction-panel");
+        if (panel) panel.style.display = "none";
+    });
+    document.querySelectorAll(".nav-question").forEach(btn => {
+        btn.classList.remove("good", "bad", "missing");
+    });
+    const sb = document.getElementById("score-result");
+    if (sb) sb.textContent = "Score : — / 30";
+    
+    algorithmeDeFisherYates(); // On remélange pour une nouvelle tentative
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
 // --- INITIALISATION ---
 document.addEventListener("DOMContentLoaded", () => {
-    // Appel de la fonction de melange
     algorithmeDeFisherYates();
     
     const btnV = document.getElementById("validate-qcm");
     if (btnV) btnV.onclick = corrigerQCM;
 
-    // Navigation fluide via la sidebar
+    const btnR = document.getElementById("reset-qcm");
+    if (btnR) btnR.onclick = resetQCM;
+
     document.querySelectorAll(".nav-question").forEach(btn => {
         btn.onclick = () => {
             const t = document.getElementById(`question-${btn.dataset.target}`);
