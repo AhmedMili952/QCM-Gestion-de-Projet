@@ -3,505 +3,545 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QCM Gestion de Projet</title>
+    <title>QCM – Gestion de projet, Cyber & RSE</title>
     <link rel="stylesheet" href="QCM.css" />
+    <style>
+        :root { 
+            --accent: #00d4ff; 
+            --success: #00ff80; 
+            --bg: #121212; 
+            --panel: #1e1e1e;
+            --text-main: #e0e0e0;
+        }
+        .correction-text { color: var(--success); font-weight: bold; font-size: 1.1em; }
+        .quote-box {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 3px solid var(--accent);
+            padding: 15px;
+            margin: 15px 0;
+            font-style: italic;
+            font-size: 0.95em;
+            color: #ccc;
+            border-radius: 0 4px 4px 0;
+        }
+        .memo-box {
+            background: rgba(0, 255, 128, 0.08);
+            border: 1px dashed var(--success);
+            padding: 12px;
+            margin-top: 12px;
+            border-radius: 6px;
+            font-size: 0.9em;
+            color: #d4ffea;
+        }
+    </style>
 </head>
 <body>
+    
 
-<button id="sidebar-toggle" class="sidebar-toggle">
-    <span></span><span></span><span></span>
-</button>
+<div class="top-bar">
+    <div class="top-bar-content">
+        <span class="exam-title">QCM – Gestion de projet, Cyber & RSE</span>
+        <div id="score-result" class="score-pill">Score : — / 34</div>
+    </div>
+</div>
 
 <div class="layout">
     <aside class="sidebar">
-        <div id="score-result" class="score-result">Score : — / 30</div>
+        <div class="score-result">
+            <div id="sidebar-score">-- / 34</div>
+        </div>
         <nav class="sidebar-list">
-            <script>
-                for(let i=1; i<=30; i++) {
-                    document.write(`<button class="nav-question" data-target="${i}">Q${i}</button>`);
-                }
-            </script>
+            <script>for(let i=1; i<=34; i++) { document.write(`<button class="nav-question" data-target="${i}">Q${i}</button>`); }</script>
         </nav>
     </aside>
 
     <main class="main-content">
+        <h1>QCM – Gestion de projet, Cyber & RSE</h1>
 
         <section>
-            <h1>Cours 1 – Fondamentaux de la Gestion de Projet</h1>
-            <h2>Questions 1 à 10</h2>
-            <br>
-            <div class="qcm-question" id="question-1" data-question="1" data-type="single">
-                <p><b>1.</b> Quelle caractéristique distingue fondamentalement un projet d'une opération courante (Business as Usual) ?</p>
-                <div class="qcm-options">
-                    <label><input type="radio" name="q1" value="A"> Le projet mobilise des ressources financières importantes.</label>
-                    <label><input type="radio" name="q1" value="B"> Le projet a un caractère temporaire avec un début et une fin définis.</label>
-                    <label><input type="radio" name="q1" value="C"> Le projet est dirigé par un cadre dirigeant (Sponsor).</label>
-                    <label><input type="radio" name="q1" value="D"> Le projet ne comporte aucun risque opérationnel.</label>
-                </div>
+            <h2>Gestion de projet</h2>
+
+            <div class="qcm-question" id="question-1" data-question="1" data-type="text">
+                <p><b>1. Quel est le triangle d’or de la gestion de projet ?</b></p>
+                <div class="qcm-options"><textarea name="q1" placeholder="Votre réponse..."></textarea></div>
                 <div class="correction-panel">
-                    <b>Bonne réponse : <span class="lettre-correcte">B</span></b> 
-                    <br><i>Justification :</i> Contrairement aux opérations de "RUN" qui sont répétitives et pérennes, un projet est une entreprise unique avec une échéance précise et un objectif spécifique.
-                    <br><strong>Mémo : PROJET = Début + Fin + Livrable Unique.</strong>
+                    <p>✅ <b>Bonne réponse : <span class="correction-text">Coût, Délai, Qualité</span></b></p>
+                    <div class="quote-box">"Le triangle d'or : Le temps (les délais), Le coût (le budget) et La qualité (les spécifications)."</div>
+                    <div class="memo-box">💡Retenez <b>CDQ</b>. On ne peut pas modifier un côté du triangle sans déformer les autres (si on réduit le coût, la qualité ou le délai en pâtira).</div>
                 </div>
             </div>
 
-            <div class="qcm-question" id="question-2" data-question="2" data-type="multiple">
-                <p><b>2.</b> Dans le "Triangle d'Or", quels leviers sont mécaniquement impactés par une réduction drastique du budget ?</p>
+            <hr>
+
+            <div class="qcm-question" id="question-2" data-question="2" data-type="single">
+                <p><b>2. Quelle phase du cycle de vie d’un projet inclut l’élaboration de la structure de répartition du travail (tâches) et la planification des ressources ?</b></p>
                 <div class="qcm-options">
-                    <label><input type="checkbox" name="q2" value="A"> Les délais (nécessité de rallonger le temps).</label>
-                    <label><input type="checkbox" name="q2" value="B"> Le périmètre / La qualité (réduction des fonctionnalités).</label>
-                    <label><input type="checkbox" name="q2" value="C"> L'identité du Sponsor.</label>
-                    <label><input type="checkbox" name="q2" value="D"> La phase de RUN.</label>
+                    <label><input type="radio" name="q2" value="Initiation"> Initiation</label>
+                    <label><input type="radio" name="q2" value="Lancement"> Lancement</label>
+                    <label><input type="radio" name="q2" value="Planification"> Planification</label>
+                    <label><input type="radio" name="q2" value="Conception"> Conception</label>
+                    <label><input type="radio" name="q2" value="Clôture"> Clôture</label>
+                    <label><input type="radio" name="q2" value="RUN"> RUN</label>
                 </div>
                 <div class="correction-panel">
-                    <b>Bonnes réponses : <span class="lettre-correcte">A et B</span></b>
-                    <br><i>Justification :</i> Le triangle Coût-Délai-Qualité est interdépendant. Si les ressources financières diminuent, il faut soit plus de temps, soit réduire les ambitions de contenu pour maintenir l'équilibre.
-                    <br><strong>Mémo : Moins d'argent = Moins de fonctions ou Plus de temps.</strong>
+                    <p>✅ <b>Bonne réponse : <span class="correction-text">Planification</span></b></p>
+                    <div class="memo-box">💡 C'est ici que l'on crée le WBS (Work Breakdown Structure) et le diagramme de Gantt.</div>
                 </div>
             </div>
+
+            <hr>
 
             <div class="qcm-question" id="question-3" data-question="3" data-type="single">
-                <p><b>3.</b> Quel indicateur est spécifique au succès de la phase de RUN (Exploitation) ?</p>
+                <p><b>3. Quelle est la principale différence entre une approche de gestion de projet traditionnelle (en cascade / Waterfall) et une approche Agile ?</b></p>
                 <div class="qcm-options">
-                    <label><input type="radio" name="q3" value="A"> Le respect du chemin critique.</label>
-                    <label><input type="radio" name="q3" value="B"> Le taux d'exécution budgétaire.</label>
-                    <label><input type="radio" name="q3" value="C"> Le respect des SLA (Service Level Agreements) et la disponibilité du service.</label>
-                    <label><input type="radio" name="q3" value="D"> La validation du cahier des charges.</label>
+                    <label><input type="radio" name="q3" value="A"> L’approche Agile ne permet pas d’avoir un budget fixe</label>
+                    <label><input type="radio" name="q3" value="B"> L’approche traditionnelle n’a pas de chef de projet</label>
+                    <label><input type="radio" name="q3" value="C"> L’approche Agile privilégie des livraisons fréquentes et l’adaptation au changement plutôt qu’une planification initiale complète</label>
                 </div>
                 <div class="correction-panel">
-                    <b>Bonne réponse : <span class="lettre-correcte">C</span></b>
-                    <br><i>Justification :</i> La phase de RUN commence après la livraison. On n'évalue plus la construction, mais la stabilité, la maintenance et le niveau de service rendu aux utilisateurs finaux.
-                    <br><strong>Mémo : BUILD = Livraison / RUN = Satisfaction & Disponibilité.</strong>
+                    <p>✅ <b>Bonne réponse : <span class="correction-text">L’approche Agile privilégie des livraisons fréquentes...</span></b></p>
+                    <div class="quote-box">"Répondre au changement plus que suivre un plan." — Manifeste Agile.</div>
                 </div>
             </div>
 
-            <div class="qcm-question" id="question-4" data-question="4" data-type="multiple">
-                <p><b>4.</b> Selon la matrice RACI, que signifie le rôle 'A' (Accountable) ?</p>
+            <hr>
+
+            <div class="qcm-question" id="question-4" data-question="4" data-type="single">
+                <p><b>4. Quelle matrice est couramment utilisée pour planifier la réalisation d’un projet avec les parties prenantes ?</b></p>
                 <div class="qcm-options">
-                    <label><input type="checkbox" name="q4" value="A"> Il peut y avoir plusieurs 'A'.</label>
-                    <label><input type="checkbox" name="q4" value="B"> Il rend des comptes sur l'aboutissement de la tâche.</label>
-                    <label><input type="checkbox" name="q4" value="C"> Il est l'expert technique.</label>
-                    <label><input type="checkbox" name="q4" value="D"> Il doit y avoir un seul 'A' par ligne.</label>
+                    <label><input type="radio" name="q4" value="A"> Matrice de probabilité / impact du risque</label>
+                    <label><input type="radio" name="q4" value="B"> Diagramme de Gantt</label>
                 </div>
                 <div class="correction-panel">
-                    <b>Bonnes réponses : <span class="lettre-correcte">B et D</span></b>
-                    <br><i>Justification :</i> Le "A" est l'autorité ultime. S'il y a plusieurs décideurs pour une même tâche, les responsabilités sont diluées, ce qui paralyse la prise de décision.
-                    <br><strong>Mémo : R = Fait / A = Approuve (1 seul A par tâche !).</strong>
+                    <p>✅ <b>Bonne réponse : <span class="correction-text">Diagramme de Gantt</span></b></p>
+                    <div class="memo-box">💡 Le Gantt permet de visualiser les tâches, leur durée et leurs dépendances dans le temps.</div>
                 </div>
             </div>
+
+            <hr>
 
             <div class="qcm-question" id="question-5" data-question="5" data-type="single">
-                <p><b>5.</b> Différence majeure entre Besoin et Spécification ?</p>
+                <p><b>5. Quel est le rôle du Sponsor du projet ?</b></p>
                 <div class="qcm-options">
-                    <label><input type="radio" name="q5" value="A"> Besoin technique vs Spécification métier.</label>
-                    <label><input type="radio" name="q5" value="B"> Besoin = Quoi (attente) / Spécification = Comment (solution).</label>
-                    <label><input type="radio" name="q5" value="C"> Ce sont des synonymes.</label>
-                    <label><input type="radio" name="q5" value="D"> Le client rédige la spécification.</label>
+                    <label><input type="radio" name="q5" value="A"> Approuver et financer le projet, et servir d’intermédiaire de haut niveau entre le Chef de Projet et la direction</label>
+                    <label><input type="radio" name="q5" value="B"> Réaliser la majorité des tâches techniques du projet</label>
+                    <label><input type="radio" name="q5" value="C"> Documenter toutes les heures de travail et les dépenses de l’équipe</label>
+                    <label><input type="radio" name="q5" value="D"> Définir les étapes détaillées de chaque activité</label>
                 </div>
                 <div class="correction-panel">
-                    <b>Bonne réponse : <span class="lettre-correcte">B</span></b>
-                    <br><i>Justification :</i> Le besoin exprime l'attente fonctionnelle du métier (l'objectif), alors que la spécification détaille la réponse technique ou organisationnelle apportée (le moyen).
-                    <br><strong>Mémo : Besoin = Le But / Spécification = Le Moyen.</strong>
+                    <p>✅ <b>Bonne réponse : <span class="correction-text">Approuver et financer le projet...</span></b></p>
+                    <div class="memo-box">💡 Le sponsor est le "propriétaire" politique et financier. Si le projet manque de ressources, c'est vers lui que le CP se tourne.</div>
                 </div>
             </div>
+
+            <hr>
 
             <div class="qcm-question" id="question-6" data-question="6" data-type="single">
-                <p><b>6.</b> Une exigence "Non-Fonctionnelle" concerne :</p>
+                <p><b>6. En gestion de projet, à quoi fait référence la Qualité ?</b></p>
                 <div class="qcm-options">
-                    <label><input type="radio" name="q6" value="A"> Les menus de l'interface.</label>
-                    <label><input type="radio" name="q6" value="B"> Le calcul du panier.</label>
-                    <label><input type="radio" name="q6" value="C"> La capacité du système à supporter 10 000 connexions.</label>
-                    <label><input type="radio" name="q6" value="D"> L'export PDF.</label>
+                    <label><input type="radio" name="q6" value="A"> L’ensemble des caractéristiques du livrable qui répondent aux exigences énoncées ou implicites</label>
+                    <label><input type="radio" name="q6" value="B"> Le respect du budget initial sans aucun dépassement</label>
+                    <label><input type="radio" name="q6" value="C"> L’utilisation exclusive de ressources internes à l’entreprise</label>
+                    <label><input type="radio" name="q6" value="D"> Le fait de terminer le projet en avance sur le calendrier</label>
                 </div>
                 <div class="correction-panel">
-                    <b>Bonne réponse : <span class="lettre-correcte">C</span></b>
-                    <br><i>Justification :</i> Contrairement au fonctionnel (ce que fait l'outil), le non-fonctionnel définit comment il le fait : performance, sécurité, scalabilité et ergonomie.
-                    <br><strong>Mémo : Fonctionnel = Actions / Non-Fonctionnel = Qualités & Limites.</strong>
+                    <p>✅ <b>Bonne réponse : <span class="correction-text">L’ensemble des caractéristiques du livrable...</span></b></p>
+                    <div class="quote-box">"La qualité, c'est la conformité aux besoins."</div>
                 </div>
             </div>
 
-            <div class="qcm-question" id="question-7" data-question="7" data-type="multiple">
-                <p><b>7.</b> Un objectif SMART doit être :</p>
+            <hr>
+
+            <div class="qcm-question" id="question-7" data-question="7" data-type="single">
+                <p><b>7. Dans un projet Agile (ex : Scrum), quelle est la durée typique d’un Sprint ou d’une itération ?</b></p>
                 <div class="qcm-options">
-                    <label><input type="checkbox" name="q7" value="A"> Mesurable via KPI.</label>
-                    <label><input type="checkbox" name="q7" value="B"> Ambitieux et impossible.</label>
-                    <label><input type="checkbox" name="q7" value="C"> Temporellement défini.</label>
-                    <label><input type="checkbox" name="q7" value="D"> Spécifique.</label>
+                    <label><input type="radio" name="q7" value="A"> Plus d’un an</label>
+                    <label><input type="radio" name="q7" value="B"> Moins d’une journée de travail</label>
+                    <label><input type="radio" name="q7" value="C"> La durée totale du projet</label>
+                    <label><input type="radio" name="q7" value="D"> Entre 1 et 4 semaines</label>
                 </div>
                 <div class="correction-panel">
-                    <b>Bonnes réponses : <span class="lettre-correcte">A, C et D</span></b>
-                    <br><i>Justification :</i> Un objectif "A" doit être Atteignable. Un objectif impossible décourage les équipes et n'est pas considéré comme sérieux en gestion de projet.
-                    <br><strong>Mémo : SMART = Précis, Chiffré, Réaliste et Daté.</strong>
+                    <p>✅ <b>Bonne réponse : <span class="correction-text">Entre 1 et 4 semaines</span></b></p>
+                    <div class="memo-box">💡 Un sprint court permet de réduire les risques et d'ajuster le tir rapidement.</div>
                 </div>
             </div>
+
+            <hr>
 
             <div class="qcm-question" id="question-8" data-question="8" data-type="single">
-                <p><b>8.</b> Que représente le "chemin critique" ?</p>
+                <p><b>8. Qu’est-ce que la dépendance entre deux activités dans un planning de projet ?</b></p>
                 <div class="qcm-options">
-                    <label><input type="radio" name="q8" value="A"> Les tâches compliquées.</label>
-                    <label><input type="radio" name="q8" value="B"> La séquence dont le retard décale la date de fin du projet.</label>
-                    <label><input type="radio" name="q8" value="C"> Les tâches budgétaires.</label>
-                    <label><input type="radio" name="q8" value="D"> L'intégration des nouveaux.</label>
+                    <label><input type="radio" name="q8" value="A"> Le coût total associé aux deux activités</label>
+                    <label><input type="radio" name="q8" value="B"> La relation logique et chronologique où une activité doit se terminer avant qu’une autre ne puisse commencer (ou autres relations logiques)</label>
+                    <label><input type="radio" name="q8" value="C"> Le besoin d’une ressource unique pour effectuer les deux activités</label>
+                    <label><input type="radio" name="q8" value="D"> Le risque que l’une ou l’autre activité soit annulée</label>
                 </div>
                 <div class="correction-panel">
-                    <b>Bonne réponse : <span class="lettre-correcte">B</span></b>
-                    <br><i>Justification :</i> Le chemin critique est la route la plus longue dans le planning. Toute tâche sur ce chemin possède une marge nulle : un seul jour de retard impacte directement la livraison finale.
-                    <br><strong>Mémo : Chemin Critique = Alerte rouge au moindre retard.</strong>
+                    <p>✅ <b>Bonne réponse : <span class="correction-text">La relation logique et chronologique...</span></b></p>
                 </div>
             </div>
+
+            <hr>
 
             <div class="qcm-question" id="question-9" data-question="9" data-type="single">
-                <p><b>9.</b> En Scrum, qui est garant de la priorité ?</p>
+                <p><b>9. La dépendance entre deux tâches A et B est de type Fin-Début avec un décalage (Lag) de 5 jours. Qu’est-ce que cela signifie ?</b></p>
                 <div class="qcm-options">
-                    <label><input type="radio" name="q9" value="A"> Le Scrum Master.</label>
-                    <label><input type="radio" name="q9" value="B"> Le Product Owner (PO).</label>
-                    <label><input type="radio" name="q9" value="C"> Les développeurs.</label>
-                    <label><input type="radio" name="q9" value="D"> Le Sponsor.</label>
+                    <label><input type="radio" name="q9" value="A"> L’activité A doit se terminer, puis l’activité B peut commencer seulement 5 jours plus tard</label>
+                    <label><input type="radio" name="q9" value="B"> L’activité B peut commencer dès le début de l’activité A, plus 5 jours de battement</label>
+                    <label><input type="radio" name="q9" value="C"> Les activités A et B doivent se terminer le même jour, plus 5 jours de flottement</label>
+                    <label><input type="radio" name="q9" value="D"> L’activité B peut commencer 5 jours avant la fin de l’activité A</label>
                 </div>
                 <div class="correction-panel">
-                    <b>Bonne réponse : <span class="lettre-correcte">B</span></b>
-                    <br><i>Justification :</i> Le Product Owner représente les intérêts des utilisateurs. Il est seul responsable de l'ordre des éléments dans le Backlog pour maximiser la valeur métier produite.
-                    <br><strong>Mémo : PO = Décideur de la Valeur.</strong>
-                </div>
-            </div>
-
-            <div class="qcm-question" id="question-10" data-question="10" data-type="single">
-                <p><b>10.</b> Le "Kick-off meeting" intervient :</p>
-                <div class="qcm-options">
-                    <label><input type="radio" name="q10" value="A"> À la signature.</label>
-                    <label><input type="radio" name="q10" value="B"> À la clôture.</label>
-                    <label><input type="radio" name="q10" value="C"> Après le cadrage pour lancer officiellement l'exécution.</label>
-                    <label><input type="radio" name="q10" value="D"> En cas de crise.</label>
-                </div>
-                <div class="correction-panel">
-                    <b>Bonne réponse : <span class="lettre-correcte">C</span></b>
-                    <br><i>Justification :</i> C'est la réunion qui aligne tout le monde (équipe, clients, parties prenantes) sur la vision, les rôles et le planning avant de démarrer la production concrète.
-                    <br><strong>Mémo : Kick-off = Top départ officiel.</strong>
+                    <p>✅ <b>Bonne réponse : <span class="correction-text">L’activité A doit se terminer...</span></b></p>
+                    <div class="memo-box">💡 Exemple : On coule la dalle (A), on attend 5 jours que ça sèche (Lag), puis on monte les murs (B).</div>
                 </div>
             </div>
         </section>
 
+        <hr>
+
         <section>
-            <br>
-            <br>
-            <br>
-            <h1>Cours 2 – Intégrer la Cybersécurité</h1>
-            <h2>Questions 11 à 20</h2>
+            <h2>Développement durable – Réchauffement climatique</h2>
 
-            <div class="qcm-question" id="question-11" data-question="11" data-type="single">
-                <p><b>11.</b> Intérêt du "Security by Design" ?</p>
+            <div class="qcm-question" id="question-10" data-question="10" data-type="multiple">
+                <p><b>10. Quels sont les piliers du développement durable ?</b></p>
                 <div class="qcm-options">
-                    <label><input type="radio" name="q11" value="A"> Moins de licences.</label>
-                    <label><input type="radio" name="q11" value="B"> Corriger au début coûte 100 fois moins cher qu'en production.</label>
-                    <label><input type="radio" name="q11" value="C"> Pas d'impact budget.</label>
-                    <label><input type="radio" name="q11" value="D"> Remplace le RSSI.</label>
+                    <label><input type="checkbox" name="q10" value="Politique"> Politique</label>
+                    <label><input type="checkbox" name="q10" value="Environnement"> Environnement</label>
+                    <label><input type="checkbox" name="q10" value="Juridique"> Juridique</label>
+                    <label><input type="checkbox" name="q10" value="Économique"> Économique</label>
+                    <label><input type="checkbox" name="q10" value="Social"> Social</label>
+                    <label><input type="checkbox" name="q10" value="Humain"> Humain</label>
                 </div>
                 <div class="correction-panel">
-                    <b>Bonne réponse : <span class="lettre-correcte">B</span></b>
-                    <br><i>Justification :</i> Intégrer la sécurité dès la conception évite de devoir "patcher" ou refaire une architecture défectueuse une fois le produit fini, ce qui est extrêmement coûteux et risqué.
-                    <br><strong>Mémo : Sécu native = Gain de temps et d'argent.</strong>
+                    <p>✅ <b>Bonne réponse : <span class="correction-text">Environnement, Économique, Social</span></b></p>
+                    <div class="memo-box">💡 On parle souvent de "Triple Bottom Line" (People, Planet, Profit).</div>
                 </div>
             </div>
 
-            <div class="qcm-question" id="question-12" data-question="12" data-type="multiple">
-                <p><b>12.</b> Quelles sont les dimensions du triptyque "DIC" ?</p>
-                <div class="qcm-options">
-                    <label><input type="checkbox" name="q12" value="A"> Disponibilité.</label>
-                    <label><input type="checkbox" name="q12" value="B"> Intégrité.</label>
-                    <label><input type="checkbox" name="q12" value="C"> Durabilité.</label>
-                    <label><input type="checkbox" name="q12" value="D"> Confidentialité.</label>
-                </div>
+            <hr>
+
+            <div class="qcm-question" id="question-11" data-question="11" data-type="text">
+                <p><b>11. Qu’est-ce que le GIEC ?</b></p>
+                <div class="qcm-options"><textarea name="q11" placeholder="Votre réponse..."></textarea></div>
                 <div class="correction-panel">
-                    <b>Bonnes réponses : <span class="lettre-correcte">A, B et D</span></b>
-                    <br><i>Justification :</i> La disponibilité garantit l'accès, l'intégrité assure que la donnée n'est pas modifiée, et la confidentialité protège contre les accès non autorisés.
-                    <br><strong>Mémo : DIC = Accessible + Vrai + Secret.</strong>
+                    <p>✅ <b>Bonne réponse : <span class="correction-text">Groupe d'experts intergouvernemental sur l'évolution du climat</span></b></p>
+                    <div class="memo-box">💡 En anglais : IPCC (Intergovernmental Panel on Climate Change).</div>
                 </div>
             </div>
+
+            <hr>
+
+            <div class="qcm-question" id="question-12" data-question="12" data-type="single">
+                <p><b>12. Quand le GIEC a-t-il été créé ?</b></p>
+                <div class="qcm-options">
+                    <label><input type="radio" name="q12" value="2015"> 2015</label>
+                    <label><input type="radio" name="q12" value="2021"> 2021</label>
+                    <label><input type="radio" name="q12" value="1988"> 1988</label>
+                    <label><input type="radio" name="q12" value="1690"> 1690</label>
+                </div>
+                <div class="correction-panel">
+                    <p>✅ <b>Bonne réponse : <span class="correction-text">1988</span></b></p>
+                </div>
+            </div>
+
+            <hr>
 
             <div class="qcm-question" id="question-13" data-question="13" data-type="single">
-                <p><b>13.</b> Délai notification CNIL (RGPD) ?</p>
+                <p><b>13. Comment le GIEC est-il composé ?</b></p>
                 <div class="qcm-options">
-                    <label><input type="radio" name="q13" value="A"> 24h.</label>
-                    <label><input type="radio" name="q13" value="B"> 48h.</label>
-                    <label><input type="radio" name="q13" value="C"> 72h.</label>
-                    <label><input type="radio" name="q13" value="D"> 30j.</label>
+                    <label><input type="radio" name="q13" value="A"> 1. Physique et climat ; 2. Analyse des risques du changement climatique pour les sociétés et les écosystèmes ; 3. Moyens d’atténuation de la menace</label>
+                    <label><input type="radio" name="q13" value="B"> 1. Environnement et pollution ; 2. Actions de remédiation ; 3. Analyse du développement durable</label>
+                    <label><input type="radio" name="q13" value="C"> 1. Impact du réchauffement climatique ; 2. Solutions de remédiation ; 3. Résumé pour décideurs</label>
                 </div>
                 <div class="correction-panel">
-                    <b>Bonne réponse : <span class="lettre-correcte">C</span></b>
-                    <br><i>Justification :</i> En cas de violation de données personnelles, le responsable de traitement doit légalement informer la CNIL sous 72 heures maximum après en avoir pris connaissance.
-                    <br><strong>Mémo : 72h pour alerter la CNIL.</strong>
+                    <p>✅ <b>Bonne réponse : <span class="correction-text">L'option A (3 groupes de travail distincts)</span></b></p>
                 </div>
             </div>
+
+            <hr>
 
             <div class="qcm-question" id="question-14" data-question="14" data-type="single">
-                <p><b>14.</b> Postulat du "Zero Trust" ?</p>
+                <p><b>14. Combien existe-t-il de limites planétaires ?</b></p>
                 <div class="qcm-options">
-                    <label><input type="radio" name="q14" value="A"> On ne fait confiance à personne, même en interne.</label>
-                    <label><input type="radio" name="q14" value="B"> Confiance aux admins.</label>
-                    <label><input type="radio" name="q14" value="C"> Repose sur le pare-feu.</label>
-                    <label><input type="radio" name="q14" value="D"> Pas de Cloud public.</label>
+                    <label><input type="radio" name="q14" value="3"> 3</label>
+                    <label><input type="radio" name="q14" value="5"> 5</label>
+                    <label><input type="radio" name="q14" value="7"> 7</label>
+                    <label><input type="radio" name="q14" value="9"> 9</label>
+                    <label><input type="radio" name="q14" value="11"> 11</label>
                 </div>
                 <div class="correction-panel">
-                    <b>Bonne réponse : <span class="lettre-correcte">A</span></b>
-                    <br><i>Justification :</i> Ce modèle considère que la menace peut venir de partout. Chaque utilisateur et chaque terminal doit être authentifié et autorisé de manière continue, quel que soit son emplacement.
-                    <br><strong>Mémo : Confiance Zéro, Vérification Totale.</strong>
+                    <p>✅ <b>Bonne réponse : <span class="correction-text">9</span></b></p>
+                    <div class="memo-box">💡 À ce jour, 6 de ces 9 limites ont déjà été franchies par l'humanité.</div>
                 </div>
             </div>
 
-            <div class="qcm-question" id="question-15" data-question="15" data-type="multiple">
-                <p><b>15.</b> Tests automatisés en DevSecOps ?</p>
-                <div class="qcm-options">
-                    <label><input type="checkbox" name="q15" value="A"> SAST (Code statique).</label>
-                    <label><input type="checkbox" name="q15" value="B"> DAST (Analyse dynamique).</label>
-                    <label><input type="checkbox" name="q15" value="C"> Audit physique.</label>
-                    <label><input type="checkbox" name="q15" value="D"> SCA (Analyse des dépendances).</label>
-                </div>
+            <hr>
+
+            <div class="qcm-question" id="question-15" data-question="15" data-type="text">
+                <p><b>15. Citez au moins deux conséquences du réchauffement climatique.</b></p>
+                <div class="qcm-options"><textarea name="q15" placeholder="Votre réponse..."></textarea></div>
                 <div class="correction-panel">
-                    <b>Bonnes réponses : <span class="lettre-correcte">A, B et D</span></b>
-                    <br><i>Justification :</i> Le DevSecOps repose sur l'automatisation. On scanne le code source (SAST), l'application en marche (DAST) et les librairies tierces (SCA). L'audit physique requiert une présence humaine.
-                    <br><strong>Mémo : Scan du code + Scan du runtime + Scan des librairies.</strong>
+                    <p>✅ <b>Bonne réponse : <span class="correction-text">Hausse du niveau des mers, canicules, perte de biodiversité...</span></b></p>
                 </div>
             </div>
+
+            <hr>
 
             <div class="qcm-question" id="question-16" data-question="16" data-type="single">
-                <p><b>16.</b> Qu'est-ce qu'une attaque "Zero-Day" ?</p>
+                <p><b>16. Quand a été signé l’accord de Paris ?</b></p>
                 <div class="qcm-options">
-                    <label><input type="radio" name="q16" value="A"> Attaque de 24h.</label>
-                    <label><input type="radio" name="q16" value="B"> Attaque sans dégâts.</label>
-                    <label><input type="radio" name="q16" value="C"> Exploitation d'une faille inconnue sans correctif existant.</label>
-                    <label><input type="radio" name="q16" value="D"> Virus du jour de l'an.</label>
+                    <label><input type="radio" name="q16" value="2015"> 2015</label>
+                    <label><input type="radio" name="q16" value="1980"> 1980</label>
+                    <label><input type="radio" name="q16" value="1990"> 1990</label>
+                    <label><input type="radio" name="q16" value="2023"> 2023</label>
                 </div>
                 <div class="correction-panel">
-                    <b>Bonne réponse : <span class="lettre-correcte">C</span></b>
-                    <br><i>Justification :</i> C'est une vulnérabilité dont l'éditeur n'a pas encore connaissance. Il y a donc "zéro jour" entre la découverte de la faille et sa première exploitation par les pirates.
-                    <br><strong>Mémo : Zero-Day = Surprise Totale (pas de patch).</strong>
-                </div>
-            </div>
-
-            <div class="qcm-question" id="question-17" data-question="17" data-type="single">
-                <p><b>17.</b> Plan de survie fonctions vitales en mode dégradé ?</p>
-                <div class="qcm-options">
-                    <label><input type="radio" name="q17" value="A"> PRA.</label>
-                    <label><input type="radio" name="q17" value="B"> PCA (Plan de Continuité d'Activité).</label>
-                    <label><input type="radio" name="q17" value="C"> PSSI.</label>
-                    <label><input type="radio" name="q17" value="D"> Business Case.</label>
-                </div>
-                <div class="correction-panel">
-                    <b>Bonne réponse : <span class="lettre-correcte">B</span></b>
-                    <br><i>Justification :</i> Le PCA vise à maintenir l'activité, même au minimum, pendant un sinistre. Le PRA (Plan de Reprise), lui, intervient pour remettre les systèmes en marche après l'arrêt.
-                    <br><strong>Mémo : PCA = On continue / PRA = On redémarre.</strong>
-                </div>
-            </div>
-
-            <div class="qcm-question" id="question-18" data-question="18" data-type="multiple">
-                <p><b>18.</b> Pourquoi le Shadow IT est-il un risque ?</p>
-                <div class="qcm-options">
-                    <label><input type="checkbox" name="q18" value="A"> Augmente les performances.</label>
-                    <label><input type="checkbox" name="q18" value="B"> La DSI ne peut pas sécuriser ce qu'elle ignore.</label>
-                    <label><input type="checkbox" name="q18" value="C"> Données sur des clouds non maîtrisés.</label>
-                    <label><input type="checkbox" name="q18" value="D"> C'est gratuit.</label>
-                </div>
-                <div class="correction-panel">
-                    <b>Bonnes réponses : <span class="lettre-correcte">B et C</span></b>
-                    <br><i>Justification :</i> Quand les employés utilisent des outils non approuvés (Dropbox perso, IA gratuites), les données de l'entreprise échappent à la surveillance et aux protocoles de sauvegarde de la DSI.
-                    <br><strong>Mémo : Shadow IT = Danger Invisible.</strong>
-                </div>
-            </div>
-
-            <div class="qcm-question" id="question-19" data-question="19" data-type="single">
-                <p><b>19.</b> Dans un RACI cyber, qui est généralement 'A' (Accountable) ?</p>
-                <div class="qcm-options">
-                    <label><input type="radio" name="q19" value="A"> Le RSSI.</label>
-                    <label><input type="radio" name="q19" value="B"> Le stagiaire SOC.</label>
-                    <label><input type="radio" name="q19" value="C"> Le juridique.</label>
-                    <label><input type="radio" name="q19" value="D"> Le client.</label>
-                </div>
-                <div class="correction-panel">
-                    <b>Bonne réponse : <span class="lettre-correcte">A</span></b>
-                    <br><i>Justification :</i> Le Responsable de la Sécurité des Systèmes d'Information (RSSI) est celui qui valide la politique de sécurité et assume la responsabilité de son application stratégique.
-                    <br><strong>Mémo : RSSI = Le "A" de la cybersécurité.</strong>
-                </div>
-            </div>
-
-            <div class="qcm-question" id="question-20" data-question="20" data-type="single">
-                <p><b>20.</b> Objectif du chiffrement des données au repos ?</p>
-                <div class="qcm-options">
-                    <label><input type="radio" name="q20" value="A"> Vitesse de lecture.</label>
-                    <label><input type="radio" name="q20" value="B"> Gain de place.</label>
-                    <label><input type="radio" name="q20" value="C"> Confidentialité en cas de vol du disque dur.</label>
-                    <label><input type="radio" name="q20" value="D"> Supprimer les virus.</label>
-                </div>
-                <div class="correction-panel">
-                    <b>Bonne réponse : <span class="lettre-correcte">C</span></b>
-                    <br><i>Justification :</i> Chiffrer les données stockées garantit que même si un serveur ou un ordinateur est physiquement dérobé, son contenu reste illisible et inexploitable sans la clé de déchiffrement.
-                    <br><strong>Mémo : Chiffrement = Illisible pour les voleurs.</strong>
+                    <p>✅ <b>Bonne réponse : <span class="correction-text">2015</span></b></p>
+                    <div class="memo-box">💡 Objectif : Limiter le réchauffement bien en dessous de 2°C, si possible 1.5°C.</div>
                 </div>
             </div>
         </section>
+
+        <hr>
 
         <section>
-            <br>
-            <br>
-            <br>
-            <h1>Cours 3 – Green IT et RSE</h1>
-            <h2>Questions 21 à 30</h2>
+            <h2>Cyber – Sécurité des systèmes d’information</h2>
 
-            <div class="qcm-question" id="question-21" data-question="21" data-type="multiple">
-                <p><b>21.</b> Trois dimensions indissociables du Développement Durable ?</p>
-                <div class="qcm-options">
-                    <label><input type="checkbox" name="q21" value="A"> Environnementale.</label>
-                    <label><input type="checkbox" name="q21" value="B"> Sociale.</label>
-                    <label><input type="checkbox" name="q21" value="C"> Économique.</label>
-                    <label><input type="checkbox" name="q21" value="D"> Spatiale.</label>
-                </div>
+            <div class="qcm-question" id="question-17" data-question="17" data-type="text">
+                <p><b>17. Qu’est-ce qu’un risque ?</b></p>
+                <div class="qcm-options"><textarea name="q17" placeholder="Votre réponse..."></textarea></div>
                 <div class="correction-panel">
-                    <b>Bonnes réponses : <span class="lettre-correcte">A, B et C</span></b>
-                    <br><i>Justification :</i> C'est le triptyque "People, Planet, Profit". Un projet durable doit être viable économiquement, équitable socialement et vivable pour l'environnement.
-                    <br><strong>Mémo : DD = Éco + Social + Écolo.</strong>
+                    <p>✅ <b>Bonne réponse : <span class="correction-text">Croisement d'une Menace et d'une Vulnérabilité</span></b></p>
+                    <div class="memo-box">💡 Risque = Menace x Vulnérabilité x Impact.</div>
                 </div>
             </div>
 
-            <div class="qcm-question" id="question-22" data-question="22" data-type="single">
-                <p><b>22.</b> Étape la plus polluante d'un terminal ?</p>
-                <div class="qcm-options">
-                    <label><input type="radio" name="q22" value="A"> Utilisation.</label>
-                    <label><input type="radio" name="q22" value="B"> Fabrication (extraction ressources).</label>
-                    <label><input type="radio" name="q22" value="C"> Transport.</label>
-                    <label><input type="radio" name="q22" value="D"> Recyclage.</label>
-                </div>
+            <hr>
+
+            <div class="qcm-question" id="question-18" data-question="18" data-type="text">
+                <p><b>18. Quels sont les trois critères (ou principes) fondamentaux de la SSI (Sécurité des Systèmes d’Information) ?</b></p>
+                <div class="qcm-options"><textarea name="q18" placeholder="Votre réponse..."></textarea></div>
                 <div class="correction-panel">
-                    <b>Bonne réponse : <span class="lettre-correcte">B</span></b>
-                    <br><i>Justification :</i> Environ 80% de l'empreinte carbone d'un smartphone provient de sa fabrication (extraction de terres rares, raffinage, assemblage). L'utilisation d'électricité est secondaire en comparaison.
-                    <br><strong>Mémo : L'impact est dans la mine, pas dans la prise.</strong>
+                    <p>✅ <b>Bonne réponse : <span class="correction-text">Disponibilité, Intégrité, Confidentialité (DIC)</span></b></p>
                 </div>
             </div>
+
+            <hr>
+
+            <div class="qcm-question" id="question-19" data-question="19" data-type="single">
+                <p><b>19. Qu’exige l’intégrité ?</b></p>
+                <div class="qcm-options">
+                    <label><input type="radio" name="q19" value="A"> Que seuls les utilisateurs autorisés aient accès aux informations protégées et sensibles</label>
+                    <label><input type="radio" name="q19" value="B"> Que les informations soient exactes, complètes et non modifiées pendant le stockage ou le transit</label>
+                    <label><input type="radio" name="q19" value="C"> Que les informations soient accessibles quand, où et selon les besoins</label>
+                </div>
+                <div class="correction-panel">
+                    <p>✅ <b>Bonne réponse : <span class="correction-text">Que les informations soient exactes...</span></b></p>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="qcm-question" id="question-20" data-question="20" data-type="single">
+                <p><b>20. Quel critère (ou principe) de sécurité de l’information serait susceptible d’être affecté par une interruption de service ?</b></p>
+                <div class="qcm-options">
+                    <label><input type="radio" name="q20" value="Disponibilité"> Disponibilité</label>
+                    <label><input type="radio" name="q20" value="Confidentialité"> Confidentialité</label>
+                    <label><input type="radio" name="q20" value="Intégrité"> Intégrité</label>
+                </div>
+                <div class="correction-panel">
+                    <p>✅ <b>Bonne réponse : <span class="correction-text">Disponibilité</span></b></p>
+                    <div class="memo-box">💡 Un site web en panne est un défaut de disponibilité.</div>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="qcm-question" id="question-21" data-question="21" data-type="single">
+                <p><b>21. Laquelle des affirmations suivantes concernant la sécurité de l’information est exacte ?</b></p>
+                <div class="qcm-options">
+                    <label><input type="radio" name="q21" value="A"> La sécurité de l’information implique la protection de la confidentialité, de l’intégrité et de la disponibilité de l’information, quels que soient son type et sa forme</label>
+                    <label><input type="radio" name="q21" value="B"> La sécurité de l’information implique la protection de la confidentialité, de l’intégrité et de la disponibilité des logiciels uniquement</label>
+                    <label><input type="radio" name="q21" value="C"> La sécurité de l’information implique la protection de la confidentialité, de l’intégrité et de la disponibilité des équipements matériels uniquement</label>
+                </div>
+                <div class="correction-panel">
+                    <p>✅ <b>Bonne réponse : <span class="correction-text">...quels que soient son type et sa forme</span></b></p>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="qcm-question" id="question-22" data-question="22" data-type="text">
+                <p><b>22. Citez au moins deux autres catégories d’impacts SSI (ex : impact financier).</b></p>
+                <div class="qcm-options"><textarea name="q22" placeholder="Votre réponse..."></textarea></div>
+                <div class="correction-panel">
+                    <p>✅ <b>Bonne réponse : <span class="correction-text">Impact d'image, Juridique, Humain</span></b></p>
+                </div>
+            </div>
+
+            <hr>
 
             <div class="qcm-question" id="question-23" data-question="23" data-type="single">
-                <p><b>23.</b> Que désigne "Green for IT" ?</p>
+                <p><b>23. Comment calcule-t-on un risque ?</b></p>
                 <div class="qcm-options">
-                    <label><input type="radio" name="q23" value="A"> Ordinateurs verts.</label>
-                    <label><input type="radio" name="q23" value="B"> Réduire l'empreinte environnementale du numérique.</label>
-                    <label><input type="radio" name="q23" value="C"> Numérique au service du bâtiment.</label>
-                    <label><input type="radio" name="q23" value="D"> Planter des arbres.</label>
+                    <label><input type="radio" name="q23" value="A"> Grâce à la matrice gravité / vraisemblance</label>
+                    <label><input type="radio" name="q23" value="B"> Grâce à la matrice impact / probabilité</label>
+                    <label><input type="radio" name="q23" value="C"> Grâce à la matrice impact / gravité</label>
                 </div>
                 <div class="correction-panel">
-                    <b>Bonne réponse : <span class="lettre-correcte">B</span></b>
-                    <br><i>Justification :</i> "Green FOR IT" signifie agir sur le secteur informatique lui-même (éco-conception, serveurs efficients). "IT FOR Green" signifie utiliser les logiciels pour optimiser l'écologie (ex: domotique).
-                    <br><strong>Mémo : Green FOR IT = Rendre l'informatique propre.</strong>
+                    <p>✅ <b>Bonne réponse : <span class="correction-text">Grâce à la matrice impact / probabilité</span></b></p>
                 </div>
             </div>
 
-            <div class="qcm-question" id="question-24" data-question="24" data-type="multiple">
-                <p><b>24.</b> Stratégie des "5R" les plus efficaces ?</p>
+            <hr>
+
+            <div class="qcm-question" id="question-24" data-question="24" data-type="single">
+                <p><b>24. La vulnérabilité est une faiblesse d’un bien ou d’une mesure de sécurité exploitable par une ou plusieurs menaces ?</b></p>
                 <div class="qcm-options">
-                    <label><input type="checkbox" name="q24" value="A"> Recycler.</label>
-                    <label><input type="checkbox" name="q24" value="B"> Refuser (ne pas acheter).</label>
-                    <label><input type="checkbox" name="q24" value="C"> Remplacer.</label>
-                    <label><input type="checkbox" name="q24" value="D"> Réduire (limiter les besoins).</label>
+                    <label><input type="radio" name="q24" value="Yes"> Yes</label>
+                    <label><input type="radio" name="q24" value="Faux"> Faux</label>
                 </div>
                 <div class="correction-panel">
-                    <b>Bonnes réponses : <span class="lettre-correcte">B et D</span></b>
-                    <br><i>Justification :</i> Le recyclage est le dernier recours car il consomme de l'énergie. Refuser l'achat inutile ou réduire le besoin initial sont les actions les plus radicales et bénéfiques.
-                    <br><strong>Mémo : Refuser > Réduire > Réutiliser > Recycler.</strong>
+                    <p>✅ <b>Bonne réponse : <span class="correction-text">Yes</span></b></p>
                 </div>
             </div>
+
+            <hr>
 
             <div class="qcm-question" id="question-25" data-question="25" data-type="single">
-                <p><b>25.</b> Qu'est-ce que "l'effet de rebond" ?</p>
+                <p><b>25. Qu’est-ce qu’un PCA / PRA ?</b></p>
                 <div class="qcm-options">
-                    <label><input type="radio" name="q25" value="A"> Gains technologiques annulés par une hausse des usages.</label>
-                    <label><input type="radio" name="q25" value="B"> Rebond serveur.</label>
-                    <label><input type="radio" name="q25" value="C"> Prix de l'énergie.</label>
-                    <label><input type="radio" name="q25" value="D"> Recyclage infini.</label>
+                    <label><input type="radio" name="q25" value="A"> Plan de Création d’Activité / Plan de Reprise d’Activité</label>
+                    <label><input type="radio" name="q25" value="B"> Plan de Continuité d’Activité / Plan de Réduction d’Activité</label>
+                    <label><input type="radio" name="q25" value="C"> Plan de Continuité d’Activité / Plan de Reprise d’Activité</label>
                 </div>
                 <div class="correction-panel">
-                    <b>Bonne réponse : <span class="lettre-correcte">A</span></b>
-                    <br><i>Justification :</i> Paradoxe de Jevons : quand on rend une technologie plus efficace (donc moins chère), on finit par l'utiliser beaucoup plus, ce qui annule les économies d'énergie initiales.
-                    <br><strong>Mémo : Plus c'est efficace, plus on consomme.</strong>
-                </div>
-            </div>
-
-            <div class="qcm-question" id="question-26" data-question="26" data-type="single">
-                <p><b>26.</b> Seuil réchauffement à ne pas dépasser (Paris) ?</p>
-                <div class="qcm-options">
-                    <label><input type="radio" name="q26" value="A"> +0,5°C.</label>
-                    <label><input type="radio" name="q26" value="B"> +1,0°C.</label>
-                    <label><input type="radio" name="q26" value="C"> +1,5°C.</label>
-                    <label><input type="radio" name="q26" value="D"> +5,0°C.</label>
-                </div>
-                <div class="correction-panel">
-                    <b>Bonne réponse : <span class="lettre-correcte">C</span></b>
-                    <br><i>Justification :</i> L'Accord de Paris vise à maintenir l'augmentation de la température mondiale bien en dessous de 2°C, et idéalement à 1,5°C, pour éviter des dommages climatiques irréversibles.
-                    <br><strong>Mémo : Cible critique = +1,5°C.</strong>
-                </div>
-            </div>
-
-            <div class="qcm-question" id="question-27" data-question="27" data-type="multiple">
-                <p><b>27.</b> Que mesure une Analyse de Cycle de Vie (ACV) ?</p>
-                <div class="qcm-options">
-                    <label><input type="checkbox" name="q27" value="A"> Épuisement ressources abiotiques.</label>
-                    <label><input type="checkbox" name="q27" value="B"> Gaz à effet de serre (CO2).</label>
-                    <label><input type="checkbox" name="q27" value="C"> Consommation eau bleue.</label>
-                    <label><input type="checkbox" name="q27" value="D"> Cours de l'action.</label>
-                </div>
-                <div class="correction-panel">
-                    <b>Bonnes réponses : <span class="lettre-correcte">A, B et C</span></b>
-                    <br><i>Justification :</i> L'ACV est une méthode multicritère qui étudie les flux physiques (matière et énergie) de "l'extraction à la fin de vie". Elle ne prend pas en compte les données financières.
-                    <br><strong>Mémo : ACV = Multicritère + Multi-étape.</strong>
-                </div>
-            </div>
-
-            <div class="qcm-question" id="question-28" data-question="28" data-type="single">
-                <p><b>28.</b> Label environnemental pour le matériel informatique ?</p>
-                <div class="qcm-options">
-                    <label><input type="radio" name="q28" value="A"> EPEAT / TCO.</label>
-                    <label><input type="radio" name="q28" value="B"> Label Rouge.</label>
-                    <label><input type="radio" name="q28" value="C"> Nutriscore.</label>
-                    <label><input type="radio" name="q28" value="D"> ISO 9001.</label>
-                </div>
-                <div class="correction-panel">
-                    <b>Bonne réponse : <span class="lettre-correcte">A</span></b>
-                    <br><i>Justification :</i> EPEAT et TCO sont des écolabels spécifiques au matériel IT. Ils garantissent des critères de réparabilité, de recyclabilité et de faible consommation énergétique.
-                    <br><strong>Mémo : EPEAT/TCO = Garantie Green IT.</strong>
-                </div>
-            </div>
-
-            <div class="qcm-question" id="question-29" data-question="29" data-type="single">
-                <p><b>29.</b> Lequel est un gaz à effet de serre (GES) ?</p>
-                <div class="qcm-options">
-                    <label><input type="radio" name="q29" value="A"> Azote.</label>
-                    <label><input type="radio" name="q29" value="B"> Méthane (CH4).</label>
-                    <label><input type="radio" name="q29" value="C"> Oxygène.</label>
-                    <label><input type="radio" name="q29" value="D"> Hélium.</label>
-                </div>
-                <div class="correction-panel">
-                    <b>Bonne réponse : <span class="lettre-correcte">B</span></b>
-                    <br><i>Justification :</i> Le méthane (CH4) est le deuxième principal GES après le CO2. Bien qu'il reste moins longtemps dans l'atmosphère, son pouvoir de réchauffement est bien plus élevé.
-                    <br><strong>Mémo : CH4 = Gaz puissant et polluant.</strong>
-                </div>
-            </div>
-
-            <div class="qcm-question" id="question-30" data-question="30" data-type="single">
-                <p><b>30.</b> Inclusion numérique (e-inclusion) ?</p>
-                <div class="qcm-options">
-                    <label><input type="radio" name="q30" value="A"> Plus de serveurs.</label>
-                    <label><input type="radio" name="q30" value="B"> Vendre des smartphones.</label>
-                    <label><input type="radio" name="q30" value="C"> Rendre le numérique accessible à tous (handicap, âge...).</label>
-                    <label><input type="radio" name="q30" value="D"> Supprimer internet.</label>
-                </div>
-                <div class="correction-panel">
-                    <b>Bonne réponse : <span class="lettre-correcte">C</span></b>
-                    <br><i>Justification :</i> L'e-inclusion est le volet social de la RSE numérique. Elle vise à lutter contre l'illectronisme en adaptant les services au handicap et aux personnes âgées ou précaires.
-                    <br><strong>Mémo : Inclusion = Numérique pour TOUS.</strong>
+                    <p>✅ <b>Bonne réponse : <span class="correction-text">Plan de Continuité / Plan de Reprise</span></b></p>
+                    <div class="memo-box">💡 Le PCA assure le service minimum, le PRA remet tout en marche après le crash.</div>
                 </div>
             </div>
         </section>
 
-    <div class="fixed-controls">
-        <button id="validate-qcm" class="btn-modern btn-validate">Valider mes réponses</button>
-        <button id="reset-qcm" class="btn-modern btn-reset">Recommencer</button>
-    </div>
+        <hr>
+
+        <section>
+            <h2>Green IT – Éco‑conception</h2>
+
+            <div class="qcm-question" id="question-26" data-question="26" data-type="single">
+                <p><b>26. La sobriété numérique est avant tout un changement en profondeur :</b></p>
+                <div class="qcm-options">
+                    <label><input type="radio" name="q26" value="A"> de technique de fabrication de services numériques</label>
+                    <label><input type="radio" name="q26" value="B"> de technique de distribution de services numériques</label>
+                    <label><input type="radio" name="q26" value="C"> d’usage de services numériques</label>
+                </div>
+                <div class="correction-panel">
+                    <p>✅ <b>Bonne réponse : <span class="correction-text">d’usage de services numériques</span></b></p>
+                    <div class="memo-box">💡 La sobriété, c'est se poser la question : "En ai-je vraiment besoin ?"</div>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="qcm-question" id="question-27" data-question="27" data-type="text">
+                <p><b>27. Sobriété numérique – dynamique des 5R : citez au moins trois R.</b></p>
+                <div class="qcm-options"><textarea name="q27" placeholder="Votre réponse..."></textarea></div>
+                <div class="correction-panel">
+                    <p>✅ <b>Bonne réponse : <span class="correction-text">Refuser, Réduire, Réutiliser, Réparer, Recycler</span></b></p>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="qcm-question" id="question-28" data-question="28" data-type="text">
+                <p><b>28. Quels sont les trois types d’obsolescence ?</b></p>
+                <div class="qcm-options"><textarea name="q28" placeholder="Votre réponse..."></textarea></div>
+                <div class="correction-panel">
+                    <p>✅ <b>Bonne réponse : <span class="correction-text">Technique (matérielle), Logicielle, Perçue (marketing)</span></b></p>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="qcm-question" id="question-29" data-question="29" data-type="text">
+                <p><b>29. Citez au moins trois étapes du cycle de vie d’un produit.</b></p>
+                <div class="qcm-options"><textarea name="q29" placeholder="Votre réponse..."></textarea></div>
+                <div class="correction-panel">
+                    <p>✅ <b>Bonne réponse : <span class="correction-text">Extraction, Fabrication, Transport, Usage, Fin de vie</span></b></p>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>Éthique – Cyber & RSE</h2>
+
+            <div class="qcm-question" id="question-30" data-question="30" data-type="text">
+                <p><b>30. Éthique et Cybersécurité</b><br>
+                Vous êtes Chef de Projet pour le développement d’un nouveau système d’authentification client. Vous découvrez que la sécurisation de la plateforme de Recherche et Développement ferait dépasser le budget du projet de 30 %. Le Sponsor vous demande de réduire les mesures de sécurité pour rester dans les coûts. Que feriez-vous à titre personnel ? De quel principe éthique vous rapprocheriez-vous ?</p>
+                <div class="qcm-options"><textarea name="q30" placeholder="Votre réponse..."></textarea></div>
+                <div class="correction-panel">
+                    <p>✅ <b>Analyse : <span class="correction-text">Intégrité et Devoir de conseil</span></b></p>
+                    <div class="memo-box">💡 Le CP doit alerter sur le risque résiduel. Ignorer une faille connue pour de l'argent engage sa responsabilité morale.</div>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="qcm-question" id="question-31" data-question="31" data-type="text">
+                <p><b>31. Éthique et RSE</b><br>
+                Votre projet de construction d’un nouveau centre de données (data center) est crucial pour l’entreprise. Bien que conforme aux lois locales (normes environnementales minimales), ce centre est énergivore. En utilisant des technologies moins coûteuses, vous réduisez les coûts à court terme. Que feriez-vous à titre personnel ? De quel principe éthique vous rapprocheriez-vous ?</p>
+                <div class="qcm-options"><textarea name="q31" placeholder="Votre réponse..."></textarea></div>
+                <div class="correction-panel">
+                    <p>✅ <b>Analyse : <span class="correction-text">Responsabilité et Pérennité</span></b></p>
+                    <div class="memo-box">💡 La loi est le minimum, l'éthique est le maximum. Un centre énergivore sera un fardeau financier et d'image demain.</div>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="qcm-question" id="question-32" data-question="32" data-type="text">
+                <p><b>32. Dans quelle mesure la dépendance croissante du Chef de Projet aux recommandations algorithmiques d’Intelligence Artificielle peut-elle impacter sa responsabilité éthique ?</b></p>
+                <div class="qcm-options"><textarea name="q32" placeholder="Votre réponse..."></textarea></div>
+                <div class="correction-panel">
+                    <p>✅ <b>Analyse : <span class="correction-text">Délégation de décision et Responsabilité humaine</span></b></p>
+                    <div class="quote-box">"L'IA est un outil, pas un chef. Le responsable reste l'humain."</div>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="qcm-question" id="question-33" data-question="33" data-type="text">
+                <p><b>33. Face à un raccourci technique permettant un succès rapide mais violant une clause légale mineure et un principe d’équité, quelle doit être la priorité du Chef de Projet : la réussite ou la rectitude éthique ?</b></p>
+                <div class="qcm-options"><textarea name="q33" placeholder="Votre réponse..."></textarea></div>
+                <div class="correction-panel">
+                    <p>✅ <b>Analyse : <span class="correction-text">La rectitude éthique</span></b></p>
+                    <div class="memo-box">💡 Une victoire mal acquise est une dette morale et juridique. L'intégrité protège l'entreprise à long terme.</div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>Question philosophique – Bonus</h2>
+
+            <div class="qcm-question" id="question-34" data-question="34" data-type="text">
+                <p><b>34. La recherche du développement durable remet-elle en cause le progrès technologique ?</b></p>
+                <div class="qcm-options"><textarea name="q34" placeholder="Votre réponse..."></textarea></div>
+                <div class="correction-panel">
+                    <p>✅ <b>Analyse : <span class="correction-text">Non, elle le redéfinit (Innovation utile)</span></b></p>
+                    <div class="memo-box">💡 Le DD oriente l'ingéniosité vers l'efficience (faire mieux avec moins) plutôt que vers la consommation futile.</div>
+                </div>
+            </div>
+        </section>
+
+        <div class="fixed-controls">
+            <button id="validate-qcm" class="btn-modern btn-validate">Valider mes réponses</button>
+            <button id="reset-qcm" class="btn-modern btn-reset">Recommencer</button>
         </div>
+
     </main>
 </div>
 

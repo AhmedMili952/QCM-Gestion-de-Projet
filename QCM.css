@@ -279,9 +279,12 @@ h1, h2 {
 /* ========================= */
 
 .correction-panel {
-  background: #ffffff !important;
-  color: #111 !important;
-  padding: 0 20px; /* On met le padding vertical à 0 pour l'animation */
+  /* CHANGEMENT : Fond sombre cohérent avec ton thème (bleu nuit très sombre) */
+  background: #111827 !important; 
+  /* CHANGEMENT : Texte blanc pour le contraste */
+  color: #ffffff !important;
+  
+  padding: 0 20px;
   margin-top: 0;
   border-radius: 14px;
   max-width: 720px;
@@ -289,27 +292,25 @@ h1, h2 {
   margin-right: auto;
   text-align: left;
   
-  /* --- L'ANIMATION PARFAITE (Déploiement) --- */
-  display: block !important; /* Indispensable pour animer la hauteur */
-  max-height: 0;             /* Fermé au départ */
-  overflow: hidden;          /* Cache le texte pendant l'ouverture */
-  opacity: 0;                /* Invisible au départ */
+  display: block !important; 
+  max-height: 0;             
+  overflow: hidden;          
+  opacity: 0;                
   transform: translateY(15px);
   
-  box-shadow: 0 0 20px rgba(255,255,255,0.3);
-  /* Courbe Bézier Premium pour un effet organique */
+  /* CHANGEMENT : Ombre plus discrète (sombre) pour éviter l'effet flash blanc */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  border-left: 6px solid #455984;
+  border-left: 6px solid #4c78ff; /* Bleu plus vif pour le rappel Cyber */
 }
 
-/* ÉTAT VISIBLE (Déclenché par le JS via la classe .visible) */
-.correction-panel.visible {
-  max-height: 1000px;        /* Permet au panneau de s'ouvrir complètement */
-  opacity: 1;
-  padding: 20px;             /* Le padding revient à l'ouverture pour l'espace intérieur */
-  transform: translateY(0);
-  margin-top: 15px;
+/* AJOUT : Pour assurer que le texte reste blanc à l'intérieur */
+.correction-panel b, 
+.correction-panel p {
+    color: #ffffff !important;
 }
+
+
 
 .correction-panel p {
   margin: 10px 0;
@@ -441,3 +442,84 @@ h1, h2 {
 .btn-modern:active {
     transform: translateY(0);
 }
+
+/* Style moderne pour les zones de texte */
+.qcm-question textarea {
+    width: 100%;             /* Prend toute la largeur du bloc question */
+    min-height: 100px;       /* Hauteur initiale confortable */
+    padding: 12px;
+    margin-top: 15px;
+    background: rgba(255, 255, 255, 0.05); /* Fond sombre transparent */
+    border: 1px solid rgba(0, 212, 255, 0.3); /* Bordure bleutée fine */
+    border-radius: 8px;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 1rem;
+    resize: vertical;        /* L'utilisateur peut agrandir en hauteur uniquement */
+    transition: all 0.3s ease;
+    box-sizing: border-box;  /* Évite que le padding ne fasse déborder le cadre */
+}
+
+/* Effet au survol et focus */
+.qcm-question textarea:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #00d4ff;   /* Bordure plus vive quand on écrit */
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
+}
+
+/* Style quand le textarea est désactivé (après validation) */
+.qcm-question textarea:disabled {
+    background: rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: #aaaaaa;
+    cursor: not-allowed;
+}
+
+.manual-validation {
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px dashed rgba(255,255,255,0.2);
+}
+
+.btn-juste, .btn-faux {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-right: 10px;
+    transition: 0.3s;
+}
+
+.btn-juste { background: #00ff80; color: #000; }
+.btn-juste:hover { background: #00cc66; transform: scale(1.05); }
+
+.btn-faux { background: #ff5252; color: #fff; }
+.btn-faux:hover { background: #cc3333; transform: scale(1.05); }
+/* AJOUT : Correction de lisibilité du mémo flash à l'intérieur du panel */
+.memo-flash {
+    margin-top: 12px;
+    padding: 10px;
+    background-color: rgba(76, 120, 255, 0.1); /* Fond bleuté translucide */
+    border-left: 4px solid #4c78ff;
+    border-radius: 4px;
+    font-size: 0.9em;
+    color: #ccd6f6 !important; /* Texte gris-bleu clair */
+    font-style: italic;
+}
+
+.memo-flash b {
+    color: #4c78ff !important; /* Titre MÉMO en bleu */
+}
+
+/* FIX CLIC : On s'assure que les boutons internes restent cliquables */
+.correction-panel.visible {
+    max-height: 1000px;
+    opacity: 1;
+    padding: 20px;
+    transform: translateY(0);
+    margin-top: 15px;
+    pointer-events: auto !important; /* Force le clic sur les boutons J'ai juste/faux */
+}
+
