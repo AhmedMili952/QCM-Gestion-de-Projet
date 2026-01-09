@@ -85,28 +85,37 @@ body {
   text-shadow: 0 0 10px rgba(80,180,255,0.9);
 }
 
-/* Score */
+
+/* Style du container de score dans la sidebar */
 .score-result {
-  margin: 10px auto 14px;
-  padding: 10px 12px;
-  border-radius: 10px;
-  text-align: center;
-  background: radial-gradient(circle at top, #00c3ff55, #001326dd);
-  border: 1px solid rgba(0, 230, 255, 0.65);
-  font-weight: 700;
-  font-size: 0.9rem;
-  color: #e9fcff;
-  box-shadow: 0 0 18px rgba(0, 230, 255, 0.65);
+    margin: 15px 5px;
+    padding: 12px;
+    border-radius: 10px;
+    text-align: center;
+    /* Dégradé bleu profond pour le score */
+    background: linear-gradient(to bottom, #004e92, #000428);
+    border: 2px solid #00d4ff;
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+    
+    font-family: 'Orbitron', sans-serif; /* Optionnel : police plus tech */
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #ffffff;
+    
+    position: sticky; /* Reste visible même si la liste de questions est longue */
+    top: 10px;
+    z-index: 10;
 }
 
-.score-result.score-bump {
-  animation: scorePulse 0.6s ease;
+/* Animation quand le score change */
+.score-bump {
+    animation: pulse-blue 0.5s ease-in-out;
 }
 
-@keyframes scorePulse {
-  0% { transform: scale(1); box-shadow: 0 0 10px rgba(0,255,200,0.5); }
-  40% { transform: scale(1.05); box-shadow: 0 0 24px rgba(0,255,200,0.9); }
-  100% { transform: scale(1); box-shadow: 0 0 14px rgba(0,255,200,0.65); }
+@keyframes pulse-blue {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); box-shadow: 0 0 25px #00d4ff; }
+    100% { transform: scale(1); }
 }
 
 /* ========================= */
@@ -141,23 +150,29 @@ body {
   box-shadow: 0 0 14px rgba(0, 180, 255, 0.6);
 }
 
+/* ===========================================================
+   ÉTATS DE LA BARRE LATÉRALE — EFFET DÉGRADÉ & NÉON DOUX
+   =========================================================== */
+
+/* Vert : Réponse juste (Vrelt) */
 .nav-question.good {
-  background: radial-gradient(circle at top, #00c853, #006b2d) !important;
-  border-color: #00ff80 !important;
-  box-shadow: 0 0 16px rgba(0,255,150,0.9);
+    background: linear-gradient(to bottom, #4caf50, #2e7d32) !important;
+    border: 1px solid #81c784 !important;
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4) !important;
+    color: #ffffff !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
+/* Rouge : Réponse fausse (Bad) */
 .nav-question.bad {
-  background: radial-gradient(circle at top, #ff5252, #7f1010) !important;
-  border-color: #ff9a9a !important;
-  box-shadow: 0 0 16px rgba(255,80,80,0.9);
+    background: linear-gradient(to bottom, #f44336, #b71c1c) !important;
+    border: 1px solid #ef9a9a !important;
+    box-shadow: 0 4px 12px rgba(244, 67, 54, 0.4) !important;
+    color: #ffffff !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-.nav-question.missing {
-  background: radial-gradient(circle at top, #ffb300, #7a5100) !important;
-  border-color: #ffe082 !important;
-  box-shadow: 0 0 16px rgba(255,190,80,0.9);
-}
+
 
 /* ========================= */
 /* CONTENU PRINCIPAL     */
@@ -284,7 +299,7 @@ h1, h2 {
   box-shadow: 0 0 20px rgba(255,255,255,0.3);
   /* Courbe Bézier Premium pour un effet organique */
   transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  border-left: 6px solid #00c3ff;
+  border-left: 6px solid #455984;
 }
 
 /* ÉTAT VISIBLE (Déclenché par le JS via la classe .visible) */

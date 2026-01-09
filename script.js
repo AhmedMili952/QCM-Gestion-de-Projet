@@ -151,10 +151,24 @@ function corrigerQCM() {
             }
         }
         
-        // 4. Feedback Visuel
+        // 4. Feedback Visuel sur la question
         q.style.borderLeft = (pts === 1) ? "8px solid #00ff80" : (pts > 0 ? "8px solid #ffb300" : "8px solid #ff5252");
         inputs.forEach(i => i.disabled = true);
         scoreTotal += pts;
+
+        // --- AJOUT : MISE À JOUR DE LA BARRE LATÉRALE (SIDEBAR) ---
+        const sideBtn = document.querySelector(`.nav-question[data-target="${id}"]`);
+        if (sideBtn) {
+            sideBtn.classList.remove("good", "bad", "missing");
+
+        if (pts === 1) {
+                // JUSTE : Vert
+                sideBtn.classList.add("good");
+            } else {
+                // FAUX : Rouge
+                sideBtn.classList.add("bad");
+            }
+        }
     });
 
     afficherScore(scoreTotal);
