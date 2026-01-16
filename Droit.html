@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Examen Cyber-Droit & PI - Expert</title>
     <link rel="stylesheet" href="QCM.css" />
+    <style>
+        /* Ajout rapide pour garantir l'alignement sur la même ligne */
+        .correct-answer-line { display: block; margin-bottom: 8px; }
+        .correct-answer-text { color: #00ff80; font-weight: bold; margin-left: 5px; }
+    </style>
 </head>
 <body>
 
@@ -12,26 +17,21 @@
     <span></span><span></span><span></span>
 </div>
 
-
-
 <div class="layout">
     <aside class="sidebar" id="sidebar">
-        <div class="sidebar-header">
-        </div>
+
         <div class="score-result" id="score-container">
             <div id="score-result"> — / 30</div>
         </div>
 
-
-<nav class="sidebar-list">
-    <script>
-        const NbQuestions = 30; 
-        // Le script va lire la variable NbQuestions définie dans ton fichier JS
-        for(let i=1; i <= NbQuestions; i++) { 
-            document.write(`<button class="nav-question" data-target="${i}">Q${i}</button>`); 
-        }
-    </script>
-</nav>
+        <nav class="sidebar-list">
+            <script>
+                window.NbQuestions = 30; 
+                for(let i=1; i <= window.NbQuestions; i++) { 
+                    document.write(`<button class="nav-question" data-target="${i}">Q${i}</button>`); 
+                }
+            </script>
+        </nav>
     </aside>
 
     <main class="main-content">
@@ -39,8 +39,6 @@
 
         <section>
             <h2>I. Fondamentaux et Preuves Numériques</h2>
-
-            
 
             <div class="qcm-question" id="question-1" data-question="1" data-type="single">
                 <p><b>1. Quelle est la définition exacte du Droit selon le cours ?</b></p>
@@ -52,6 +50,10 @@
                 </div>
                 <div class="correction-panel">
                     <div class="explanation-box">
+                        <div class="correct-answer-line">
+                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">Un ensemble de règles de conduite s'imposant par la contrainte de l'Etat</span>
+                        </div>
+                        <hr>
                         <span class="justif-title">Justification :</span>
                         <p>Le Droit organise la société et remplace la force brute par des règles garanties par la puissance publique.</p>
                         <span class="mnemonic">💡 Mémo : "Droit = Doit" (C'est une obligation étatique).</span>
@@ -69,6 +71,10 @@
                 </div>
                 <div class="correction-panel">
                     <div class="explanation-box">
+                        <div class="correct-answer-line">
+                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">L'ensemble des règles juridiques régissant la vie en société</span>
+                        </div>
+                        <hr>
                         <span class="justif-title">Justification :</span>
                         <p>Le Droit Objectif est la règle impersonnelle et générale qui s'applique à tous (ex: Code Civil).</p>
                         <span class="mnemonic">💡 Mémo : Objectif = La Règle / Subjectif = Mon Droit.</span>
@@ -86,6 +92,10 @@
                 </div>
                 <div class="correction-panel">
                     <div class="explanation-box">
+                        <div class="correct-answer-line">
+                            <span class="justif-title">✅ Réponses attendues :</span><span class="correct-answer-text">La Constitution, La Jurisprudence, La Loi</span>
+                        </div>
+                        <hr>
                         <span class="justif-title">Justification :</span>
                         <p>La Constitution (sommet), la Loi (Parlement) et la Jurisprudence (décisions des juges) sont les piliers du droit positif.</p>
                         <span class="mnemonic">💡 Mémo : C.J.L. (Constitution, Juge, Loi).</span>
@@ -103,6 +113,10 @@
                 </div>
                 <div class="correction-panel">
                     <div class="explanation-box">
+                        <div class="correct-answer-line">
+                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">L’adresse IP de l’ordinateur utilisée pour le constat</span>
+                        </div>
+                        <hr>
                         <span class="justif-title">Justification :</span>
                         <p>L'adresse IP permet de vérifier la réalité de la connexion via les logs du serveur interrogé.</p>
                         <span class="mnemonic">💡 Mémo : Pas d'IP = Constat nul.</span>
@@ -115,6 +129,10 @@
                 <div class="qcm-options"><textarea name="q5" placeholder="Sigle en 3 lettres..."></textarea></div>
                 <div class="correction-panel">
                     <div class="explanation-box">
+                        <div class="correct-answer-line">
+                            <span class="justif-title">✅ Réponse attendue :</span><span class="correct-answer-text">APP</span>
+                        </div>
+                        <hr>
                         <span class="justif-title">Justification :</span>
                         <p>L'Agence pour la Protection des Programmes est l'autorité de référence pour les saisies-contrefaçons numériques.</p>
                         <span class="mnemonic">💡 Mémo : APP comme Application.</span>
@@ -132,6 +150,10 @@
                 </div>
                 <div class="correction-panel">
                     <div class="explanation-box">
+                        <div class="correct-answer-line">
+                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">S’identifier avec sa véritable identité</span>
+                        </div>
+                        <hr>
                         <span class="justif-title">Justification :</span>
                         <p>La loyauté de la preuve interdit à l'huissier d'utiliser des stratagèmes ou de fausses identités pour piéger la cible.</p>
                         <span class="mnemonic">💡 Mémo : Loyauté = Transparence de l'identité.</span>
@@ -143,11 +165,6 @@
         <section>
             <h2>II. Propriété Intellectuelle (PI)</h2>
 
-            
-
-[Image of intellectual property categories]
-
-
             <div class="qcm-question" id="question-7" data-question="7" data-type="single">
                 <p><b>7. Les idées simples et les concepts sont-ils protégeables ?</b></p>
                 <div class="qcm-options">
@@ -158,6 +175,10 @@
                 </div>
                 <div class="correction-panel">
                     <div class="explanation-box">
+                        <div class="correct-answer-line">
+                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">Non, seules leurs mises en forme sont protégées</span>
+                        </div>
+                        <hr>
                         <span class="justif-title">Justification :</span>
                         <p>Le droit ne protège pas l'idée (libre parcours), mais l'œuvre (la mise en forme concrète).</p>
                         <span class="mnemonic">💡 Mémo : L'idée est libre, l'expression est mienne.</span>
@@ -175,6 +196,10 @@
                 </div>
                 <div class="correction-panel">
                     <div class="explanation-box">
+                        <div class="correct-answer-line">
+                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">National</span>
+                        </div>
+                        <hr>
                         <span class="justif-title">Justification :</span>
                         <p>L'Institut National de la Propriété Industrielle gère les titres sur le territoire français.</p>
                         <span class="mnemonic">💡 Mémo : INPI = I pour Institut / N pour National.</span>
@@ -187,6 +212,10 @@
                 <div class="qcm-options"><textarea name="q9"></textarea></div>
                 <div class="correction-panel">
                     <div class="explanation-box">
+                        <div class="correct-answer-line">
+                            <span class="justif-title">✅ Réponse attendue :</span><span class="correct-answer-text">Redevance</span>
+                        </div>
+                        <hr>
                         <span class="justif-title">Justification :</span>
                         <p>La redevance (royalty) est le prix payé périodiquement au titulaire des droits.</p>
                         <span class="mnemonic">💡 Mémo : Licence -> Redevance.</span>
@@ -204,6 +233,10 @@
                 </div>
                 <div class="correction-panel">
                     <div class="explanation-box">
+                        <div class="correct-answer-line">
+                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">Du seul fait de la création de l’œuvre</span>
+                        </div>
+                        <hr>
                         <span class="justif-title">Justification :</span>
                         <p>Contrairement aux marques, le droit d'auteur naît automatiquement sans formalité de dépôt.</p>
                         <span class="mnemonic">💡 Mémo : Créer = Protéger.</span>
@@ -221,6 +254,10 @@
                 </div>
                 <div class="correction-panel">
                     <div class="explanation-box">
+                        <div class="correct-answer-line">
+                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">70 ans après la mort de l'auteur</span>
+                        </div>
+                        <hr>
                         <span class="justif-title">Justification :</span>
                         <p>Après ce délai de 70 ans post-mortem, l'œuvre tombe dans le domaine public.</p>
                         <span class="mnemonic">💡 Mémo : Vie + 70 ans.</span>
@@ -238,6 +275,10 @@
                 </div>
                 <div class="correction-panel">
                     <div class="explanation-box">
+                        <div class="correct-answer-line">
+                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">Original reflétant un apport intellectuel</span>
+                        </div>
+                        <hr>
                         <span class="justif-title">Justification :</span>
                         <p>L'originalité est prouvée par les choix créatifs et l'effort intellectuel du développeur.</p>
                         <span class="mnemonic">💡 Mémo : Originalité = Empreinte de la personnalité.</span>
@@ -255,6 +296,10 @@
                 </div>
                 <div class="correction-panel">
                     <div class="explanation-box">
+                        <div class="correct-answer-line">
+                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">Une invention technique nouvelle</span>
+                        </div>
+                        <hr>
                         <span class="justif-title">Justification :</span>
                         <p>Le brevet protège une solution technique apportée à un problème technique.</p>
                         <span class="mnemonic">💡 Mémo : Brevet = Technique.</span>
@@ -272,6 +317,10 @@
                 </div>
                 <div class="correction-panel">
                     <div class="explanation-box">
+                        <div class="correct-answer-line">
+                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">20 ans</span>
+                        </div>
+                        <hr>
                         <span class="justif-title">Justification :</span>
                         <p>C'est un monopole limité en échange de la divulgation publique de l'invention.</p>
                         <span class="mnemonic">💡 Mémo : Brevet = 20 ans (non renouvelable).</span>
@@ -289,6 +338,10 @@
                 </div>
                 <div class="correction-panel">
                     <div class="explanation-box">
+                        <div class="correct-answer-line">
+                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">L'action en contrefaçon</span>
+                        </div>
+                        <hr>
                         <span class="justif-title">Justification :</span>
                         <p>L'action en contrefaçon permet de faire cesser l'usage illicite et d'obtenir des dommages et intérêts.</p>
                         <span class="mnemonic">💡 Mémo : PI = Contrefaçon.</span>
@@ -306,6 +359,10 @@
                 </div>
                 <div class="correction-panel">
                     <div class="explanation-box">
+                        <div class="correct-answer-line">
+                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">De l'Union Européenne</span>
+                        </div>
+                        <hr>
                         <span class="justif-title">Justification :</span>
                         <p>European Union Intellectual Property Office gère les marques et dessins modèles communautaires.</p>
                         <span class="mnemonic">💡 Mémo : EU = European Union.</span>
@@ -318,6 +375,10 @@
                 <div class="qcm-options"><textarea name="q17"></textarea></div>
                 <div class="correction-panel">
                     <div class="explanation-box">
+                        <div class="correct-answer-line">
+                            <span class="justif-title">✅ Réponse attendue :</span><span class="correct-answer-text">La Marque</span>
+                        </div>
+                        <hr>
                         <span class="justif-title">Justification :</span>
                         <p>La marque sert à distinguer les produits d'une entreprise de ceux de ses concurrents.</p>
                         <span class="mnemonic">💡 Mémo : Signe = Marque.</span>
@@ -335,6 +396,10 @@
                 </div>
                 <div class="correction-panel">
                     <div class="explanation-box">
+                        <div class="correct-answer-line">
+                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">Non, les algorithmes nus sont exclus de la brevetabilité</span>
+                        </div>
+                        <hr>
                         <span class="justif-title">Justification :</span>
                         <p>Les méthodes mathématiques ne sont pas considérées comme des inventions industrielles.</p>
                         <span class="mnemonic">💡 Mémo : Maths = Pas de brevet.</span>
@@ -352,6 +417,10 @@
                 </div>
                 <div class="correction-panel">
                     <div class="explanation-box">
+                        <div class="correct-answer-line">
+                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">Qu'on ne peut pas le céder ou le vendre</span>
+                        </div>
+                        <hr>
                         <span class="justif-title">Justification :</span>
                         <p>Le lien entre l'auteur et son œuvre est perpétuel et ne peut être rompu par un contrat.</p>
                         <span class="mnemonic">💡 Mémo : Inaliénable = Incessible.</span>
@@ -369,6 +438,10 @@
                 </div>
                 <div class="correction-panel">
                     <div class="explanation-box">
+                        <div class="correct-answer-line">
+                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">Un actif immatériel</span>
+                        </div>
+                        <hr>
                         <span class="justif-title">Justification :</span>
                         <p>Les brevets et marques ont une valeur financière et valorisent l'entreprise.</p>
                         <span class="mnemonic">💡 Mémo : PI = Richesse invisible (Actif).</span>
@@ -386,6 +459,10 @@
                 </div>
                 <div class="correction-panel">
                     <div class="explanation-box">
+                        <div class="correct-answer-line">
+                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">La saisie-contrefaçon réalisée par un huissier</span>
+                        </div>
+                        <hr>
                         <span class="justif-title">Justification :</span>
                         <p>C'est une procédure d'urgence autorisée par un juge pour surprendre le contrefacteur.</p>
                         <span class="mnemonic">💡 Mémo : Saisie = Choc probatoire.</span>
@@ -403,6 +480,10 @@
                 </div>
                 <div class="correction-panel">
                     <div class="explanation-box">
+                        <div class="correct-answer-line">
+                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">10 ans renouvelables indéfiniment</span>
+                        </div>
+                        <hr>
                         <span class="justif-title">Justification :</span>
                         <p>La marque est le seul titre de PI qui peut durer éternellement si on paye les taxes tous les 10 ans.</p>
                         <span class="mnemonic">💡 Mémo : 10 ans + 10 ans + ...</span>
@@ -420,6 +501,10 @@
                 </div>
                 <div class="correction-panel">
                     <div class="explanation-box">
+                        <div class="correct-answer-line">
+                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">Que la protection est limitée aux classes de produits/services choisies</span>
+                        </div>
+                        <hr>
                         <span class="justif-title">Justification :</span>
                         <p>On ne peut pas interdire l'usage d'un nom identique pour des produits totalement différents (ex: Montblanc stylos vs Montblanc crèmes dessert).</p>
                         <span class="mnemonic">💡 Mémo : Spécialité = Mon secteur d'activité.</span>
@@ -437,6 +522,10 @@
                 </div>
                 <div class="correction-panel">
                     <div class="explanation-box">
+                        <div class="correct-answer-line">
+                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">Un ensemble d'informations techniques secrètes et non brevetées</span>
+                        </div>
+                        <hr>
                         <span class="justif-title">Justification :</span>
                         <p>C'est une protection par le secret (ex: recette Coca-Cola), très utilisée pour les algorithmes non brevetables.</p>
                         <span class="mnemonic">💡 Mémo : Know-how = Secret.</span>
@@ -454,6 +543,10 @@
                 </div>
                 <div class="correction-panel">
                     <div class="explanation-box">
+                        <div class="correct-answer-line">
+                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">L'apparence esthétique et ornementale d'un produit</span>
+                        </div>
+                        <hr>
                         <span class="justif-title">Justification :</span>
                         <p>Ce droit protège le design, les lignes et les couleurs d'un objet industriel.</p>
                         <span class="mnemonic">💡 Mémo : Dessin = Look.</span>
@@ -471,6 +564,10 @@
                 </div>
                 <div class="correction-panel">
                     <div class="explanation-box">
+                        <div class="correct-answer-line">
+                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">Genève (Suisse)</span>
+                        </div>
+                        <hr>
                         <span class="justif-title">Justification :</span>
                         <p>L'Organisation Mondiale de la Propriété Intellectuelle est une agence de l'ONU basée en Suisse.</p>
                         <span class="mnemonic">💡 Mémo : OMPI = Genève.</span>
@@ -488,6 +585,10 @@
                 </div>
                 <div class="correction-panel">
                     <div class="explanation-box">
+                        <div class="correct-answer-line">
+                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">À l'employeur</span>
+                        </div>
+                        <hr>
                         <span class="justif-title">Justification :</span>
                         <p>C'est une dérogation au droit d'auteur : les droits patrimoniaux sur les logiciels créés par les salariés reviennent à l'employeur.</p>
                         <span class="mnemonic">💡 Mémo : Salaire payé = Logiciel à l'employeur.</span>
@@ -505,6 +606,10 @@
                 </div>
                 <div class="correction-panel">
                     <div class="explanation-box">
+                        <div class="correct-answer-line">
+                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">À caractère personnel</span>
+                        </div>
+                        <hr>
                         <span class="justif-title">Justification :</span>
                         <p>Le RGPD protège les personnes physiques à travers le contrôle de leurs données identifiantes.</p>
                         <span class="mnemonic">💡 Mémo : RGPD = Données Personnelles.</span>
@@ -517,6 +622,10 @@
                 <div class="qcm-options"><textarea name="q29"></textarea></div>
                 <div class="correction-panel">
                     <div class="explanation-box">
+                        <div class="correct-answer-line">
+                            <span class="justif-title">✅ Réponse attendue :</span><span class="correct-answer-text">CNIL</span>
+                        </div>
+                        <hr>
                         <span class="justif-title">Justification :</span>
                         <p>La Commission Nationale de l'Informatique et des Libertés est le gendarme des données en France.</p>
                         <span class="mnemonic">💡 Mémo : CNIL = Gendarme.</span>
@@ -534,6 +643,10 @@
                 </div>
                 <div class="correction-panel">
                     <div class="explanation-box">
+                        <div class="correct-answer-line">
+                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">L'accès à distance à un logiciel hébergé via un abonnement</span>
+                        </div>
+                        <hr>
                         <span class="justif-title">Justification :</span>
                         <p>Software as a Service : on ne possède pas le logiciel, on consomme un service via le Cloud.</p>
                         <span class="mnemonic">💡 Mémo : SaaS = Abonnement Cloud.</span>

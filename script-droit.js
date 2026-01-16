@@ -2,7 +2,6 @@
    CONFIGURATION STRICTE (MOT POUR MOT)
    =========================================================== */
 
-const NbQuestions = 30; // C'est LE chiffre magique à modifier
 
 const bonnesReponses = {
     1: "Un ensemble de règles de conduite s'imposant par la contrainte de l'Etat",
