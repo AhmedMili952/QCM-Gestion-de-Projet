@@ -12,6 +12,8 @@
     <span></span><span></span><span></span>
 </div>
 
+
+
 <div class="layout">
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-header">
@@ -19,9 +21,17 @@
         <div class="score-result" id="score-container">
             <div id="score-result"> — / 30</div>
         </div>
-        <nav class="sidebar-list">
-            <script>for(let i=1; i<=30; i++) { document.write(`<button class="nav-question" data-target="${i}">Q${i}</button>`); }</script>
-        </nav>
+
+
+<nav class="sidebar-list">
+    <script>
+        const NbQuestions = 30; 
+        // Le script va lire la variable NbQuestions définie dans ton fichier JS
+        for(let i=1; i <= NbQuestions; i++) { 
+            document.write(`<button class="nav-question" data-target="${i}">Q${i}</button>`); 
+        }
+    </script>
+</nav>
     </aside>
 
     <main class="main-content">
@@ -533,7 +543,7 @@
         </section>
 
         <div class="fixed-controls">
-            <button id="validate-qcm" class="btn-modern btn-validate">Soumettre mon examen</button>
+            <button id="validate-qcm" class="btn-modern btn-validate">Valider</button>
             <button id="reset-qcm" class="btn-modern btn-reset">Réinitialiser</button>
         </div>
     </main>

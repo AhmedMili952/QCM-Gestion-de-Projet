@@ -1,6 +1,9 @@
 /* ===========================================================
    CONFIGURATION STRICTE (MOT POUR MOT)
    =========================================================== */
+
+const NbQuestions = 30; // C'est LE chiffre magique à modifier
+
 const bonnesReponses = {
     1: "Un ensemble de règles de conduite s'imposant par la contrainte de l'Etat",
     2: "L'ensemble des règles juridiques régissant la vie en société",
@@ -169,7 +172,7 @@ function score() {
     const scoreContainer = document.getElementById("score-container");
     const scoreResult = document.getElementById("score-result");
     
-    scoreResult.textContent = `Score : ${ok} / 30`;
+    scoreResult.textContent = `Score : ${ok} / ${NbQuestions}`;
     
     // Effet visuel de pulsation sur le score
     scoreContainer.classList.remove("score-bump");
