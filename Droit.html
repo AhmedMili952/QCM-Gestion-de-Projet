@@ -20,842 +20,330 @@
     <aside class="sidebar" id="sidebar">
 
         <div class="score-result" id="score-container">
-            <div id="score-result"> — / 30</div>
+            <div id="score-result"> — / 15</div>
         </div>
 
         <nav class="sidebar-list">
             <script>
-                window.NbQuestions = 40; 
-                for(let i=1; i <= window.NbQuestions; i++) { 
+                const NbQuestions = 15; 
+                for(let i=1; i <= NbQuestions; i++) { 
                     document.write(`<button class="nav-question" data-target="${i}">Q${i}</button>`); 
                 }
             </script>
         </nav>
     </aside>
+<main class="main-content">
+    <h1>Examen : Droit du Numérique & RGPD</h1>
 
-    <main class="main-content">
-        <h1>Certification Droit de l'Informatique</h1>
-
-        <section>
-            <h2>I. Fondamentaux et Preuves Numériques</h2>
-
-            <div class="qcm-question" id="question-1" data-question="1" data-type="single">
-                <p><b>1. Quelle est la définition exacte du Droit selon le cours ?</b></p>
-                <div class="qcm-options">
-                    <label><input type="radio" name="q1" value="Une discipline philosophique sans pouvoir coercitif"> Une discipline philosophique sans pouvoir coercitif</label>
-                    <label><input type="radio" name="q1" value="Un ensemble de règles de conduite s'imposant par la contrainte de l'Etat"> Un ensemble de règles de conduite s'imposant par la contrainte de l'Etat</label>
-                    <label><input type="radio" name="q1" value="L'application stricte de la loi du plus fort"> L'application stricte de la loi du plus fort</label>
-                    <label><input type="radio" name="q1" value="Un recueil de conseils moraux facultatifs"> Un recueil de conseils moraux facultatifs</label>
-                </div>
-                <div class="correction-panel">
-                    <div class="explanation-box">
-                        <div class="correct-answer-line">
-                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">Un ensemble de règles de conduite s'imposant par la contrainte de l'Etat</span>
-                        </div>
-                        <hr>
-                        <span class="justif-title">Justification :</span>
-                        <p>Le Droit organise la société et remplace la force brute par des règles garanties par la puissance publique.</p>
-                        <span class="mnemonic">💡 Mémo : "Droit = Doit" (C'est une obligation étatique).</span>
+    <section id="section-examen">
+        <div class="qcm-question" id="question-1" data-question="1">
+            <p><b>1. Selon vous, WIKIPEDIA peut être considéré comme ayant une responsabilité :</b></p>
+            <div class="qcm-options">
+                <label><input type="radio" name="q1" value="A"> A. D’hébergeur car WIKIPEDIA est censé surveiller tous les contenus mis en ligne</label>
+                <label><input type="radio" name="q1" value="B"> B. D’hébergeur car WIKIPEDIA permet de mettre en ligne des informations et n’intervient pas sur les contenus</label>
+                <label><input type="radio" name="q1" value="C"> C. D’éditeur car WIKIPEDIA a mis en place un outil en ligne à disposition des utilisateurs</label>
+                <label><input type="radio" name="q1" value="D"> D. D’éditeur car WIKIPEDIA permet d’organiser et de structurer les contenus</label>
+            </div>
+            <div class="correction-panel">
+                <div class="explanation-box">
+                    <div class="correct-answer-line">
+                        <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">Option B</span>
                     </div>
+                    <hr>
+                    <span class="justif-title">Justification :</span>
+                    <p>Wikipedia est juridiquement un <b>hébergeur</b> au sens de la LCEN. Il fournit les moyens techniques de stockage mais n'exerce pas de contrôle éditorial (choix, modification) sur les articles avant leur publication. Sa responsabilité est donc limitée : il n'est pas tenu à une obligation générale de surveillance.</p>
+                    <span class="mnemonic">💡 Mémo : Hébergeur = Conteneur technique / Éditeur = Responsable du contenu.</span>
                 </div>
             </div>
-
-            <div class="qcm-question" id="question-2" data-question="2" data-type="single">
-                <p><b>2. Que désigne précisément le "Droit Objectif" ?</b></p>
-                <div class="qcm-options">
-                    <label><input type="radio" name="q2" value="Les prérogatives individuelles d'un citoyen"> Les prérogatives individuelles d'un citoyen</label>
-                    <label><input type="radio" name="q2" value="L'ensemble des règles juridiques régissant la vie en société"> L'ensemble des règles juridiques régissant la vie en société</label>
-                    <label><input type="radio" name="q2" value="Le droit de propriété sur un objet physique"> Le droit de propriété sur un objet physique</label>
-                    <label><input type="radio" name="q2" value="La capacité d'aller en justice"> La capacité d'aller en justice</label>
-                </div>
-                <div class="correction-panel">
-                    <div class="explanation-box">
-                        <div class="correct-answer-line">
-                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">L'ensemble des règles juridiques régissant la vie en société</span>
-                        </div>
-                        <hr>
-                        <span class="justif-title">Justification :</span>
-                        <p>Le Droit Objectif est la règle impersonnelle et générale qui s'applique à tous (ex: Code Civil).</p>
-                        <span class="mnemonic">💡 Mémo : Objectif = La Règle / Subjectif = Mon Droit.</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="qcm-question" id="question-3" data-question="3" data-type="multiple">
-                <p><b>3. Quelles sont les sources du droit admises en France ?</b></p>
-                <div class="qcm-options">
-                    <label><input type="checkbox" name="q3" value="La Constitution"> La Constitution</label>
-                    <label><input type="checkbox" name="q3" value="La Jurisprudence"> La Jurisprudence</label>
-                    <label><input type="checkbox" name="q3" value="La Loi"> La Loi</label>
-                    <label><input type="checkbox" name="q3" value="La Presse spécialisée"> La Presse spécialisée</label>
-                </div>
-                <div class="correction-panel">
-                    <div class="explanation-box">
-                        <div class="correct-answer-line">
-                            <span class="justif-title">✅ Réponses attendues :</span><span class="correct-answer-text">La Constitution, La Jurisprudence, La Loi</span>
-                        </div>
-                        <hr>
-                        <span class="justif-title">Justification :</span>
-                        <p>La Constitution (sommet), la Loi (Parlement) et la Jurisprudence (décisions des juges) sont les piliers du droit positif.</p>
-                        <span class="mnemonic">💡 Mémo : C.J.L. (Constitution, Juge, Loi).</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="qcm-question" id="question-4" data-question="4" data-type="single">
-                <p><b>4. Quel élément l'huissier doit-il obligatoirement inscrire sur son PV de constat internet ?</b></p>
-                <div class="qcm-options">
-                    <label><input type="radio" name="q4" value="Le débit descendant de sa ligne"> Le débit descendant de sa ligne</label>
-                    <label><input type="radio" name="q4" value="L’adresse IP de l’ordinateur utilisée pour le constat"> L’adresse IP de l’ordinateur utilisée pour le constat</label>
-                    <label><input type="radio" name="q4" value="La marque de son clavier"> La marque de son clavier</label>
-                    <label><input type="radio" name="q4" value="Le nombre de fichiers dans sa corbeille"> Le nombre de fichiers dans sa corbeille</label>
-                </div>
-                <div class="correction-panel">
-                    <div class="explanation-box">
-                        <div class="correct-answer-line">
-                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">L’adresse IP de l’ordinateur utilisée pour le constat</span>
-                        </div>
-                        <hr>
-                        <span class="justif-title">Justification :</span>
-                        <p>L'adresse IP permet de vérifier la réalité de la connexion via les logs du serveur interrogé.</p>
-                        <span class="mnemonic">💡 Mémo : Pas d'IP = Constat nul.</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="qcm-question" id="question-5" data-question="5" data-type="text">
-                <p><b>5. Quel organisme (sigle) réalise des constats spécialisés pour les logiciels ?</b></p>
-                <div class="qcm-options"><textarea name="q5" placeholder="Sigle en 3 lettres..."></textarea></div>
-                <div class="correction-panel">
-                    <div class="explanation-box">
-                        <div class="correct-answer-line">
-                            <span class="justif-title">✅ Réponse attendue :</span><span class="correct-answer-text">APP</span>
-                        </div>
-                        <hr>
-                        <span class="justif-title">Justification :</span>
-                        <p>L'Agence pour la Protection des Programmes est l'autorité de référence pour les saisies-contrefaçons numériques.</p>
-                        <span class="mnemonic">💡 Mémo : APP comme Application.</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="qcm-question" id="question-6" data-question="6" data-type="single">
-                <p><b>6. Pour un constat sur un réseau social, l'huissier doit :</b></p>
-                <div class="qcm-options">
-                    <label><input type="radio" name="q6" value="Utiliser un faux profil anonyme"> Utiliser un faux profil anonyme</label>
-                    <label><input type="radio" name="q6" value="S’identifier avec sa véritable identité"> S’identifier avec sa véritable identité</label>
-                    <label><input type="radio" name="q6" value="Demander les codes à la police"> Demander les codes à la police</label>
-                    <label><input type="radio" name="q6" value="Masquer son IP par un VPN"> Masquer son IP par un VPN</label>
-                </div>
-                <div class="correction-panel">
-                    <div class="explanation-box">
-                        <div class="correct-answer-line">
-                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">S’identifier avec sa véritable identité</span>
-                        </div>
-                        <hr>
-                        <span class="justif-title">Justification :</span>
-                        <p>La loyauté de la preuve interdit à l'huissier d'utiliser des stratagèmes ou de fausses identités pour piéger la cible.</p>
-                        <span class="mnemonic">💡 Mémo : Loyauté = Transparence de l'identité.</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>II. Propriété Intellectuelle (PI)</h2>
-
-            <div class="qcm-question" id="question-7" data-question="7" data-type="single">
-                <p><b>7. Les idées simples et les concepts sont-ils protégeables ?</b></p>
-                <div class="qcm-options">
-                    <label><input type="radio" name="q7" value="Oui, dès qu'elles sont exprimées"> Oui, dès qu'elles sont exprimées</label>
-                    <label><input type="radio" name="q7" value="Non, seules leurs mises en forme sont protégées"> Non, seules leurs mises en forme sont protégées</label>
-                    <label><input type="radio" name="q7" value="Oui, si elles sont géniales"> Oui, si elles sont géniales</label>
-                    <label><input type="radio" name="q7" value="Oui, par dépôt de brevet conceptuel"> Oui, par dépôt de brevet conceptuel</label>
-                </div>
-                <div class="correction-panel">
-                    <div class="explanation-box">
-                        <div class="correct-answer-line">
-                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">Non, seules leurs mises en forme sont protégées</span>
-                        </div>
-                        <hr>
-                        <span class="justif-title">Justification :</span>
-                        <p>Le droit ne protège pas l'idée (libre parcours), mais l'œuvre (la mise en forme concrète).</p>
-                        <span class="mnemonic">💡 Mémo : L'idée est libre, l'expression est mienne.</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="qcm-question" id="question-8" data-question="8" data-type="single">
-                <p><b>8. L'INPI est un office de propriété intellectuelle opérant au niveau :</b></p>
-                <div class="qcm-options">
-                    <label><input type="radio" name="q8" value="Européen"> Européen</label>
-                    <label><input type="radio" name="q8" value="Mondial"> Mondial</label>
-                    <label><input type="radio" name="q8" value="National"> National</label>
-                    <label><input type="radio" name="q8" value="Régional"> Régional</label>
-                </div>
-                <div class="correction-panel">
-                    <div class="explanation-box">
-                        <div class="correct-answer-line">
-                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">National</span>
-                        </div>
-                        <hr>
-                        <span class="justif-title">Justification :</span>
-                        <p>L'Institut National de la Propriété Industrielle gère les titres sur le territoire français.</p>
-                        <span class="mnemonic">💡 Mémo : INPI = I pour Institut / N pour National.</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="qcm-question" id="question-9" data-question="9" data-type="text">
-                <p><b>9. Comment appelle-t-on la rémunération versée pour l'exploitation d'une licence ?</b></p>
-                <div class="qcm-options"><textarea name="q9"></textarea></div>
-                <div class="correction-panel">
-                    <div class="explanation-box">
-                        <div class="correct-answer-line">
-                            <span class="justif-title">✅ Réponse attendue :</span><span class="correct-answer-text">Redevance</span>
-                        </div>
-                        <hr>
-                        <span class="justif-title">Justification :</span>
-                        <p>La redevance (royalty) est le prix payé périodiquement au titulaire des droits.</p>
-                        <span class="mnemonic">💡 Mémo : Licence -> Redevance.</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="qcm-question" id="question-10" data-question="10" data-type="single">
-                <p><b>10. La protection par le Droit d'Auteur est acquise :</b></p>
-                <div class="qcm-options">
-                    <label><input type="radio" name="q10" value="Après un dépôt solennel"> Après un dépôt solennel</label>
-                    <label><input type="radio" name="q10" value="Du seul fait de la création de l’œuvre"> Du seul fait de la création de l’œuvre</label>
-                    <label><input type="radio" name="q10" value="Dès le paiement de la taxe"> Dès le paiement de la taxe</label>
-                    <label><input type="radio" name="q10" value="Après 10 ans d'usage"> Après 10 ans d'usage</label>
-                </div>
-                <div class="correction-panel">
-                    <div class="explanation-box">
-                        <div class="correct-answer-line">
-                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">Du seul fait de la création de l’œuvre</span>
-                        </div>
-                        <hr>
-                        <span class="justif-title">Justification :</span>
-                        <p>Contrairement aux marques, le droit d'auteur naît automatiquement sans formalité de dépôt.</p>
-                        <span class="mnemonic">💡 Mémo : Créer = Protéger.</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="qcm-question" id="question-11" data-question="11" data-type="single">
-                <p><b>11. Durée des droits patrimoniaux en droit d'auteur :</b></p>
-                <div class="qcm-options">
-                    <label><input type="radio" name="q11" value="20 ans"> 20 ans</label>
-                    <label><input type="radio" name="q11" value="50 ans"> 50 ans</label>
-                    <label><input type="radio" name="q11" value="70 ans après la mort de l'auteur"> 70 ans après la mort de l'auteur</label>
-                    <label><input type="radio" name="q11" value="À vie sans limite"> À vie sans limite</label>
-                </div>
-                <div class="correction-panel">
-                    <div class="explanation-box">
-                        <div class="correct-answer-line">
-                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">70 ans après la mort de l'auteur</span>
-                        </div>
-                        <hr>
-                        <span class="justif-title">Justification :</span>
-                        <p>Après ce délai de 70 ans post-mortem, l'œuvre tombe dans le domaine public.</p>
-                        <span class="mnemonic">💡 Mémo : Vie + 70 ans.</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="qcm-question" id="question-12" data-question="12" data-type="single">
-                <p><b>12. Pour être protégé, un logiciel doit présenter un caractère :</b></p>
-                <div class="qcm-options">
-                    <label><input type="radio" name="q12" value="Inédit"> Inédit</label>
-                    <label><input type="radio" name="q12" value="Original reflétant un apport intellectuel"> Original reflétant un apport intellectuel</label>
-                    <label><input type="radio" name="q12" value="Rentable"> Rentable</label>
-                    <label><input type="radio" name="q12" value="Sans bug"> Sans bug</label>
-                </div>
-                <div class="correction-panel">
-                    <div class="explanation-box">
-                        <div class="correct-answer-line">
-                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">Original reflétant un apport intellectuel</span>
-                        </div>
-                        <hr>
-                        <span class="justif-title">Justification :</span>
-                        <p>L'originalité est prouvée par les choix créatifs et l'effort intellectuel du développeur.</p>
-                        <span class="mnemonic">💡 Mémo : Originalité = Empreinte de la personnalité.</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="qcm-question" id="question-13" data-question="13" data-type="single">
-                <p><b>13. Que protège spécifiquement un brevet ?</b></p>
-                <div class="qcm-options">
-                    <label><input type="radio" name="q13" value="Une œuvre littéraire"> Une œuvre littéraire</label>
-                    <label><input type="radio" name="q13" value="Une invention technique nouvelle"> Une invention technique nouvelle</label>
-                    <label><input type="radio" name="q13" value="Le nom d'un domaine"> Le nom d'un domaine</label>
-                    <label><input type="radio" name="q13" value="Une base de données brute"> Une base de données brute</label>
-                </div>
-                <div class="correction-panel">
-                    <div class="explanation-box">
-                        <div class="correct-answer-line">
-                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">Une invention technique nouvelle</span>
-                        </div>
-                        <hr>
-                        <span class="justif-title">Justification :</span>
-                        <p>Le brevet protège une solution technique apportée à un problème technique.</p>
-                        <span class="mnemonic">💡 Mémo : Brevet = Technique.</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="qcm-question" id="question-14" data-question="14" data-type="single">
-                <p><b>14. Quelle est la durée de protection d'un brevet d'invention ?</b></p>
-                <div class="qcm-options">
-                    <label><input type="radio" name="q14" value="10 ans"> 10 ans</label>
-                    <label><input type="radio" name="q14" value="20 ans"> 20 ans</label>
-                    <label><input type="radio" name="q14" value="50 ans"> 50 ans</label>
-                    <label><input type="radio" name="q14" value="70 ans"> 70 ans</label>
-                </div>
-                <div class="correction-panel">
-                    <div class="explanation-box">
-                        <div class="correct-answer-line">
-                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">20 ans</span>
-                        </div>
-                        <hr>
-                        <span class="justif-title">Justification :</span>
-                        <p>C'est un monopole limité en échange de la divulgation publique de l'invention.</p>
-                        <span class="mnemonic">💡 Mémo : Brevet = 20 ans (non renouvelable).</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="qcm-question" id="question-15" data-question="15" data-type="single">
-                <p><b>15. L'atteinte aux droits de PI est sanctionnée par :</b></p>
-                <div class="qcm-options">
-                    <label><input type="radio" name="q15" value="L'action en revendication"> L'action en revendication</label>
-                    <label><input type="radio" name="q15" value="L'action en contrefaçon"> L'action en contrefaçon</label>
-                    <label><input type="radio" name="q15" value="L'action en diffamation"> L'action en diffamation</label>
-                    <label><input type="radio" name="q15" value="Le licenciement"> Le licenciement</label>
-                </div>
-                <div class="correction-panel">
-                    <div class="explanation-box">
-                        <div class="correct-answer-line">
-                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">L'action en contrefaçon</span>
-                        </div>
-                        <hr>
-                        <span class="justif-title">Justification :</span>
-                        <p>L'action en contrefaçon permet de faire cesser l'usage illicite et d'obtenir des dommages et intérêts.</p>
-                        <span class="mnemonic">💡 Mémo : PI = Contrefaçon.</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="qcm-question" id="question-16" data-question="16" data-type="single">
-                <p><b>16. L'EUIPO est l'office compétent au niveau :</b></p>
-                <div class="qcm-options">
-                    <label><input type="radio" name="q16" value="National"> National</label>
-                    <label><input type="radio" name="q16" value="De l'Union Européenne"> De l'Union Européenne</label>
-                    <label><input type="radio" name="q16" value="Mondial"> Mondial</label>
-                    <label><input type="radio" name="q16" value="De l'Asie"> De l'Asie</label>
-                </div>
-                <div class="correction-panel">
-                    <div class="explanation-box">
-                        <div class="correct-answer-line">
-                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">De l'Union Européenne</span>
-                        </div>
-                        <hr>
-                        <span class="justif-title">Justification :</span>
-                        <p>European Union Intellectual Property Office gère les marques et dessins modèles communautaires.</p>
-                        <span class="mnemonic">💡 Mémo : EU = European Union.</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="qcm-question" id="question-17" data-question="17" data-type="text">
-                <p><b>17. Quel titre de PI protège un signe (nom, logo) distinctif ?</b></p>
-                <div class="qcm-options"><textarea name="q17"></textarea></div>
-                <div class="correction-panel">
-                    <div class="explanation-box">
-                        <div class="correct-answer-line">
-                            <span class="justif-title">✅ Réponse attendue :</span><span class="correct-answer-text">La Marque</span>
-                        </div>
-                        <hr>
-                        <span class="justif-title">Justification :</span>
-                        <p>La marque sert à distinguer les produits d'une entreprise de ceux de ses concurrents.</p>
-                        <span class="mnemonic">💡 Mémo : Signe = Marque.</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="qcm-question" id="question-18" data-question="18" data-type="single">
-                <p><b>18. Un algorithme mathématique "nu" est-il brevetable ?</b></p>
-                <div class="qcm-options">
-                    <label><input type="radio" name="q18" value="Oui, si complexe"> Oui, si complexe</label>
-                    <label><input type="radio" name="q18" value="Non, les algorithmes nus sont exclus de la brevetabilité"> Non, les algorithmes nus sont exclus de la brevetabilité</label>
-                    <label><input type="radio" name="q18" value="Oui, par défaut"> Oui, par défaut</label>
-                    <label><input type="radio" name="q18" value="Uniquement s'il est codé"> Uniquement s'il est codé</label>
-                </div>
-                <div class="correction-panel">
-                    <div class="explanation-box">
-                        <div class="correct-answer-line">
-                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">Non, les algorithmes nus sont exclus de la brevetabilité</span>
-                        </div>
-                        <hr>
-                        <span class="justif-title">Justification :</span>
-                        <p>Les méthodes mathématiques ne sont pas considérées comme des inventions industrielles.</p>
-                        <span class="mnemonic">💡 Mémo : Maths = Pas de brevet.</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="qcm-question" id="question-19" data-question="19" data-type="single">
-                <p><b>19. Le droit moral de l'auteur est qualifié d'inaliénable, ce qui signifie :</b></p>
-                <div class="qcm-options">
-                    <label><input type="radio" name="q19" value="Qu'il peut être vendu"> Qu'il peut être vendu</label>
-                    <label><input type="radio" name="q19" value="Qu'on ne peut pas le céder ou le vendre"> Qu'on ne peut pas le céder ou le vendre</label>
-                    <label><input type="radio" name="q19" value="Qu'il expire vite"> Qu'il expire vite</label>
-                    <label><input type="radio" name="q19" value="Qu'il est réservé aux génies"> Qu'il est réservé aux génies</label>
-                </div>
-                <div class="correction-panel">
-                    <div class="explanation-box">
-                        <div class="correct-answer-line">
-                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">Qu'on ne peut pas le céder ou le vendre</span>
-                        </div>
-                        <hr>
-                        <span class="justif-title">Justification :</span>
-                        <p>Le lien entre l'auteur et son œuvre est perpétuel et ne peut être rompu par un contrat.</p>
-                        <span class="mnemonic">💡 Mémo : Inaliénable = Incessible.</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="qcm-question" id="question-20" data-question="20" data-type="single">
-                <p><b>20. Au bilan d'une société, la PI constitue :</b></p>
-                <div class="qcm-options">
-                    <label><input type="radio" name="q20" value="Un passif"> Un passif</label>
-                    <label><input type="radio" name="q20" value="Un actif immatériel"> Un actif immatériel</label>
-                    <label><input type="radio" name="q20" value="Une charge fixe"> Une charge fixe</label>
-                    <label><input type="radio" name="q20" value="Une dette"> Une dette</label>
-                </div>
-                <div class="correction-panel">
-                    <div class="explanation-box">
-                        <div class="correct-answer-line">
-                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">Un actif immatériel</span>
-                        </div>
-                        <hr>
-                        <span class="justif-title">Justification :</span>
-                        <p>Les brevets et marques ont une valeur financière et valorisent l'entreprise.</p>
-                        <span class="mnemonic">💡 Mémo : PI = Richesse invisible (Actif).</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="qcm-question" id="question-21" data-question="21" data-type="single">
-                <p><b>21. Quelle procédure permet de collecter des preuves chez un contrefacteur ?</b></p>
-                <div class="qcm-options">
-                    <label><input type="radio" name="q21" value="La perquisition civile"> La perquisition civile</label>
-                    <label><input type="radio" name="q21" value="La saisie-contrefaçon réalisée par un huissier"> La saisie-contrefaçon réalisée par un huissier</label>
-                    <label><input type="radio" name="q21" value="L'espionnage industriel"> L'espionnage industriel</label>
-                    <label><input type="radio" name="q21" value="Le constat amiable"> Le constat amiable</label>
-                </div>
-                <div class="correction-panel">
-                    <div class="explanation-box">
-                        <div class="correct-answer-line">
-                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">La saisie-contrefaçon réalisée par un huissier</span>
-                        </div>
-                        <hr>
-                        <span class="justif-title">Justification :</span>
-                        <p>C'est une procédure d'urgence autorisée par un juge pour surprendre le contrefacteur.</p>
-                        <span class="mnemonic">💡 Mémo : Saisie = Choc probatoire.</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="qcm-question" id="question-22" data-question="22" data-type="single">
-                <p><b>22. Quelle est la durée de validité d'un dépôt de marque initial ?</b></p>
-                <div class="qcm-options">
-                    <label><input type="radio" name="q22" value="5 ans"> 5 ans</label>
-                    <label><input type="radio" name="q22" value="10 ans renouvelables indéfiniment"> 10 ans renouvelables indéfiniment</label>
-                    <label><input type="radio" name="q22" value="20 ans"> 20 ans</label>
-                    <label><input type="radio" name="q22" value="Illimitée"> Illimitée</label>
-                </div>
-                <div class="correction-panel">
-                    <div class="explanation-box">
-                        <div class="correct-answer-line">
-                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">10 ans renouvelables indéfiniment</span>
-                        </div>
-                        <hr>
-                        <span class="justif-title">Justification :</span>
-                        <p>La marque est le seul titre de PI qui peut durer éternellement si on paye les taxes tous les 10 ans.</p>
-                        <span class="mnemonic">💡 Mémo : 10 ans + 10 ans + ...</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="qcm-question" id="question-23" data-question="23" data-type="single">
-                <p><b>23. Le principe de "spécialité" des marques signifie :</b></p>
-                <div class="qcm-options">
-                    <label><input type="radio" name="q23" value="Que la marque est unique"> Que la marque est unique</label>
-                    <label><input type="radio" name="q23" value="Que la protection est limitée aux classes de produits/services choisies"> Que la protection est limitée aux classes de produits/services choisies</label>
-                    <label><input type="radio" name="q23" value="Que la marque est haut de gamme"> Que la marque est haut de gamme</label>
-                    <label><input type="radio" name="q23" value="Qu'elle protège tout"> Qu'elle protège tout</label>
-                </div>
-                <div class="correction-panel">
-                    <div class="explanation-box">
-                        <div class="correct-answer-line">
-                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">Que la protection est limitée aux classes de produits/services choisies</span>
-                        </div>
-                        <hr>
-                        <span class="justif-title">Justification :</span>
-                        <p>On ne peut pas interdire l'usage d'un nom identique pour des produits totalement différents (ex: Montblanc stylos vs Montblanc crèmes dessert).</p>
-                        <span class="mnemonic">💡 Mémo : Spécialité = Mon secteur d'activité.</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="qcm-question" id="question-24" data-question="24" data-type="single">
-                <p><b>24. Qu'est-ce que le "Know-how" ou savoir-faire ?</b></p>
-                <div class="qcm-options">
-                    <label><input type="radio" name="q24" value="Un manuel public"> Un manuel public</label>
-                    <label><input type="radio" name="q24" value="Un ensemble d'informations techniques secrètes et non brevetées"> Un ensemble d'informations techniques secrètes et non brevetées</label>
-                    <label><input type="radio" name="q24" value="L'expérience des stagiaires"> L'expérience des stagiaires</label>
-                    <label><input type="radio" name="q24" value="Un code open source"> Un code open source</label>
-                </div>
-                <div class="correction-panel">
-                    <div class="explanation-box">
-                        <div class="correct-answer-line">
-                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">Un ensemble d'informations techniques secrètes et non brevetées</span>
-                        </div>
-                        <hr>
-                        <span class="justif-title">Justification :</span>
-                        <p>C'est une protection par le secret (ex: recette Coca-Cola), très utilisée pour les algorithmes non brevetables.</p>
-                        <span class="mnemonic">💡 Mémo : Know-how = Secret.</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="qcm-question" id="question-25" data-question="25" data-type="single">
-                <p><b>25. "Dessins et Modèles" protègent :</b></p>
-                <div class="qcm-options">
-                    <label><input type="radio" name="q25" value="Le code source"> Le code source</label>
-                    <label><input type="radio" name="q25" value="L'apparence esthétique et ornementale d'un produit"> L'apparence esthétique et ornementale d'un produit</label>
-                    <label><input type="radio" name="q25" value="Les schémas électriques"> Les schémas électriques</label>
-                    <label><input type="radio" name="q25" value="Le plan marketing"> Le plan marketing</label>
-                </div>
-                <div class="correction-panel">
-                    <div class="explanation-box">
-                        <div class="correct-answer-line">
-                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">L'apparence esthétique et ornementale d'un produit</span>
-                        </div>
-                        <hr>
-                        <span class="justif-title">Justification :</span>
-                        <p>Ce droit protège le design, les lignes et les couleurs d'un objet industriel.</p>
-                        <span class="mnemonic">💡 Mémo : Dessin = Look.</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="qcm-question" id="question-26" data-question="26" data-type="single">
-                <p><b>26. Où se trouve le siège de l'OMPI ?</b></p>
-                <div class="qcm-options">
-                    <label><input type="radio" name="q26" value="Paris"> Paris</label>
-                    <label><input type="radio" name="q26" value="Genève (Suisse)"> Genève (Suisse)</label>
-                    <label><input type="radio" name="q26" value="New York"> New York</label>
-                    <label><input type="radio" name="q26" value="Bruxelles"> Bruxelles</label>
-                </div>
-                <div class="correction-panel">
-                    <div class="explanation-box">
-                        <div class="correct-answer-line">
-                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">Genève (Suisse)</span>
-                        </div>
-                        <hr>
-                        <span class="justif-title">Justification :</span>
-                        <p>L'Organisation Mondiale de la Propriété Intellectuelle est une agence de l'ONU basée en Suisse.</p>
-                        <span class="mnemonic">💡 Mémo : OMPI = Genève.</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="qcm-question" id="question-27" data-question="27" data-type="single">
-                <p><b>27. Un logiciel créé par un salarié en mission appartient à :</b></p>
-                <div class="qcm-options">
-                    <label><input type="radio" name="q27" value="Au salarié"> Au salarié</label>
-                    <label><input type="radio" name="q27" value="À l'employeur"> À l'employeur</label>
-                    <label><input type="radio" name="q27" value="À l'État"> À l'État</label>
-                    <label><input type="radio" name="q27" value="Au premier utilisateur"> Au premier utilisateur</label>
-                </div>
-                <div class="correction-panel">
-                    <div class="explanation-box">
-                        <div class="correct-answer-line">
-                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">À l'employeur</span>
-                        </div>
-                        <hr>
-                        <span class="justif-title">Justification :</span>
-                        <p>C'est une dérogation au droit d'auteur : les droits patrimoniaux sur les logiciels créés par les salariés reviennent à l'employeur.</p>
-                        <span class="mnemonic">💡 Mémo : Salaire payé = Logiciel à l'employeur.</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="qcm-question" id="question-28" data-question="28" data-type="single">
-                <p><b>28. Le RGPD s'applique aux traitements de données :</b></p>
-                <div class="qcm-options">
-                    <label><input type="radio" name="q28" value="Anonymes"> Anonymes</label>
-                    <label><input type="radio" name="q28" value="À caractère personnel"> À caractère personnel</label>
-                    <label><input type="radio" name="q28" value="Financières uniquement"> Financières uniquement</label>
-                    <label><input type="radio" name="q28" value="Publiques"> Publiques</label>
-                </div>
-                <div class="correction-panel">
-                    <div class="explanation-box">
-                        <div class="correct-answer-line">
-                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">À caractère personnel</span>
-                        </div>
-                        <hr>
-                        <span class="justif-title">Justification :</span>
-                        <p>Le RGPD protège les personnes physiques à travers le contrôle de leurs données identifiantes.</p>
-                        <span class="mnemonic">💡 Mémo : RGPD = Données Personnelles.</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="qcm-question" id="question-29" data-question="29" data-type="text">
-                <p><b>29. Quelle autorité française surveille le RGPD ?</b></p>
-                <div class="qcm-options"><textarea name="q29"></textarea></div>
-                <div class="correction-panel">
-                    <div class="explanation-box">
-                        <div class="correct-answer-line">
-                            <span class="justif-title">✅ Réponse attendue :</span><span class="correct-answer-text">CNIL</span>
-                        </div>
-                        <hr>
-                        <span class="justif-title">Justification :</span>
-                        <p>La Commission Nationale de l'Informatique et des Libertés est le gendarme des données en France.</p>
-                        <span class="mnemonic">💡 Mémo : CNIL = Gendarme.</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="qcm-question" id="question-30" data-question="30" data-type="single">
-                <p><b>30. Un contrat SaaS se définit par :</b></p>
-                <div class="qcm-options">
-                    <label><input type="radio" name="q30" value="La vente d'un CD"> La vente d'un CD</label>
-                    <label><input type="radio" name="q30" value="L'accès à distance à un logiciel hébergé via un abonnement"> L'accès à distance à un logiciel hébergé via un abonnement</label>
-                    <label><input type="radio" name="q30" value="Le don de matériel"> Le don de matériel</label>
-                    <label><input type="radio" name="q30" value="L'installation locale fixe"> L'installation locale fixe</label>
-                </div>
-                <div class="correction-panel">
-                    <div class="explanation-box">
-                        <div class="correct-answer-line">
-                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">L'accès à distance à un logiciel hébergé via un abonnement</span>
-                        </div>
-                        <hr>
-                        <span class="justif-title">Justification :</span>
-                        <p>Software as a Service : on ne possède pas le logiciel, on consomme un service via le Cloud.</p>
-                        <span class="mnemonic">💡 Mémo : SaaS = Abonnement Cloud.</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="section-approfondissement">
-            <h2>III. Nouvelles notions et approfondissements</h2>
-
-<div class="qcm-question" id="question-31" data-question="31" data-type="single">
-                <p><b>31. Quel principe juridique permet à un document numérique d'avoir la même valeur qu'un papier ?</b></p>
-                <div class="qcm-options">
-                    <label><input type="radio" name="q31" value="La dématérialisation"> La dématérialisation</label>
-                    <label><input type="radio" name="q31" value="L'équivalence fonctionnelle"> L'équivalence fonctionnelle</label>
-                    <label><input type="radio" name="q31" value="La primauté du physique"> La primauté du physique</label>
-                </div>
-                <div class="correction-panel">
-                    <div class="explanation-box">
-                        <div class="correct-answer-line">
-                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">L'équivalence fonctionnelle</span>
-                        </div>
-                        <hr>
-                        <span class="justif-title">Justification :</span>
-                        <p>Ce principe assure que le support numérique remplit la même fonction de preuve que le papier.</p>
-                        <span class="mnemonic">💡 Mémo : Équivalence = Même valeur légale.</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="qcm-question" id="question-32" data-question="32" data-type="single">
-                <p><b>32. Le fait d'insérer des tirets dans un nom de domaine pour tromper l'internaute s'appelle :</b></p>
-                <div class="qcm-options">
-                    <label><input type="radio" name="q32" value="Le Typosquatting"> Le Typosquatting</label>
-                    <label><input type="radio" name="q32" value="Le DASHsquatting"> Le DASHsquatting</label>
-                    <label><input type="radio" name="q32" value="Le Phishing"> Le Phishing</label>
-                </div>
-                <div class="correction-panel">
-                    <div class="explanation-box">
-                        <div class="correct-answer-line">
-                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">Le DASHsquatting</span>
-                        </div>
-                        <hr>
-                        <span class="justif-title">Justification :</span>
-                        <p>"Dash" signifie tiret en anglais. C'est une variante du typosquatting visant à créer des sites miroirs.</p>
-                        <span class="mnemonic">💡 Mémo : DASH = Tiret (-).</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="qcm-question" id="question-33" data-question="33" data-type="single">
-                <p><b>33. À qui appartiennent les droits d'un logiciel commandé à un tiers sans contrat de cession ?</b></p>
-                <div class="qcm-options">
-                    <label><input type="radio" name="q33" value="Au client qui a payé"> Au client qui a payé</label>
-                    <label><input type="radio" name="q33" value="Au prestataire (le créateur)"> Au prestataire (le créateur)</label>
-                </div>
-                <div class="correction-panel">
-                    <div class="explanation-box">
-                        <div class="correct-answer-line">
-                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">Au prestataire (le créateur)</span>
-                        </div>
-                        <hr>
-                        <span class="justif-title">Justification :</span>
-                        <p>Le droit d'auteur naît sur la tête du créateur. Le paiement de la facture n'entraîne pas le transfert des droits sans écrit.</p>
-                        <span class="mnemonic">💡 Mémo : Pas de contrat écrit = Droits chez le créateur.</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="qcm-question" id="question-34" data-question="34" data-type="single">
-                <p><b>34. Quel élément est jugé indispensable dans les mentions légales pour contacter le responsable ?</b></p>
-                <div class="qcm-options">
-                    <label><input type="radio" name="q34" value="L'adresse email uniquement"> L'adresse email uniquement</label>
-                    <label><input type="radio" name="q34" value="Un numéro de téléphone"> Un numéro de téléphone</label>
-                </div>
-                <div class="correction-panel">
-                    <div class="explanation-box">
-                        <div class="correct-answer-line">
-                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">Un numéro de téléphone</span>
-                        </div>
-                        <hr>
-                        <span class="justif-title">Justification :</span>
-                        <p>La jurisprudence (ex: Amazon) exige un moyen de communication rapide et efficace, souvent le téléphone.</p>
-                        <span class="mnemonic">💡 Mémo : Mentions légales = Tél obligatoire.</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="qcm-question" id="question-35" data-question="35" data-type="single">
-                <p><b>35. Vrai ou Faux : L'EUIPO gère les brevets à l'échelle européenne.</b></p>
-                <div class="qcm-options">
-                    <label><input type="radio" name="q35" value="Vrai"> Vrai</label>
-                    <label><input type="radio" name="q35" value="Faux, elle gère uniquement les marques et dessins/modèles"> Faux, elle gère uniquement les marques et dessins/modèles</label>
-                </div>
-                <div class="correction-panel">
-                    <div class="explanation-box">
-                        <div class="correct-answer-line">
-                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">Faux, elle gère uniquement les marques et dessins/modèles</span>
-                        </div>
-                        <hr>
-                        <span class="justif-title">Justification :</span>
-                        <p>L'EUIPO s'occupe de la PI industrielle (marques/modèles), les brevets sont gérés par l'OEB.</p>
-                        <span class="mnemonic">💡 Mémo : EUIPO = Marques / OEB = Brevets.</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="qcm-question" id="question-36" data-question="36" data-type="single">
-                <p><b>36. En cybersécurité, la mise en place de pare-feu et d'antivirus relève d'une :</b></p>
-                <div class="qcm-options">
-                    <label><input type="radio" name="q36" value="Obligation de résultat"> Obligation de résultat</label>
-                    <label><input type="radio" name="q36" value="Une obligation de moyen"> Une obligation de moyen</label>
-                </div>
-                <div class="correction-panel">
-                    <div class="explanation-box">
-                        <div class="correct-answer-line">
-                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">Une obligation de moyen</span>
-                        </div>
-                        <hr>
-                        <span class="justif-title">Justification :</span>
-                        <p>On doit prouver qu'on a mis en œuvre les meilleurs outils possibles, même si un piratage survient quand même.</p>
-                        <span class="mnemonic">💡 Mémo : Moyen = "J'ai fait de mon mieux".</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="qcm-question" id="question-37" data-question="37" data-type="single">
-                <p><b>37. Pour une marque à l'INPI, quelle est la "classe" dédiée aux logiciels ?</b></p>
-                <div class="qcm-options">
-                    <label><input type="radio" name="q37" value="La classe 38"> La classe 38</label>
-                    <label><input type="radio" name="q37" value="La classe 9"> La classe 9</label>
-                    <label><input type="radio" name="q37" value="La classe 42"> La classe 42</label>
-                </div>
-                <div class="correction-panel">
-                    <div class="explanation-box">
-                        <div class="correct-answer-line">
-                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">La classe 9</span>
-                        </div>
-                        <hr>
-                        <span class="justif-title">Justification :</span>
-                        <p>La classification de Nice place les logiciels et supports numériques dans la classe 9.</p>
-                        <span class="mnemonic">💡 Mémo : Logiciel = Classe 9.</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="qcm-question" id="question-38" data-question="38" data-type="single">
-                <p><b>38. Quel outil de datation de l'INPI est devenu 100% numérique en 2023 ?</b></p>
-                <div class="qcm-options">
-                    <label><input type="radio" name="q38" value="Le Brevet"> Le Brevet</label>
-                    <label><input type="radio" name="q38" value="L'Enveloppe SOLEAU"> L'Enveloppe SOLEAU</label>
-                </div>
-                <div class="correction-panel">
-                    <div class="explanation-box">
-                        <div class="correct-answer-line">
-                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">L'Enveloppe SOLEAU</span>
-                        </div>
-                        <hr>
-                        <span class="justif-title">Justification :</span>
-                        <p>Depuis avril 2023, le format papier a disparu au profit d'un dépôt numérique pour dater une invention.</p>
-                        <span class="mnemonic">💡 Mémo : SOLEAU = Date de naissance de l'idée.</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="qcm-question" id="question-39" data-question="39" data-type="single">
-                <p><b>39. Quelle société gère les royalties des auteurs et compositeurs de musique ?</b></p>
-                <div class="qcm-options">
-                    <label><input type="radio" name="q39" value="L'AFNIC"> L'AFNIC</label>
-                    <label><input type="radio" name="q39" value="La SACEM"> La SACEM</label>
-                </div>
-                <div class="correction-panel">
-                    <div class="explanation-box">
-                        <div class="correct-answer-line">
-                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">La SACEM</span>
-                        </div>
-                        <hr>
-                        <span class="justif-title">Justification :</span>
-                        <p>C'est l'organisme de gestion collective chargé de collecter et répartir les droits d'auteur musicaux.</p>
-                        <span class="mnemonic">💡 Mémo : Musique = SACEM.</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="qcm-question" id="question-40" data-question="40" data-type="single">
-                <p><b>40. Le principe selon lequel la loi ignore la technologie utilisée se nomme :</b></p>
-                <div class="qcm-options">
-                    <label><input type="radio" name="q40" value="La neutralité du net"> La neutralité du net</label>
-                    <label><input type="radio" name="q40" value="La neutralité technologique"> La neutralité technologique</label>
-                </div>
-                <div class="correction-panel">
-                    <div class="explanation-box">
-                        <div class="correct-answer-line">
-                            <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">La neutralité technologique</span>
-                        </div>
-                        <hr>
-                        <span class="justif-title">Justification :</span>
-                        <p>La règle juridique doit être indépendante des évolutions techniques pour rester stable.</p>
-                        <span class="mnemonic">💡 Mémo : Loi neutre face aux gadgets.</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div class="fixed-controls">
-            <button id="validate-qcm" class="btn-modern btn-validate">Valider</button>
-            <button id="reset-qcm" class="btn-modern btn-reset">Réinitialiser</button>
         </div>
-    </main>
+
+        <div class="qcm-question" id="question-2" data-question="2">
+            <p><b>2. En matière de responsabilités sur internet liées à la « LCEN », le processus est que :</b></p>
+            <div class="qcm-options">
+                <label><input type="radio" name="q2" value="A"> A. L’éditeur d’un site internet n’est responsable que si l’hébergeur a, au préalable, été notifié et n’a pas réagi</label>
+                <label><input type="radio" name="q2" value="B"> B. L’hébergeur d’un site internet n’est responsable que si l’éditeur a, au préalable, été notifié et n’a pas réagi</label>
+                <label><input type="radio" name="q2" value="C"> C. Il suffit que ni l’éditeur ou l’hébergeur n’ait réagi après avoir été notifié pour que ce soit forcément l’autre qui soit responsable</label>
+            </div>
+            <div class="correction-panel">
+                <div class="explanation-box">
+                    <div class="correct-answer-line">
+                        <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">Option B</span>
+                    </div>
+                    <hr>
+                    <span class="justif-title">Justification :</span>
+                    <p>La LCEN protège l'hébergeur. Pour engager sa responsabilité, il faut prouver qu'il a été <b>notifié</b> du caractère illicite d'un contenu (via une mise en demeure) et qu'il n'a pas agi promptement pour le retirer. L'éditeur, lui, est responsable de plein droit de ce qu'il publie.</p>
+                    <span class="mnemonic">💡 Mémo : Pas de retrait après signalement = Responsabilité de l'hébergeur engagée.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="qcm-question" id="question-3" data-question="3">
+            <p><b>3. Dans un contrat, la responsabilité peut légalement être limitée :</b></p>
+            <div class="qcm-options">
+                <label><input type="radio" name="q3" value="A"> A. Non, en aucun cas car, dans le domaine de l’informatique, les activités concernées sont nécessairement soumises à un régime spécifique</label>
+                <label><input type="radio" name="q3" value="B"> B. Par une clause du contrat plafonnant le montant des dommages et intérêts qui pourraient être réclamés</label>
+                <label><input type="radio" name="q3" value="C"> C. Par une clause du contrat qualifiant une prestation à effectuer d’obligation de résultat</label>
+            </div>
+            <div class="correction-panel">
+                <div class="explanation-box">
+                    <div class="correct-answer-line">
+                        <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">Option B</span>
+                    </div>
+                    <hr>
+                    <span class="justif-title">Justification :</span>
+                    <p>Dans les relations entre professionnels (B2B), les <b>clauses limitatives de responsabilité</b> sont valables. Elles permettent de fixer un "plafond" financier au remboursement en cas de faute, à condition que cela ne vide pas l'obligation essentielle du contrat de son sens.</p>
+                    <span class="mnemonic">💡 Mémo : Clause de plafond = Limite financière des dégâts.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="qcm-question" id="question-4" data-question="4">
+            <p><b>4. Quelle réponse ci-après est vraie ?</b></p>
+            <div class="qcm-options">
+                <label><input type="radio" name="q4" value="A"> A. Les réseaux sociaux ne sont pas responsables des contenus mis en lignes par les utilisateurs</label>
+                <label><input type="radio" name="q4" value="B"> B. Les plateformes de partage telles que YOUTUBE ou DAILYMOTION sont directement responsables des vidéos mises en ligne par les utilisateurs</label>
+                <label><input type="radio" name="q4" value="C"> C. Un blogueur n’est jamais responsable de ce qu’il met en ligne car seule la plateforme permettant de créer son blog est responsable</label>
+            </div>
+            <div class="correction-panel">
+                <div class="explanation-box">
+                    <div class="correct-answer-line">
+                        <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">Option A</span>
+                    </div>
+                    <hr>
+                    <span class="justif-title">Justification :</span>
+                    <p>Les réseaux sociaux (Facebook, Twitter, etc.) bénéficient du statut d'<b>hébergeur</b>. Ils ne sont pas responsables a priori des propos tenus par leurs membres. C'est l'utilisateur (l'auteur) qui est l'éditeur de son propre profil.</p>
+                    <span class="mnemonic">💡 Mémo : L'utilisateur est l'auteur, le réseau n'est que l'hôte.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="qcm-question" id="question-5" data-question="5">
+            <p><b>5. Le traitement en interne de données de clients d’une entreprise impose :</b></p>
+            <div class="qcm-options">
+                <label><input type="radio" name="q5" value="A"> A. De déclarer par cette entreprise auprès de la CNIL l’existence et la consistance de ces fichiers</label>
+                <label><input type="radio" name="q5" value="B"> B. De tenir à jour en interne et à disposition un « Registre des activités de traitement »</label>
+                <label><input type="radio" name="q5" value="C"> C. Au Service Informatique de juste s’assurer que sont bien mis en place des systèmes de sécurité pour protéger ces fichiers</label>
+            </div>
+            <div class="correction-panel">
+                <div class="explanation-box">
+                    <div class="correct-answer-line">
+                        <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">Option B</span>
+                    </div>
+                    <hr>
+                    <span class="justif-title">Justification :</span>
+                    <p>Depuis l'entrée en vigueur du <b>RGPD</b> en 2018, les déclarations préalables à la CNIL ont presque toutes disparu. Elles sont remplacées par le principe d'<i>Accountability</i> : l'entreprise doit prouver sa conformité en tenant un <b>Registre</b> détaillé de ses traitements de données.</p>
+                    <span class="mnemonic">💡 Mémo : RGPD = Fin des déclarations, début du Registre interne.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="qcm-question" id="question-6" data-question="6">
+            <p><b>6. Les Conditions Générales d’Utilisation sont :</b></p>
+            <div class="qcm-options">
+                <label><input type="radio" name="q6" value="A"> A. Obligatoires si un site internet comporte aussi des Conditions Générales de Vente</label>
+                <label><input type="radio" name="q6" value="B"> B. Obligatoires si un site internet ne comporte pas de Conditions Générales de Vente</label>
+                <label><input type="radio" name="q6" value="C"> C. Définissent les droits, obligations et conditions d’accès liés au site internet concerné</label>
+                <label><input type="radio" name="q6" value="D"> D. Comportent obligatoirement des indications sur les prix, les conditions de règlement, les modalités et délais de livraison</label>
+            </div>
+            <div class="correction-panel">
+                <div class="explanation-box">
+                    <div class="correct-answer-line">
+                        <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">Option C</span>
+                    </div>
+                    <hr>
+                    <span class="justif-title">Justification :</span>
+                    <p>Les <b>CGU</b> constituent le contrat entre l'éditeur du site et l'utilisateur. Elles fixent les "règles du jeu" : comportement autorisé, propriété intellectuelle du site, limites de garantie, etc. Elles ne sont pas obligatoires mais fortement recommandées pour se protéger.</p>
+                    <span class="mnemonic">💡 Mémo : CGU = Mode d'emploi contractuel du site.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="qcm-question" id="question-7" data-question="7">
+            <p><b>7. Sur un site internet, la mise en place de « cookies » est licite si :</b></p>
+            <div class="qcm-options">
+                <label><input type="radio" name="q7" value="A"> A. Le consommateur est informé de leur existence lorsqu’il visite le site internet concerné</label>
+                <label><input type="radio" name="q7" value="B"> B. Le consommateur est informé de leur existence et qu’il navigue sur le site internet car cette poursuite de navigation est considérée comme une acceptation à la collecte d’informations</label>
+                <label><input type="radio" name="q7" value="C"> C. Le consommateur est informé de leur existence et donne un accord express à la collecte d’informations</label>
+            </div>
+            <div class="correction-panel">
+                <div class="explanation-box">
+                    <div class="correct-answer-line">
+                        <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">Option C</span>
+                    </div>
+                    <hr>
+                    <span class="justif-title">Justification :</span>
+                    <p>Selon les directives de la CNIL et le RGPD, le consentement doit être un <b>acte positif clair</b> (bouton "Tout accepter"). Le silence ou la simple poursuite de la navigation (scroll) ne constitue plus un accord valide.</p>
+                    <span class="mnemonic">💡 Mémo : Cookies = Information + Accord exprès (Opt-in).</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="qcm-question" id="question-8" data-question="8">
+            <p><b>8. Un « traitement » de données personnelles :</b></p>
+            <div class="qcm-options">
+                <label><input type="radio" name="q8" value="A"> A. Correspond uniquement à la collecte d’une ou plusieurs données personnelles</label>
+                <label><input type="radio" name="q8" value="B"> B. Recouvre la moindre opération effectuée sur une ou plusieurs données personnelles</label>
+                <label><input type="radio" name="q8" value="C"> C. Concerne juste l’utilisation en interne de données personnelles</label>
+            </div>
+            <div class="correction-panel">
+                <div class="explanation-box">
+                    <div class="correct-answer-line">
+                        <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">Option B</span>
+                    </div>
+                    <hr>
+                    <span class="justif-title">Justification :</span>
+                    <p>La définition juridique est extrêmement large : <b>toute opération</b> (collecte, enregistrement, organisation, conservation, modification, extraction, consultation, diffusion, effacement) constitue un traitement soumis au RGPD.</p>
+                    <span class="mnemonic">💡 Mémo : Traitement = Manipulation de la donnée, même invisible.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="qcm-question" id="question-9" data-question="9">
+            <p><b>9. Une donnée personnelle recouvre :</b></p>
+            <div class="qcm-options">
+                <label><input type="radio" name="q9" value="A"> A. Uniquement le nom, le prénom et l’adresse du domicile d’un individu</label>
+                <label><input type="radio" name="q9" value="B"> B. Toute donnée permettant d’identifier directement ou rendant identifiable un individu</label>
+                <label><input type="radio" name="q9" value="C"> C. La part de marché et le chiffre d’affaires d’une entreprise</label>
+                <label><input type="radio" name="q9" value="D"> D. La Catégorie Socio-Professionnelle d’un individu</label>
+            </div>
+            <div class="correction-panel">
+                <div class="explanation-box">
+                    <div class="correct-answer-line">
+                        <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">Option B</span>
+                    </div>
+                    <hr>
+                    <span class="justif-title">Justification :</span>
+                    <p>Une donnée est personnelle si elle identifie quelqu'un <b>directement</b> (Nom) ou <b>indirectement</b> (Numéro de sécu, adresse IP, plaque d'immatriculation, empreinte digitale). Les chiffres d'une entreprise (C) ne sont pas des données personnelles d'individus.</p>
+                    <span class="mnemonic">💡 Mémo : Si je peux remonter jusqu'à un humain = Donnée personnelle.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="qcm-question" id="question-10" data-question="10">
+            <p><b>10. Si vous êtes à la fois « hébergeur » et « éditeur » au regard de contenus d’un site web, votre responsabilité est celle d’un hébergeur :</b></p>
+            <div class="qcm-options">
+                <label><input type="radio" name="q10" value="A"> A. Vrai</label>
+                <label><input type="radio" name="q10" value="B"> B. Faux</label>
+            </div>
+            <div class="correction-panel">
+                <div class="explanation-box">
+                    <div class="correct-answer-line">
+                        <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">Option B (Faux)</span>
+                    </div>
+                    <hr>
+                    <span class="justif-title">Justification :</span>
+                    <p>C'est le régime le plus sévère qui s'applique. Dès lors que vous agissez sur le contenu (choix, tri, mise en avant), vous perdez le bénéfice de la responsabilité limitée de l'hébergeur pour devenir <b>éditeur</b>, responsable de plein droit.</p>
+                    <span class="mnemonic">💡 Mémo : Édition > Hébergement. Le créateur prime sur le stockeur.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="qcm-question" id="question-11" data-question="11">
+            <p><b>11. Dans le cadre d’un site web de vente, le droit de rétractation :</b></p>
+            <div class="qcm-options">
+                <label><input type="radio" name="q11" value="A"> A. N’a pas à être rappelé ni mentionné et donc à apparaître sur le site web car c’est un mécanisme légal et il n’y a donc pas besoin de l’indiquer à nouveau</label>
+                <label><input type="radio" name="q11" value="B"> B. Doit juste être rappelé / mentionné dans les CGV et cela suffit</label>
+                <label><input type="radio" name="q11" value="C"> C. Doit non seulement être rappelé / mentionné dans les CGV mais, en outre, un formulaire de rétractation prêt à être utilisé / complété doit être accessible / téléchargeable pour les utilisateurs</label>
+            </div>
+            <div class="correction-panel">
+                <div class="explanation-box">
+                    <div class="correct-answer-line">
+                        <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">Option C</span>
+                    </div>
+                    <hr>
+                    <span class="justif-title">Justification :</span>
+                    <p>Le Code de la consommation est strict : le vendeur doit informer le client de son droit de 14 jours <b>et</b> lui fournir un <b>formulaire type</b> de rétractation. S'il ne le fait pas, le délai de rétractation peut être prolongé de 12 mois !</p>
+                    <span class="mnemonic">💡 Mémo : Info dans CGV + Formulaire obligatoire.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="qcm-question" id="question-12" data-question="12">
+            <p><b>12. Les Conditions Générales de Vente sont toujours et dans les tous les cas obligatoires sur tous les sites web :</b></p>
+            <div class="qcm-options">
+                <label><input type="radio" name="q12" value="A"> A. Vrai</label>
+                <label><input type="radio" name="q12" value="B"> B. Faux</label>
+            </div>
+            <div class="correction-panel">
+                <div class="explanation-box">
+                    <div class="correct-answer-line">
+                        <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">Option B (Faux)</span>
+                    </div>
+                    <hr>
+                    <span class="justif-title">Justification :</span>
+                    <p>Les <b>CGV</b> ne sont obligatoires que si le site réalise des actes de commerce (vente de produits ou services). Un site institutionnel, un blog personnel ou un site vitrine sans transaction n'a aucune obligation d'afficher des CGV.</p>
+                    <span class="mnemonic">💡 Mémo : Vente = CGV obligatoire / Pas de vente = Pas de CGV.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="qcm-question" id="question-13" data-question="13">
+            <p><b>13. Les Conditions Générales d’Utilisation sont :</b></p>
+            <div class="qcm-options">
+                <label><input type="radio" name="q13" value="A"> A. Obligatoires si un site internet comporte aussi des Conditions Générales de Vente</label>
+                <label><input type="radio" name="q13" value="B"> B. Obligatoires si un site internet ne comporte pas de Conditions Générales de Vente</label>
+                <label><input type="radio" name="q13" value="C"> C. Définissent les droits, obligations et conditions d’accès liés au site internet concerné</label>
+                <label><input type="radio" name="q13" value="D"> D. Comportent obligatoirement des indications sur les prix, les conditions de règlement, les modalités et délais de livraison</label>
+            </div>
+            <div class="correction-panel">
+                <div class="explanation-box">
+                    <div class="correct-answer-line">
+                        <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">Option C</span>
+                    </div>
+                    <hr>
+                    <span class="justif-title">Justification :</span>
+                    <p>(Rappel de la Q6) : Les CGU servent à protéger l'éditeur en limitant sa responsabilité et en imposant des règles aux utilisateurs. L'option D correspond aux CGV, pas aux CGU.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="qcm-question" id="question-14" data-question="14">
+            <p><b>14. Sur un site web de vente, les Conditions Générale de Vente doivent, en principe, être systématiquement communiquées :</b></p>
+            <div class="qcm-options">
+                <label><input type="radio" name="q14" value="A"> A. À n’importe quel acheteur, quel que soit son profil (non-professionnel ou professionnel, peu importe)</label>
+                <label><input type="radio" name="q14" value="B"> B. Uniquement à l’acheteur qui est un non-professionnel</label>
+                <label><input type="radio" name="q14" value="C"> C. Uniquement à l’acheteur qui est un professionnel</label>
+            </div>
+            <div class="correction-panel">
+                <div class="explanation-box">
+                    <div class="correct-answer-line">
+                        <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">Option A</span>
+                    </div>
+                    <hr>
+                    <span class="justif-title">Justification :</span>
+                    <p>La loi Hamon impose une communication claire des CGV avant toute transaction. Bien que les règles de protection soient plus fortes pour les particuliers (B2C), le professionnel a l'obligation de les communiquer à <b>tout acheteur</b> qui en fait la demande ou lors de l'achat.</p>
+                    <span class="mnemonic">💡 Mémo : Transparence totale, peu importe le client.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="qcm-question" id="question-15" data-question="15">
+            <p><b>15. Une « pratique commerciale trompeuse par omission » :</b></p>
+            <div class="qcm-options">
+                <label><input type="radio" name="q15" value="A"> A. Peut toujours exister quel que soit le mode ou le moyen de communication concerné</label>
+                <label><input type="radio" name="q15" value="B"> B. Existe toujours nécessairement lorsque les moyens de communication utilisés restreignent ou limitent l’information du consommateur</label>
+                <label><input type="radio" name="q15" value="C"> C. N’existe que si, malgré le moyen de communication utilisé, le professionnel ne fait pas en sorte que les informations substantielles soient par ailleurs accessibles</label>
+                <label><input type="radio" name="q15" value="D"> D. Existe toujours dès que toute information est manquante pour une personne qui consulte sur un site web</label>
+            </div>
+            <div class="correction-panel">
+                <div class="explanation-box">
+                    <div class="correct-answer-line">
+                        <span class="justif-title">✅ Réponse correcte :</span><span class="correct-answer-text">Option C</span>
+                    </div>
+                    <hr>
+                    <span class="justif-title">Justification :</span>
+                    <p>Si le support de publicité est petit (ex: un SMS ou un bandeau publicitaire), le professionnel ne peut pas tout écrire. Mais il n'y a pas "omission trompeuse" s'il renvoie le consommateur vers un lien web ou un document où les informations complètes sont disponibles.</p>
+                    <span class="mnemonic">💡 Mémo : Si l'info est accessible ailleurs, l'omission n'est pas fautive.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="fixed-controls">
+        <button id="validate-qcm" class="btn-modern btn-validate">Valider</button>
+        <button id="reset-qcm" class="btn-modern btn-reset">Réinitialiser</button>
+    </div>
+</main>
 </div>
 
 <script src="script-droit.js"></script>
